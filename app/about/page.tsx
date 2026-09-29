@@ -60,6 +60,7 @@ export default function AboutPage() {
             <p className="text-muted">{business.contactRole}</p>
             <p className="mt-4"><a className="font-semibold" href={`tel:${business.phoneTel}`}>{business.phoneDisplay}</a></p>
             <p><a className="font-semibold" href={`mailto:${business.email}`}>{business.email}</a></p>
+            <p><a className="text-sm font-semibold text-muted" href={`mailto:${business.inboxEmail}`}>{business.inboxEmail}</a></p>
           </div>
           <div>
             <h2 className="font-display text-3xl">Company details</h2>

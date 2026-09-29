@@ -205,7 +205,7 @@ export function QuoteWizard() {
   }
 
   const text = enquiryText(values);
-  const mailto = `mailto:${business.email}?subject=${encodeURIComponent(`Quote enquiry from ${values.company || "buyer"}`)}&body=${encodeURIComponent(text)}`;
+  const mailto = `mailto:${business.enquiryEmail}?subject=${encodeURIComponent(`Quote enquiry from ${values.company || "buyer"}`)}&body=${encodeURIComponent(text)}`;
 
   if (status === "success") {
     return (

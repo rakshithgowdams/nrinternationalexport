@@ -50,6 +50,9 @@ export function SiteFooter() {
           <p className="text-sm">
             <a href={`mailto:${business.email}`}>{business.email}</a>
           </p>
+          <p className="text-sm text-ivory/80">
+            <a href={`mailto:${business.inboxEmail}`}>{business.inboxEmail}</a>
+          </p>
           <address className="mt-3 text-sm leading-6 text-ivory/85 not-italic">
             {business.addressLines.map((line) => (
               <span key={line} className="block">{line}</span>

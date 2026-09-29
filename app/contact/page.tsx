@@ -25,6 +25,7 @@ export default function ContactPage() {
           <p className="text-muted">{business.contactRole}</p>
           <p><a className="font-semibold" href={`tel:${business.phoneTel}`}>{business.phoneDisplay}</a></p>
           <p><a className="font-semibold" href={`mailto:${business.email}`}>{business.email}</a></p>
+          <p><a className="text-sm font-semibold text-muted" href={`mailto:${business.inboxEmail}`}>{business.inboxEmail}</a></p>
           <address className="text-sm leading-6 not-italic">{business.address}</address>
           <CopyAddress />
           <p className="text-sm">GSTIN {business.gstin}</p>

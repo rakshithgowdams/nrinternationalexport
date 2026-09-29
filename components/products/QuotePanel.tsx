@@ -111,7 +111,10 @@ export function QuotePanel({ product }: { product: Product }) {
         <h2 className="font-display text-2xl">Enquire about {product.name}</h2>
         <div className="mt-4">{fields}</div>
       </aside>
-      <div className={`bar-up fixed inset-x-0 bottom-0 z-40 border-t border-line bg-white p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] lg:hidden ${hideBar ? "hidden" : ""}`}>
+      <div
+        inert={hideBar}
+        className={`bar-up fixed inset-x-0 bottom-0 z-40 border-t border-line bg-white p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] transition-[translate] duration-300 ease-out lg:hidden ${hideBar ? "pointer-events-none translate-y-full" : ""}`}
+      >
         <a href="#enquire" className="inline-flex min-h-11 w-full items-center justify-center rounded-md bg-olive text-sm font-semibold text-white">
           Request a Quote
         </a>

@@ -45,7 +45,7 @@ export default function TermsPage() {
               <p className="mt-3 leading-7 text-muted">{body}</p>
             </section>
           ))}
-          <p>Contact: <a className="font-semibold" href="mailto:nrinternationalexport@gmail.com">nrinternationalexport@gmail.com</a></p>
+          <p>Contact: <a className="font-semibold" href="mailto:contact@nrinternationalexport.com">contact@nrinternationalexport.com</a> · <a className="font-semibold" href="tel:+916360510816">+91 63605 10816</a></p>
           <Link href="/privacy-policy" className="inline-flex font-semibold text-olive">Privacy Policy</Link>
         </div>
       </div>

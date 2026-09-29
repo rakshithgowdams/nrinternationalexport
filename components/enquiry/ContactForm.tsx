@@ -65,7 +65,7 @@ export function ContactForm() {
     }
   }
 
-  const mailto = `mailto:${business.email}?subject=${encodeURIComponent("Website enquiry")}&body=${encodeURIComponent(draft(form.getValues()))}`;
+  const mailto = `mailto:${business.enquiryEmail}?subject=${encodeURIComponent("Website enquiry")}&body=${encodeURIComponent(draft(form.getValues()))}`;
 
   return (
     <form className="space-y-4" onSubmit={form.handleSubmit(onSubmit)} noValidate>

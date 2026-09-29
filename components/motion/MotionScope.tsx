@@ -22,83 +22,88 @@ export function MotionScope({ children }: { children: React.ReactNode }) {
       mm.add(
         {
           motion: "(prefers-reduced-motion: no-preference)",
-          small: "(max-width: 767px)",
-          wide: "(min-width: 1024px)",
+          mobile: "(max-width: 767px)",
+          tablet: "(min-width: 768px) and (max-width: 1023px)",
         },
         (context) => {
-          const { motion, small, wide } = context.conditions as Record<string, boolean>;
+          const { motion, mobile, tablet } = context.conditions as Record<string, boolean>;
           if (!motion) return;
-          const distance = small ? 12 : 20;
+          const distance = mobile ? 14 : tablet ? 18 : 22;
+          const start = mobile ? "top 94%" : "top 90%";
 
           (q("[data-reveal]") as HTMLElement[]).forEach((el) => {
             gsap.from(el, {
               y: distance,
               autoAlpha: 0,
-              duration: 0.55,
+              duration: mobile ? 0.5 : 0.55,
               ease: "power2.out",
               clearProps: settled,
-              scrollTrigger: { trigger: el, start: "top 90%", once: true },
+              scrollTrigger: { trigger: el, start, once: true },
             });
           });
 
           (q("[data-stagger]") as HTMLElement[]).forEach((group) => {
-            const items = Array.from(group.children);
+            const items = Array.from(group.children) as HTMLElement[];
             if (items.length === 0) return;
-            gsap.from(items, {
-              y: distance,
-              autoAlpha: 0,
-              duration: 0.5,
-              stagger: 0.08,
-              ease: "power2.out",
-              clearProps: settled,
-              scrollTrigger: { trigger: group, start: "top 88%", once: true },
+            gsap.set(items, { y: distance, autoAlpha: 0 });
+            ScrollTrigger.batch(items, {
+              start,
+              once: true,
+              interval: 0.1,
+              onEnter: (batch) =>
+                gsap.to(batch, {
+                  y: 0,
+                  autoAlpha: 1,
+                  duration: 0.5,
+                  stagger: mobile ? 0.06 : 0.08,
+                  ease: "power2.out",
+                  overwrite: true,
+                  clearProps: settled,
+                }),
             });
           });
 
           (q("[data-image-reveal]") as HTMLElement[]).forEach((el) => {
             const img = el.tagName === "IMG" ? el : el.querySelector("img");
             const tl = gsap.timeline({
-              scrollTrigger: { trigger: el, start: "top 85%", once: true },
+              scrollTrigger: { trigger: el, start: mobile ? "top 92%" : "top 85%", once: true },
             });
-            if (small) {
-              tl.from(el, { autoAlpha: 0, duration: 0.6, ease: "power1.out", clearProps: "opacity,visibility" });
-              return;
-            }
             tl.from(el, {
-              clipPath: "inset(10% 6% 10% 6% round 8px)",
+              clipPath: mobile ? "inset(14% 0% 0% 0% round 8px)" : "inset(10% 6% 10% 6% round 8px)",
               autoAlpha: 0,
-              duration: 0.8,
+              duration: mobile ? 0.65 : 0.8,
               ease: "power3.out",
               clearProps: "clipPath,opacity,visibility",
             });
-            if (img) tl.from(img, { scale: 1.06, duration: 1, ease: "power2.out", clearProps: "transform" }, 0);
+            if (img) {
+              tl.from(img, { scale: mobile ? 1.04 : 1.06, duration: 1, ease: "power2.out", clearProps: "transform" }, 0);
+            }
           });
 
-          if (wide) {
-            (q("[data-process]") as HTMLElement[]).forEach((container) => {
-              container.classList.add("process-ready");
-              const line = container.querySelector("[data-process-line]");
-              if (line) {
-                gsap.fromTo(
-                  line,
-                  { scaleY: 0 },
-                  {
-                    scaleY: 1,
-                    ease: "none",
-                    scrollTrigger: { trigger: container, start: "top 70%", end: "bottom 70%", scrub: 0.4 },
-                  },
-                );
-              }
-              container.querySelectorAll<HTMLElement>("[data-step]").forEach((step) => {
-                ScrollTrigger.create({
-                  trigger: step,
-                  start: "top 70%",
-                  onEnter: () => step.classList.add("is-active"),
-                  onLeaveBack: () => step.classList.remove("is-active"),
-                });
+          (q("[data-process]") as HTMLElement[]).forEach((container) => {
+            container.classList.add("process-ready");
+            const line = container.querySelector("[data-process-line]");
+            const edge = mobile ? "80%" : "70%";
+            if (line) {
+              gsap.fromTo(
+                line,
+                { scaleY: 0 },
+                {
+                  scaleY: 1,
+                  ease: "none",
+                  scrollTrigger: { trigger: container, start: `top ${edge}`, end: `bottom ${edge}`, scrub: 0.4 },
+                },
+              );
+            }
+            container.querySelectorAll<HTMLElement>("[data-step]").forEach((step) => {
+              ScrollTrigger.create({
+                trigger: step,
+                start: `top ${edge}`,
+                onEnter: () => step.classList.add("is-active"),
+                onLeaveBack: () => step.classList.remove("is-active"),
               });
             });
-          }
+          });
 
           return () => {
             (q("[data-process]") as HTMLElement[]).forEach((container) => {

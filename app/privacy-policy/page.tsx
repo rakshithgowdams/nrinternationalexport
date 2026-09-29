@@ -10,14 +10,14 @@ export const metadata = pageMetadata({
 });
 
 const sections = [
-  ["operator", "Who operates this site", "NR International Export, a partnership, operates this website. The contact email is nrinternationalexport@gmail.com. The registered address is No. 31, Thotada Mane, Begur Road, near Bagur Sub Post Office, Chennarayanapatna, Bagur, Hassan, Karnataka - 573111, India."],
+  ["operator", "Who operates this site", "NR International Export, a partnership, operates this website. The contact email is contact@nrinternationalexport.com, and enquiries are also received at nrinternationalexport@gmail.com. The phone number is +91 63605 10816. The registered address is No. 31, Thotada Mane, Begur Road, near Bagur Sub Post Office, Chennarayanapatna, Bagur, Hassan, Karnataka - 573111, India."],
   ["data", "Data you submit", "The contact and quotation forms ask for your name, company, email, phone, enquiry type or product lines, delivery details and message. A product list may be stored in your browser so it survives navigation. That local list is not meant to contain your contact details."],
   ["purpose", "Why it is used", "The information is used to understand and reply to a trade enquiry. It is not used for a separate marketing list on this website."],
-  ["delivery", "How it is sent", "If a mail service is configured on the server, the form asks that service to send the enquiry to nrinternationalexport@gmail.com, with your email as the reply address. If no mail service is configured, the site says so and does not claim the message was sent. This website does not keep its own database of enquiries."],
+  ["delivery", "How it is sent", "If a mail service is configured on the server, the form asks that service (Resend, or an SMTP provider) to send the enquiry to contact@nrinternationalexport.com, with your email as the reply address. If no mail service is configured, the site says so and does not claim the message was sent. This website does not keep its own database of enquiries."],
   ["retention", "Retention", "A retention period has not been set in this draft. Messages are not stored by the website itself. If an email is accepted by a mail service, retention follows that mailbox. The browser copy of the product list stays until you clear it or clear site data."],
   ["security", "Security", "Mail credentials, if any, stay on the server. They are not placed in the public website code. Use a current browser. This draft does not claim a security certification."],
   ["cookies", "Cookies and analytics", "This website does not add analytics or advertising cookies. Essential browser storage is limited to the product enquiry list on your device. No cookie banner is shown because no optional cookies are set by the site."],
-  ["requests", "Your requests", "To ask about an enquiry you sent, email nrinternationalexport@gmail.com. This draft does not appoint a data protection officer."],
+  ["requests", "Your requests", "To ask about an enquiry you sent, email contact@nrinternationalexport.com. This draft does not appoint a data protection officer."],
   ["updates", "Updates", "This notice is a draft dated 26 September 2026. It should be reviewed before the site is treated as a public launch. It is not legal advice."],
 ];
 
@@ -44,7 +44,7 @@ export default function PrivacyPage() {
               <p className="mt-3 leading-7 text-muted">{body}</p>
             </section>
           ))}
-          <p>Questions: <a className="font-semibold" href="mailto:nrinternationalexport@gmail.com">nrinternationalexport@gmail.com</a></p>
+          <p>Questions: <a className="font-semibold" href="mailto:contact@nrinternationalexport.com">contact@nrinternationalexport.com</a> · <a className="font-semibold" href="tel:+916360510816">+91 63605 10816</a></p>
           <Link href="/terms-and-conditions" className="inline-flex font-semibold text-olive">Terms and Conditions</Link>
         </div>
       </div>

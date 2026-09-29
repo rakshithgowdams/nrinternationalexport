@@ -5,7 +5,9 @@ export const business = {
   contactRole: "Managing Partner",
   phoneDisplay: "+91 63605 10816",
   phoneTel: "+916360510816",
-  email: "nrinternationalexport@gmail.com",
+  email: "contact@nrinternationalexport.com",
+  inboxEmail: "nrinternationalexport@gmail.com",
+  enquiryEmail: "contact@nrinternationalexport.com",
   gstin: "29AAZFN3606Q1Z7",
   constitution: "Partnership",
   addressLines: [

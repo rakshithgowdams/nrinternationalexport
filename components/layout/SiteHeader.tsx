@@ -182,7 +182,7 @@ export function SiteHeader() {
                   </Dialog.Close>
                 </div>
                 <nav className="flex-1 space-y-6 overflow-y-auto px-5 py-6" aria-label="Mobile">
-                  <div>
+                  <div className="sheet-item">
                     <p className="text-xs font-bold tracking-[0.08em] text-ochre-ink uppercase">Products</p>
                     <ul className="mt-2 space-y-1">
                       {productsForMarket("global").concat(productsForMarket("domestic").filter((item) => item.markets.length === 1)).map((product) => (
@@ -199,7 +199,7 @@ export function SiteHeader() {
                       </li>
                     </ul>
                   </div>
-                  <div className="space-y-2 text-sm font-semibold">
+                  <div className="sheet-item space-y-2 text-sm font-semibold">
                     <Link className="block" href="/global-exports">Global Exports</Link>
                     <Link className="block" href="/domestic-supply">Domestic Supply</Link>
                     {links.map((link) => (
@@ -209,9 +209,12 @@ export function SiteHeader() {
                     ))}
                   </div>
                 </nav>
-                <div className="border-t border-line p-4">
-                  <a href={`tel:${business.phoneTel}`} className="mb-3 block text-sm font-semibold">
+                <div className="sheet-footer border-t border-line p-4">
+                  <a href={`tel:${business.phoneTel}`} className="block text-sm font-semibold">
                     {business.phoneDisplay}
+                  </a>
+                  <a href={`mailto:${business.email}`} className="mb-3 block text-sm text-muted">
+                    {business.email}
                   </a>
                   <Link href="/request-quote" className="inline-flex min-h-11 w-full items-center justify-center rounded-md bg-olive text-sm font-semibold text-white">
                     Request a Quote

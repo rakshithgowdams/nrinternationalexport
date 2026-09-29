@@ -83,7 +83,7 @@ const range = ["ginger", "maize", "ragi", "tomatoes"];
 export default function HomePage() {
   return (
     <>
-      <section className="relative min-h-[88vh] overflow-hidden bg-forest">
+      <section className="relative overflow-hidden bg-forest">
         <HeroPhoto>
           <img
             src="/images/hero-grove.jpg"
@@ -92,7 +92,7 @@ export default function HomePage() {
           />
         </HeroPhoto>
         <div className="absolute inset-0 bg-gradient-to-r from-forest via-forest/92 to-forest/65" />
-        <Container className="relative z-10 flex min-h-[88vh] flex-col justify-end py-16 lg:py-24">
+        <Container className="relative z-10 flex min-h-[540px] flex-col justify-center py-14 md:min-h-[62vh] lg:py-16">
           <p data-reveal className="text-xs font-bold tracking-[0.12em] text-[#f3bd6d] uppercase">
             {business.sourcingRegion}
           </p>

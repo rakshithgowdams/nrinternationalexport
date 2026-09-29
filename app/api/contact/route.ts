@@ -51,7 +51,7 @@ export async function POST(request: Request) {
   }
   if (result.status === "unavailable") {
     return NextResponse.json(
-      { status: "unavailable", message: `Email ${business.email} directly. This server has no mail transport configured.` },
+      { status: "unavailable", message: `Email ${business.enquiryEmail} directly. This server has no mail transport configured.` },
       { status: 503 },
     );
   }
