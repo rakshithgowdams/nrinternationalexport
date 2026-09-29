@@ -31,12 +31,14 @@ export const metadata: Metadata = {
   description:
     "Coconuts, copra and agricultural products from the Channarayapatna and Tiptur region of Karnataka for international and domestic trade enquiries.",
   robots: allowIndex ? { index: true, follow: true } : { index: false, follow: false },
+  applicationName: business.name,
 };
 
 const organization = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: business.name,
+  ...(siteUrl ? { url: siteUrl, logo: `${siteUrl}/icon-512.png` } : {}),
   email: business.email,
   telephone: business.phoneTel,
   address: {
