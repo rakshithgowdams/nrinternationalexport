@@ -52,18 +52,18 @@ export default function GlobalExportsPage() {
           <p className="mt-5 max-w-2xl text-lg text-ivory/85">Tell us the product, quantity and destination. A quotation follows only after those points are clear.</p>
         </Container>
       </section>
-      <section className="border-b border-line bg-white py-16 md:py-24">
+      <section className="border-b border-line bg-white py-12 sm:py-16 md:py-24">
         <Container>
           <div data-reveal className="max-w-3xl mb-8">
             <p className="text-xs font-bold tracking-[0.14em] text-ochre-ink uppercase">Global Reach</p>
-            <h2 className="mt-2 font-display text-3xl md:text-5xl">From Karnataka to Global Markets.</h2>
-            <p className="mt-4 text-base md:text-lg leading-relaxed text-muted">
+            <h2 className="mt-2 font-display text-2xl sm:text-3xl md:text-5xl leading-tight">From Karnataka to Global Markets.</h2>
+            <p className="mt-4 text-sm sm:text-base md:text-lg leading-relaxed text-muted">
               NR International Export discusses product requirements, packing, destination and commercial terms with international buyers before coordinating supply.
             </p>
             <div className="mt-6">
               <Link
                 href="/request-quote?market=global"
-                className="inline-flex min-h-11 items-center rounded-md bg-forest px-6 text-sm font-semibold text-ivory transition-colors hover:bg-olive"
+                className="inline-flex min-h-11 w-full sm:w-auto items-center justify-center rounded-md bg-forest px-6 text-sm font-semibold text-ivory transition-colors hover:bg-olive text-center"
               >
                 Discuss an Export Requirement
               </Link>
@@ -73,7 +73,7 @@ export default function GlobalExportsPage() {
             <img
               src="/images/nr-global-export-network.webp"
               alt="Global trade network connecting Karnataka agricultural commodities to international maritime and air cargo logistics."
-              className="aspect-[16/9] w-full object-cover"
+              className="aspect-[4/3] sm:aspect-[16/10] md:aspect-[16/9] w-full object-cover object-center"
               loading="lazy"
             />
           </div>

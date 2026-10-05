@@ -27,6 +27,11 @@ export function FooterGlobalBand() {
     // Screen size detection for mobile optimization
     setIsMobile(window.innerWidth < 768);
 
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    window.addEventListener("resize", handleResize);
+
     // Lazy-load video only when approaching viewport (300px rootMargin)
     const observer = new IntersectionObserver(
       (entries) => {
@@ -49,6 +54,7 @@ export function FooterGlobalBand() {
 
     return () => {
       motionQuery.removeEventListener("change", handleMotionChange);
+      window.removeEventListener("resize", handleResize);
       observer.disconnect();
     };
   }, []);
@@ -69,7 +75,7 @@ export function FooterGlobalBand() {
     <section
       ref={containerRef}
       aria-label="Global Trade Reach"
-      className="relative min-h-[300px] sm:min-h-[320px] md:min-h-[360px] lg:min-h-[380px] w-full overflow-hidden bg-forest border-b border-white/10 flex items-center"
+      className="relative min-h-[280px] sm:min-h-[320px] md:min-h-[360px] lg:min-h-[380px] w-full overflow-hidden bg-forest border-b border-white/10 flex items-center"
     >
       {/* Background Media Container */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden select-none">
@@ -117,30 +123,30 @@ export function FooterGlobalBand() {
       </div>
 
       {/* Foreground Content */}
-      <Container className="relative z-10 py-10 sm:py-12 md:py-14 text-center">
-        <div className="mx-auto max-w-[720px] space-y-3.5">
+      <Container className="relative z-10 py-8 sm:py-10 md:py-14 text-center">
+        <div className="mx-auto max-w-[720px] space-y-3 sm:space-y-3.5">
           <p className="text-xs font-bold tracking-[0.16em] text-[#f3bd6d] uppercase font-mono">
             GLOBAL EXPORT
           </p>
 
-          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl text-ivory font-medium leading-[1.12]">
+          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-ivory font-medium leading-[1.15]">
             From Karnataka to global markets.
           </h2>
 
-          <p className="mx-auto max-w-xl text-sm sm:text-base leading-relaxed text-ivory/85">
+          <p className="mx-auto max-w-xl text-xs sm:text-sm md:text-base leading-relaxed text-ivory/85">
             Agricultural products are discussed around buyer requirements, quantity, packing, destination and export coordination.
           </p>
 
-          <div className="flex flex-wrap items-center justify-center gap-3.5 pt-3">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2 sm:pt-3">
             <Link
               href="/global-exports"
-              className="inline-flex min-h-11 items-center rounded-md bg-white px-6 text-sm font-semibold text-forest transition-colors hover:bg-ivory shadow-xs"
+              className="inline-flex min-h-11 w-full sm:w-auto items-center justify-center rounded-md bg-white px-6 text-sm font-semibold text-forest transition-colors hover:bg-ivory shadow-xs"
             >
               Explore Global Exports
             </Link>
             <Link
               href="/request-quote?market=global"
-              className="inline-flex min-h-11 items-center rounded-md border border-white/40 px-5 text-sm font-semibold text-white transition-colors hover:bg-white/10"
+              className="inline-flex min-h-11 w-full sm:w-auto items-center justify-center rounded-md border border-white/40 px-5 text-sm font-semibold text-white transition-colors hover:bg-white/10"
             >
               Request a Quote
             </Link>

@@ -113,16 +113,16 @@ export default function AboutPage() {
               <p className="text-base md:text-lg leading-relaxed text-ivory/85">
                 The company’s international enquiries are handled around the product, grade or form, quantity, packing, destination and commercial requirement shared by the buyer.
               </p>
-              <div className="flex flex-wrap items-center gap-4 pt-2">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
                 <Link
                   href="/global-exports"
-                  className="inline-flex min-h-11 items-center rounded-md bg-white px-6 text-sm font-semibold text-forest transition-colors hover:bg-ivory"
+                  className="inline-flex min-h-11 items-center justify-center rounded-md bg-white px-6 text-sm font-semibold text-forest transition-colors hover:bg-ivory text-center"
                 >
                   Explore Global Export &rarr;
                 </Link>
                 <Link
                   href="/request-quote?market=global"
-                  className="inline-flex min-h-11 items-center rounded-md border border-white/30 px-5 text-sm font-semibold text-white transition-colors hover:bg-white/10"
+                  className="inline-flex min-h-11 items-center justify-center rounded-md border border-white/30 px-5 text-sm font-semibold text-white transition-colors hover:bg-white/10 text-center"
                 >
                   Discuss a Requirement
                 </Link>
@@ -331,16 +331,16 @@ export default function AboutPage() {
             <p data-reveal className="mx-auto max-w-2xl text-base sm:text-lg text-ivory/85 leading-relaxed">
               Share the product, quantity and destination and the team can review the requirement for quotation.
             </p>
-            <div data-reveal className="flex flex-wrap items-center justify-center gap-4 pt-4">
+            <div data-reveal className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-4">
               <Link
                 href="/request-quote?market=global"
-                className="inline-flex min-h-12 items-center rounded-md bg-white px-7 text-sm font-semibold text-forest transition-colors hover:bg-ivory shadow-sm"
+                className="inline-flex min-h-12 w-full sm:w-auto items-center justify-center rounded-md bg-white px-7 text-sm font-semibold text-forest transition-colors hover:bg-ivory shadow-sm text-center"
               >
                 Request Export Quote
               </Link>
               <Link
                 href="/contact"
-                className="inline-flex min-h-12 items-center rounded-md border border-white/40 px-6 text-sm font-semibold text-white transition-colors hover:bg-white/10"
+                className="inline-flex min-h-12 w-full sm:w-auto items-center justify-center rounded-md border border-white/40 px-6 text-sm font-semibold text-white transition-colors hover:bg-white/10 text-center"
               >
                 Contact NR International
               </Link>
