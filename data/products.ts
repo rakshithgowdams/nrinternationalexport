@@ -282,8 +282,8 @@ export const products: Product[] = [
     ],
     images: [
       {
-        src: "/images/coconut-shell-halves.jpg",
-        alt: "Cleaned coconut shell halves, one showing the inside of the shell.",
+        src: "/images/coconut-shell-halves.webp",
+        alt: "Cleaned and prepared coconut shell halves and whole shells.",
       },
     ],
     specs: [
