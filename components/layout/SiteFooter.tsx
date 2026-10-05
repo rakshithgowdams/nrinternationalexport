@@ -1,10 +1,12 @@
 import Link from "next/link";
 import { business, certifications } from "@/data/business";
 import { products } from "@/data/products";
+import { FooterGlobalBand } from "@/components/sections/FooterGlobalBand";
 
 export function SiteFooter() {
   return (
     <footer className="bg-forest text-ivory">
+      <FooterGlobalBand />
       <section aria-labelledby="footer-certifications" className="border-b border-white/10">
         <div className="mx-auto max-w-[1280px] px-4 py-10 sm:px-6 lg:px-8">
           <p id="footer-certifications" className="text-center text-xs font-bold tracking-[0.08em] text-[#efba6a] uppercase">
