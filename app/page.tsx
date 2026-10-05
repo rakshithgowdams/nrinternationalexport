@@ -165,7 +165,7 @@ export default function HomePage() {
             </div>
           </article>
           <article className="card overflow-hidden rounded-lg border border-line bg-white">
-            <img src="/images/koyambedu-market.jpg" alt="Traders and produce stalls inside the Koyambedu wholesale market, Chennai." className="h-64 w-full object-cover" />
+            <img src="/images/tender-coconut-boat.jpg" alt="Traditional boat transporting fresh green coconuts along a tropical coconut waterway for domestic supply." className="h-64 w-full object-cover" />
             <div className="p-6">
               <h2 className="font-display text-4xl">Domestic Supply</h2>
               <p className="mt-3 text-muted">Seedlings, tender nuts, copra, shells, ragi, tomatoes and ginger for trade inside India.</p>

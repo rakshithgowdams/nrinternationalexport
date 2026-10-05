@@ -545,7 +545,11 @@ export const products: Product[] = [
     images: [
       {
         src: "/images/tender-coconut-pile.jpg",
-        alt: "Pile of green tender coconuts ready for sale.",
+        alt: "Fresh green tender coconuts harvested in bulk for drinking and domestic supply.",
+      },
+      {
+        src: "/images/tender-coconut-boat.jpg",
+        alt: "Harvested tender coconuts transported by boat along tropical coconut waterways.",
       },
     ],
     specs: [

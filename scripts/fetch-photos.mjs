@@ -22,7 +22,6 @@ const photos = [
   ["tender-coconut-pile.jpg", "Tender coconut 2.jpg", "Tender coconuts"],
   ["tomatoes-koyambedu.jpg", "India - Koyambedu Market - Tomatoes 02 (3987058522).jpg", "Tomatoes, Koyambedu Market"],
   ["kochi-container-terminal.jpg", "Mogral at the International Container Transshipment Terminal, Kochi.jpg", "Container terminal, Kochi"],
-  ["koyambedu-market.jpg", "India - Koyambedu Market - Market 04 (3986889326).jpg", "Koyambedu wholesale market"],
   ["finger-millet-heads.jpg", "Finger millets.jpg", "Finger millet (ragi) heads"],
   ["jute-sacks.jpg", "Jute Bags.jpg", "Jute sacks"],
 ];
