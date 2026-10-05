@@ -160,9 +160,9 @@ export default function HomePage() {
           <article className="card relative overflow-hidden rounded-xl border-2 border-forest/30 bg-white shadow-md lg:col-span-7">
             <div className="relative h-72 w-full overflow-hidden">
               <img
-                src="/images/kochi-container-terminal.jpg"
-                alt="Container ship berthed under gantry cranes at the International Container Transshipment Terminal, Kochi."
-                className="h-full w-full object-cover"
+                src="/images/nr-global-export-network.webp"
+                alt="NR International Export global trade network showing container vessel, branded truck, port logistics, and agricultural commodities."
+                className="h-full w-full object-cover object-center"
                 loading="lazy"
               />
               <span className="absolute top-4 left-4 rounded-full bg-forest px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-[#f3bd6d] shadow-sm">
