@@ -193,9 +193,9 @@ export default function HomePage() {
           <article className="card relative overflow-hidden rounded-xl border border-line bg-white lg:col-span-5">
             <div className="relative h-72 w-full overflow-hidden">
               <img
-                src="/images/tender-coconut-boat.jpg"
-                alt="Traditional boat transporting fresh green coconuts along a tropical coconut waterway for domestic supply."
-                className="h-full w-full object-cover"
+                src="/images/nr-domestic-supply.webp"
+                alt="Domestic agricultural supply operations showing fresh coconuts, ginger, ragi, and farm wholesale loading."
+                className="h-full w-full object-cover object-center"
                 loading="lazy"
               />
               <span className="absolute top-4 left-4 rounded-full bg-ivory px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-muted shadow-sm">
