@@ -9,10 +9,20 @@ import { CtaBand } from "@/components/sections/Shared";
 import { FaqList } from "@/components/sections/FaqList";
 
 export const metadata = pageMetadata({
-  title: "NR International Export",
+  title: "NR International Export | Coconut, Copra and Agri Exporter from Karnataka, India",
   description:
-    "Explore coconuts, copra and agricultural products from Karnataka for international and domestic trade.",
+    "NR International Export is a partnership in Hassan district, Karnataka, supplying semi-husked coconut, copra, coconut oil, coconut shell, ginger, ragi and maize from the Channarayapatna and Tiptur region for export and domestic trade.",
   path: "/",
+  keywords: [
+    "coconut exporter Karnataka",
+    "semi husked coconut supplier",
+    "Tiptur coconut",
+    "edible copra exporter India",
+    "coconut shell supplier",
+    "ragi exporter",
+    "Channarayapatna coconut",
+    "Hassan agricultural exporter",
+  ],
 });
 
 const families = [
@@ -20,24 +30,24 @@ const families = [
     title: "Coconuts",
     body: "Mature, semi-husked, tender, ritual and seedling coconuts, each with its own page.",
     href: catalogueHref({ category: "coconuts" }),
-    image: "/images/semi-husked-coconuts.jpg",
-    alt: "Catalogue photograph of semi-husked mature coconuts.",
+    image: "/images/coconut-halves.jpg",
+    alt: "Halved mature coconuts showing the white kernel inside the brown husk.",
     className: "lg:col-span-5",
   },
   {
     title: "Copra and Coconut Products",
     body: "Edible copra, dry coconut, desiccated coconut, shells and coconut oil.",
     href: catalogueHref({ category: "copra" }),
-    image: "/images/edible-copra.jpg",
-    alt: "Catalogue photograph of edible ball copra.",
+    image: "/images/copra-halves.jpg",
+    alt: "Halved dry coconut cups of copra with brown outer skin and white kernel.",
     className: "lg:col-span-4",
   },
   {
     title: "Grains and Fresh Produce",
     body: "Ragi, maize, ginger and domestic tomatoes.",
     href: catalogueHref({ category: "field" }),
-    image: "/images/ragi.jpg",
-    alt: "Catalogue photograph of ragi finger millet.",
+    image: "/images/finger-millet-heads.jpg",
+    alt: "Harvested heads of ragi (finger millet).",
     className: "lg:col-span-3",
   },
 ];
@@ -86,8 +96,8 @@ export default function HomePage() {
       <section className="relative overflow-hidden bg-forest">
         <HeroPhoto>
           <img
-            src="/images/hero-grove.jpg"
-            alt="Catalogue photograph of coconut palms in warm morning light."
+            src="/images/plantation-india.jpg"
+            alt="Rows of tall coconut palms on a plantation in India."
             className="h-full w-full object-cover"
           />
         </HeroPhoto>
@@ -154,7 +164,7 @@ export default function HomePage() {
       <section className="bg-white py-16 md:py-24">
         <Container className="grid items-center gap-10 lg:grid-cols-2">
           <div data-image-reveal className="overflow-hidden rounded-lg">
-            <img src="/images/semi-husked-coconuts.jpg" alt="Catalogue photograph of semi-husked coconuts and a cut kernel." className="aspect-[4/3] w-full object-cover" />
+            <img src="/images/semi-husked-coconut-pile.jpg" alt="Pile of semi-husked coconuts with fibre around the eyes and one coconut split to show the white kernel." className="aspect-[4/3] w-full object-cover object-[50%_56%]" />
           </div>
           <div>
             <div data-reveal>
@@ -182,7 +192,7 @@ export default function HomePage() {
       <section className="py-16 md:py-24">
         <Container data-stagger className="grid gap-5 lg:grid-cols-2">
           <article className="card overflow-hidden rounded-lg border border-line bg-white">
-            <img src="/images/fresh-coconuts.jpg" alt="Catalogue photograph of mature coconuts for export enquiries." className="h-64 w-full object-cover" />
+            <img src="/images/kochi-container-terminal.jpg" alt="Container ship berthed under gantry cranes at the International Container Transshipment Terminal, Kochi." className="h-64 w-full object-cover" />
             <div className="p-6">
               <h2 className="font-display text-4xl">Global Exports</h2>
               <p className="mt-3 text-muted">Coconuts, copra, oil, shells, ginger, maize and ragi for buyers outside India. Share the destination with the product and quantity.</p>
@@ -190,7 +200,7 @@ export default function HomePage() {
             </div>
           </article>
           <article className="card overflow-hidden rounded-lg border border-line bg-white">
-            <img src="/images/tender-coconuts.jpg" alt="Catalogue photograph of green tender coconuts." className="h-64 w-full object-cover" />
+            <img src="/images/koyambedu-market.jpg" alt="Traders and produce stalls inside the Koyambedu wholesale market, Chennai." className="h-64 w-full object-cover" />
             <div className="p-6">
               <h2 className="font-display text-4xl">Domestic Supply</h2>
               <p className="mt-3 text-muted">Seedlings, ritual coconuts, semi-husked and tender nuts, copra, shells, ragi, tomatoes and ginger for trade inside India.</p>
@@ -203,7 +213,7 @@ export default function HomePage() {
       <section className="bg-white py-16 md:py-24">
         <Container className="grid items-center gap-10 lg:grid-cols-2">
           <div data-image-reveal className="overflow-hidden rounded-lg">
-            <img src="/images/sourcing-region.jpg" alt="Catalogue photograph of coconut country and dry fields in warm afternoon light. Not an NR facility." className="aspect-[16/10] w-full object-cover" />
+            <img src="/images/coconut-heaps.jpg" alt="Heaps of harvested coconuts gathered under coconut palms." className="aspect-[16/10] w-full object-cover" />
           </div>
           <div data-reveal>
             <p className="text-xs font-bold tracking-[0.12em] text-ochre-ink uppercase">Origin</p>
@@ -220,7 +230,7 @@ export default function HomePage() {
         <Container className="grid gap-10 lg:grid-cols-2">
           <div className="lg:sticky lg:top-28 lg:h-fit">
             <div data-image-reveal className="overflow-hidden rounded-lg">
-              <img src="/images/packing.jpg" alt="Catalogue photograph of plain sacks and cartons. Not an NR warehouse." className="aspect-[4/3] w-full object-cover" />
+              <img src="/images/coconut-sacks-india.jpg" alt="Jute sacks of whole coconuts marked Product of India, stacked on pallets." className="aspect-[4/3] w-full object-cover" />
             </div>
           </div>
           <ol data-process className="relative space-y-10 pl-6 lg:py-8">

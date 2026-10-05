@@ -18,7 +18,7 @@ const sections = [
   ["payment", "Payment", "Payment arrangements are not published. They belong in the accepted quotation. This draft does not state deposits or refunds."],
   ["delivery", "Packing, delivery and risk", "Packing and delivery are confirmed per order. The site does not publish Incoterms, transit times or a service-area guarantee."],
   ["disputes", "Inspection", "Inspection and any disagreement about quality should be raised against the accepted quotation. This draft does not choose a court."],
-  ["ip", "Intellectual property", "The NR International Export name and logo belong to the business. Catalogue photographs on this site were prepared for the website and should not be reused as proof of a facility."],
+  ["ip", "Intellectual property", "The NR International Export name and logo belong to the business. Photographs on this site are either supplied by the business or freely licensed images from Wikimedia Commons, credited on the Image Credits page. They show the type of product and are not proof of a particular facility or lot."],
   ["liability", "Liability", "Information is provided for trade enquiries. This draft does not add liability terms beyond saying that order-specific commitments belong in the accepted quotation."],
 ];
 

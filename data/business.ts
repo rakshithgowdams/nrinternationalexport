@@ -31,5 +31,32 @@ export const business = {
     "https://www.google.com/maps/search/?api=1&query=No.%2031%2C%20Thotada%20Mane%2C%20Begur%20Road%2C%20near%20Bagur%20Sub%20Post%20Office%2C%20Chennarayanapatna%2C%20Bagur%2C%20Hassan%2C%20Karnataka%20573111%2C%20India",
 } as const;
 
+export const certifications = [
+  {
+    id: "msme",
+    name: "MSME (Udyam) Registered",
+    issuer: "Ministry of Micro, Small and Medium Enterprises, Government of India",
+    image: "/certificates/msme.webp",
+  },
+  {
+    id: "iec",
+    name: "Import Export Code (IEC)",
+    issuer: "Directorate General of Foreign Trade (DGFT), Government of India",
+    image: "/certificates/iec.webp",
+  },
+  {
+    id: "fieo",
+    name: "FIEO Registered",
+    issuer: "Federation of Indian Export Organisations",
+    image: "/certificates/fieo.webp",
+  },
+  {
+    id: "rcmc",
+    name: "RCMC (FIEO Registered Member)",
+    issuer: "Federation of Indian Export Organisations",
+    image: "/certificates/rcmc.webp",
+  },
+] as const;
+
 export const indicativeNote =
   "Specifications are indicative. Confirm grade, packing, storage conditions and shelf-life commitment in your quotation.";

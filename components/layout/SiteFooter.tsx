@@ -1,10 +1,35 @@
 import Link from "next/link";
-import { business } from "@/data/business";
+import { business, certifications } from "@/data/business";
 import { products } from "@/data/products";
 
 export function SiteFooter() {
   return (
     <footer className="bg-forest text-ivory">
+      <section aria-labelledby="footer-certifications" className="border-b border-white/10">
+        <div className="mx-auto max-w-[1280px] px-4 py-10 sm:px-6 lg:px-8">
+          <p id="footer-certifications" className="text-center text-xs font-bold tracking-[0.08em] text-[#efba6a] uppercase">
+            Registrations and certifications
+          </p>
+          <ul data-stagger className="mx-auto mt-6 grid max-w-4xl grid-cols-2 gap-4 sm:gap-6 md:grid-cols-4">
+            {certifications.map((item) => (
+              <li key={item.id} className="card flex flex-col items-center text-center">
+                <div className="overflow-hidden rounded-lg bg-white p-1.5 shadow-sm">
+                  <img
+                    src={item.image}
+                    alt={`${item.name} – ${item.issuer}`}
+                    width={400}
+                    height={400}
+                    loading="lazy"
+                    decoding="async"
+                    className="aspect-square w-full max-w-[150px] object-contain"
+                  />
+                </div>
+                <p className="mt-3 text-sm font-semibold">{item.name}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
       <div data-stagger className="mx-auto grid max-w-[1280px] gap-10 px-4 py-14 sm:px-6 lg:grid-cols-12 lg:px-8">
         <div className="lg:col-span-4">
           <div className="inline-block rounded-md bg-ivory p-3">
@@ -38,6 +63,7 @@ export function SiteFooter() {
             <li><Link href="/request-quote">Request a Quote</Link></li>
             <li><Link href="/privacy-policy">Privacy Policy</Link></li>
             <li><Link href="/terms-and-conditions">Terms and Conditions</Link></li>
+            <li><Link href="/image-credits">Image Credits</Link></li>
           </ul>
         </div>
         <div className="lg:col-span-3">

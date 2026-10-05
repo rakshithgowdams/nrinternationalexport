@@ -9,7 +9,9 @@ import { DomesticCompare } from "@/components/sections/DomesticCompare";
 
 export const metadata = pageMetadata({
   title: "Domestic Supply",
-  description: "Agricultural supply for businesses in India, from seedlings and coconuts to grains and tomatoes.",
+  description:
+    "Bulk supply inside India of coconut plants, thambulam coconut, semi-husked coconut, tender coconut, copra, coconut shell, ragi, tomato and ginger from Hassan district, Karnataka.",
+  keywords: ["semi husked coconut wholesale", "tender coconut supplier", "thambulam coconut", "coconut plant supplier Karnataka", "copra supplier"],
   path: "/domestic-supply",
 });
 

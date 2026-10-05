@@ -28,14 +28,14 @@ export default function QualityPage() {
       <Container className="grid gap-12 py-14 lg:grid-cols-2">
         <div className="lg:sticky lg:top-28 lg:h-fit">
           <div data-image-reveal className="overflow-hidden rounded-lg">
-            <img src="/images/sourcing-region.jpg" alt="Catalogue photograph of coconut-growing country in warm light. Not an NR-owned farm." className="aspect-[4/3] w-full object-cover" />
+            <img src="/images/coconut-farm-kadakola.jpg" alt="Coconut farm with red soil at Kadakola village, Mysuru district, Karnataka." className="aspect-[4/3] w-full object-cover" />
           </div>
         </div>
         <div className="space-y-10">
           <section data-reveal>
             <h2 className="font-display text-3xl">Channarayapatna and Tiptur</h2>
             <p className="mt-3 leading-7 text-muted">
-              Sourcing is described around {business.sourcingRegion}. The registered office is in Hassan district at {business.address}. The photograph is a catalogue image of the kind of country, not a claim of farmland ownership.
+              Sourcing is described around {business.sourcingRegion}. The registered office is in Hassan district at {business.address}. The photograph shows a coconut farm at Kadakola village in Karnataka. It is not NR-owned land.
             </p>
           </section>
           <section data-reveal>

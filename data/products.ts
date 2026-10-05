@@ -65,8 +65,16 @@ export const products: Product[] = [
     ],
     images: [
       {
-        src: "/images/fresh-coconuts.jpg",
-        alt: "Catalogue photograph of whole mature brown coconuts on a light surface.",
+        src: "/images/coconuts-market.jpg",
+        alt: "Pile of mature brown coconuts with their fibre trimmed.",
+      },
+      {
+        src: "/images/coconut-heaps.jpg",
+        alt: "Heaps of harvested coconuts gathered under coconut palms.",
+      },
+      {
+        src: "/images/coconut-halves.jpg",
+        alt: "Halved mature coconuts showing the white kernel inside the brown husk.",
       },
     ],
     specs: [
@@ -115,8 +123,8 @@ export const products: Product[] = [
     ],
     images: [
       {
-        src: "/images/edible-copra.jpg",
-        alt: "Catalogue photograph of whole and halved edible ball copra, dried coconut kernel.",
+        src: "/images/copra-cups.jpg",
+        alt: "Rows of halved copra cups, the dried white coconut kernel, laid out to dry.",
       },
     ],
     forms: [
@@ -180,8 +188,8 @@ export const products: Product[] = [
     ],
     images: [
       {
-        src: "/images/dry-coconut.jpg",
-        alt: "Catalogue photograph of dry coconuts in the shell, one opened to show the kernel.",
+        src: "/images/ball-copra.jpg",
+        alt: "Whole dry coconut kernels (ball copra) with their brown skin.",
       },
     ],
     specs: [
@@ -225,8 +233,8 @@ export const products: Product[] = [
     ],
     images: [
       {
-        src: "/images/desiccated-coconut.jpg",
-        alt: "Catalogue photograph of fine white desiccated coconut flakes.",
+        src: "/images/desiccated-coconut-real.jpg",
+        alt: "Finely ground dried white coconut.",
       },
     ],
     specs: [
@@ -278,8 +286,8 @@ export const products: Product[] = [
     ],
     images: [
       {
-        src: "/images/coconut-shells.jpg",
-        alt: "Catalogue photograph of cleaned brown coconut half-shells.",
+        src: "/images/coconut-shell-halves.jpg",
+        alt: "Cleaned coconut shell halves, one showing the inside of the shell.",
       },
     ],
     specs: [
@@ -323,8 +331,8 @@ export const products: Product[] = [
     ],
     images: [
       {
-        src: "/images/coconut-oil.jpg",
-        alt: "Catalogue photograph of coconut oil in a plain glass bowl beside a split coconut, with no brand label.",
+        src: "/images/coconut-oil-bottle.jpg",
+        alt: "Bottle of clear coconut oil standing among whole coconuts.",
       },
     ],
     forms: [
@@ -375,8 +383,8 @@ export const products: Product[] = [
     ],
     images: [
       {
-        src: "/images/ginger.jpg",
-        alt: "Catalogue photograph of fresh ginger rhizomes, some cut open.",
+        src: "/images/ginger-fresh.jpg",
+        alt: "Fresh ginger rhizomes with round slices showing the pale yellow flesh.",
       },
     ],
     specs: [
@@ -413,13 +421,13 @@ export const products: Product[] = [
     aliases: ["maize", "corn", "yellow maize"],
     summary: "Maize grain for international buyer enquiries.",
     overview: [
-      "Maize is listed for global export discussions. The catalogue photograph shows yellow grain and cobs for identification only.",
+      "Maize is listed for global export discussions. The photograph shows dried yellow maize cobs for identification only.",
       "Grade, moisture, broken-grain limits and packing are requested specifications. They are not published as tested lot results.",
     ],
     images: [
       {
-        src: "/images/maize.jpg",
-        alt: "Catalogue photograph of yellow maize kernels in a wooden bowl beside corn cobs.",
+        src: "/images/maize-cobs.jpg",
+        alt: "Pile of dried yellow maize cobs with the husks removed.",
       },
     ],
     specs: [
@@ -458,8 +466,8 @@ export const products: Product[] = [
     ],
     images: [
       {
-        src: "/images/ragi.jpg",
-        alt: "Catalogue photograph of reddish-brown ragi grains with dried finger-millet heads.",
+        src: "/images/ragi-grains.jpg",
+        alt: "Reddish-brown ragi (finger millet) grains in a jute sack, a wooden bowl and a scoop, with finger-millet heads behind.",
       },
     ],
     specs: [
@@ -495,12 +503,12 @@ export const products: Product[] = [
     summary: "Coconut seedlings for planting enquiries inside India.",
     overview: [
       "Coconut plants on this site are seedlings for domestic supply. Variety, age, bag size and a delivery town are confirmed before any dispatch is discussed.",
-      "The nursery photograph is a catalogue image. It is not a photograph of an NR-owned farm.",
+      "The nursery photograph is a licensed reference image. It is not a photograph of an NR-owned farm.",
     ],
     images: [
       {
-        src: "/images/coconut-plants.jpg",
-        alt: "Catalogue photograph of young coconut seedlings in nursery bags.",
+        src: "/images/coconut-seedlings.jpg",
+        alt: "Rows of young coconut seedlings growing in nursery bags.",
       },
     ],
     specs: [
@@ -540,8 +548,8 @@ export const products: Product[] = [
     ],
     images: [
       {
-        src: "/images/thambulam-coconuts.jpg",
-        alt: "Catalogue photograph of clean whole brown coconuts arranged for a ceremonial enquiry.",
+        src: "/images/coconut-kalasha.jpg",
+        alt: "Coconut placed on a ritual kalasha decorated with flower garlands for a pooja.",
       },
     ],
     specs: [
@@ -590,16 +598,16 @@ export const products: Product[] = [
     ],
     images: [
       {
-        src: "/images/semi-husked-whole.jpg",
-        alt: "Catalogue photograph of one mature semi-husked coconut with fibre at the eyes.",
+        src: "/images/semi-husked-coconut-pile.jpg",
+        alt: "Pile of semi-husked coconuts with fibre around the eyes and one coconut split to show the white kernel.",
       },
       {
-        src: "/images/semi-husked-coconuts.jpg",
-        alt: "Catalogue photograph of semi-husked coconuts, including one cut nut showing white kernel.",
+        src: "/images/semi-husked-andaman.jpg",
+        alt: "Heap of semi-husked coconuts with fibre left around the eyes.",
       },
       {
-        src: "/images/coconut-kernel.jpg",
-        alt: "Catalogue photograph of a cut mature coconut with white kernel and a little water.",
+        src: "/images/coconut-kernel-halves.jpg",
+        alt: "Halved mature coconuts showing the thick white kernel.",
       },
     ],
     grades: [
@@ -659,8 +667,8 @@ export const products: Product[] = [
     ],
     images: [
       {
-        src: "/images/tender-coconuts.jpg",
-        alt: "Catalogue photograph of green tender coconuts, one opened to show coconut water.",
+        src: "/images/tender-coconut-pile.jpg",
+        alt: "Pile of green tender coconuts ready for sale.",
       },
     ],
     specs: [
@@ -701,8 +709,12 @@ export const products: Product[] = [
     ],
     images: [
       {
-        src: "/images/copra.jpg",
-        alt: "Catalogue photograph of halved dried copra cups in a basket.",
+        src: "/images/copra-halves.jpg",
+        alt: "Halved dry coconut cups of copra with brown outer skin and white kernel.",
+      },
+      {
+        src: "/images/copra-store.jpg",
+        alt: "Copra heaped in a storage shed with a conveyor for loading.",
       },
     ],
     specs: [
@@ -741,8 +753,8 @@ export const products: Product[] = [
     ],
     images: [
       {
-        src: "/images/tomatoes.jpg",
-        alt: "Catalogue photograph of ripe red tomatoes.",
+        src: "/images/tomatoes-koyambedu.jpg",
+        alt: "Crates of ripe red tomatoes at a wholesale vegetable market.",
       },
     ],
     specs: [

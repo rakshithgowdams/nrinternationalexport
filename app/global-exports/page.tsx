@@ -8,7 +8,9 @@ import { FaqList } from "@/components/sections/FaqList";
 
 export const metadata = pageMetadata({
   title: "Global Exports",
-  description: "Agricultural products from Karnataka for international trade enquiries.",
+  description:
+    "Export enquiries for fresh coconut, edible copra, dry coconut, desiccated coconut, coconut shell, coconut oil, ginger, maize and ragi from Karnataka, India. Share product, quantity and destination for a quotation.",
+  keywords: ["coconut exporter India", "edible copra export", "coconut oil exporter", "ragi export", "maize exporter India"],
   path: "/global-exports",
 });
 
@@ -31,7 +33,7 @@ const faqs = [
   },
   {
     q: "Which documents will be provided?",
-    a: "Destination and product requirements are confirmed for each order. This website does not claim licences or certificates that were not supplied.",
+    a: "NR International Export holds an Import Export Code (IEC) from DGFT, MSME (Udyam) registration, and FIEO registration with an RCMC. Product documents for the destination are confirmed for each order.",
   },
   {
     q: "How long does shipment take?",
@@ -94,12 +96,12 @@ export default function GlobalExportsPage() {
 
         <section className="mt-16 grid items-center gap-8 lg:grid-cols-2">
           <div data-image-reveal className="overflow-hidden rounded-lg">
-            <img src="/images/packing.jpg" alt="Catalogue photograph of generic sacks and cartons, not an NR facility." className="aspect-[4/3] w-full object-cover" />
+            <img src="/images/jute-sacks.jpg" alt="Used jute sacks laid out flat." className="aspect-[4/3] w-full object-cover" />
           </div>
           <div data-reveal>
             <h2 className="font-display text-3xl">Packing</h2>
             <p className="mt-3 leading-7 text-muted">
-              The photograph shows generic agricultural packing. It is not a picture of an NR warehouse. Choose the pack you want quoted. Capacities are not invented on this page.
+              Whole coconuts and copra are typically packed in jute or mesh sacks. Choose the pack and net weight you want quoted. Capacities are not invented on this page.
             </p>
           </div>
         </section>
@@ -107,7 +109,7 @@ export default function GlobalExportsPage() {
         <section data-reveal className="mt-16 max-w-3xl">
           <h2 className="font-display text-3xl">Documents</h2>
           <p className="mt-3 leading-7 text-muted">
-            Documents depend on the product and the destination. They are confirmed for each order. This site does not display certificates, and it does not state that a particular licence is held.
+            NR International Export is registered with an Import Export Code (IEC) from DGFT, MSME (Udyam) registration, and FIEO membership with a Registration-cum-Membership Certificate (RCMC). Product documents, such as phytosanitary or origin certificates, depend on the product and the destination and are confirmed for each order.
           </p>
         </section>
 

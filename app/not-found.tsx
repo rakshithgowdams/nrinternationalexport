@@ -28,7 +28,7 @@ export default function NotFound() {
         </div>
       </div>
       <div data-image-reveal className="overflow-hidden rounded-lg">
-        <img src="/images/coconut-kernel.jpg" alt="Catalogue photograph of a cut coconut." className="aspect-[4/3] w-full object-cover" />
+        <img src="/images/coconut-kernel-halves.jpg" alt="Halved coconuts showing the white kernel." className="aspect-[4/3] w-full object-cover" />
       </div>
     </Container>
   );

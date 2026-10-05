@@ -1,9 +1,9 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { indicativeNote } from "@/data/business";
+import { business, indicativeNote } from "@/data/business";
 import { getProduct, marketLabel, products, relatedProducts } from "@/data/products";
 import { quoteHref } from "@/lib/catalogue";
-import { pageMetadata } from "@/lib/site";
+import { absoluteUrl, pageMetadata } from "@/lib/site";
 import { Container } from "@/components/ui/primitives";
 import { Breadcrumbs } from "@/components/sections/Shared";
 import { FaqList } from "@/components/sections/FaqList";
@@ -20,11 +20,36 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const product = getProduct(slug);
   if (!product) return {};
+  const role = product.markets.includes("global") ? "Exporter and Supplier" : "Supplier";
   return pageMetadata({
-    title: product.name,
-    description: product.summary,
+    title: `${product.name} ${role} from Karnataka, India`,
+    description: `${product.summary} Supplied by NR International Export, Hassan district, Karnataka. Request a quotation by grade, quantity and destination.`,
     path: `/products/${product.slug}`,
+    image: product.images[0],
+    keywords: [product.name, ...(product.enquiryNames ?? []), `${product.name} Karnataka`, `${product.name} ${role.toLowerCase()}`],
   });
+}
+
+function productSchema(product: NonNullable<ReturnType<typeof getProduct>>) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "@id": absoluteUrl(`/products/${product.slug}#product`),
+    name: product.name,
+    alternateName: product.enquiryNames,
+    description: [product.summary, ...product.overview].join(" "),
+    image: product.images.map((image) => absoluteUrl(image.src)),
+    url: absoluteUrl(`/products/${product.slug}`),
+    category: product.category,
+    countryOfOrigin: { "@type": "Country", name: "India" },
+    brand: { "@type": "Brand", name: business.name },
+    manufacturer: { "@id": absoluteUrl("/#organization") },
+    additionalProperty: product.specs.map((row) => ({
+      "@type": "PropertyValue",
+      name: row.label,
+      value: row.value,
+    })),
+  };
 }
 
 export default async function ProductPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -35,6 +60,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
 
   return (
     <Container className="py-10 md:py-14">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema(product)) }} />
       <Breadcrumbs
         items={[
           { href: "/", label: "Home" },

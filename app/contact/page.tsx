@@ -8,7 +8,8 @@ import { CopyAddress } from "@/components/enquiry/CopyAddress";
 
 export const metadata = pageMetadata({
   title: "Contact",
-  description: "Contact NR International Export about coconuts, copra and agricultural supply.",
+  description:
+    "Contact NR International Export, Chennarayanapatna, Hassan, Karnataka. Phone +91 63605 10816, email contact@nrinternationalexport.com.",
   path: "/contact",
 });
 

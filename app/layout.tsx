@@ -3,8 +3,9 @@ import { Cormorant_Garamond, Manrope } from "next/font/google";
 import { Toaster } from "sonner";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { EnquiryProvider } from "@/components/enquiry/EnquiryProvider";
-import { business } from "@/data/business";
-import { allowIndex, siteUrl } from "@/lib/site";
+import { business, certifications } from "@/data/business";
+import { products } from "@/data/products";
+import { absoluteUrl, allowIndex, defaultShareImage, siteUrl } from "@/lib/site";
 import "./globals.css";
 
 const display = Cormorant_Garamond({
@@ -32,23 +33,88 @@ export const metadata: Metadata = {
     "Coconuts, copra and agricultural products from the Channarayapatna and Tiptur region of Karnataka for international and domestic trade enquiries.",
   robots: allowIndex ? { index: true, follow: true } : { index: false, follow: false },
   applicationName: business.name,
+  openGraph: {
+    type: "website",
+    siteName: business.name,
+    locale: "en_IN",
+    images: [{ url: defaultShareImage, alt: `${business.name}, Karnataka` }],
+  },
+  formatDetection: { telephone: true, email: true, address: true },
 };
 
 const organization = {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  name: business.name,
-  ...(siteUrl ? { url: siteUrl, logo: `${siteUrl}/icon-512.png` } : {}),
-  email: business.email,
-  telephone: business.phoneTel,
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "No. 31, Thotada Mane, Begur Road, near Bagur Sub Post Office",
-    addressLocality: "Chennarayanapatna",
-    addressRegion: "Karnataka",
-    postalCode: "573111",
-    addressCountry: "IN",
-  },
+  "@graph": [
+    {
+      "@type": ["Organization", "LocalBusiness"],
+      "@id": absoluteUrl("/#organization"),
+      name: business.name,
+      legalName: business.name,
+      slogan: business.tagline,
+      description:
+        "Partnership registered in Hassan district, Karnataka, India, trading coconuts, copra, coconut products, grains and fresh produce for export and domestic buyers. Sourcing is focused on the Channarayapatna and Tiptur region.",
+      url: absoluteUrl("/"),
+      logo: absoluteUrl("/icon-512.png"),
+      image: absoluteUrl(defaultShareImage),
+      email: business.email,
+      telephone: business.phoneTel,
+      taxID: business.gstin,
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "No. 31, Thotada Mane, Begur Road, near Bagur Sub Post Office, Bagur",
+        addressLocality: "Chennarayanapatna",
+        addressRegion: "Karnataka",
+        postalCode: "573111",
+        addressCountry: "IN",
+      },
+      areaServed: [{ "@type": "Country", name: "India" }, "Worldwide"],
+      contactPoint: {
+        "@type": "ContactPoint",
+        contactType: "sales",
+        name: business.contactName,
+        telephone: business.phoneTel,
+        email: business.email,
+        areaServed: "Worldwide",
+        availableLanguage: ["English"],
+      },
+      employee: { "@type": "Person", name: business.contactName, jobTitle: business.contactRole },
+      knowsAbout: [
+        "Semi-husked coconut",
+        "Tiptur coconut",
+        "Edible copra",
+        "Coconut oil",
+        "Coconut shell",
+        "Ragi (finger millet)",
+        "Maize",
+        "Ginger",
+        "Agricultural export from India",
+      ],
+      hasCredential: certifications.map((item) => ({
+        "@type": "EducationalOccupationalCredential",
+        name: item.name,
+        credentialCategory: "Registration",
+        image: absoluteUrl(item.image),
+        recognizedBy: { "@type": "Organization", name: item.issuer },
+      })),
+      makesOffer: products.map((product) => ({
+        "@type": "Offer",
+        itemOffered: { "@id": absoluteUrl(`/products/${product.slug}#product`), name: product.name },
+      })),
+    },
+    {
+      "@type": "WebSite",
+      "@id": absoluteUrl("/#website"),
+      url: absoluteUrl("/"),
+      name: business.name,
+      inLanguage: "en-IN",
+      publisher: { "@id": absoluteUrl("/#organization") },
+      potentialAction: {
+        "@type": "SearchAction",
+        target: `${absoluteUrl("/products")}?q={search_term_string}`,
+        "query-input": "required name=search_term_string",
+      },
+    },
+  ],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

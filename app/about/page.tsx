@@ -5,7 +5,8 @@ import { CtaBand } from "@/components/sections/Shared";
 
 export const metadata = pageMetadata({
   title: "About",
-  description: "NR International Export is a Karnataka partnership trading coconuts, copra and agricultural products.",
+  description:
+    "NR International Export is a partnership registered in Hassan district, Karnataka (GSTIN 29AAZFN3606Q1Z7), led by Managing Partner Rajesh MA, trading coconuts, copra and agricultural products.",
   path: "/about",
 });
 
@@ -27,7 +28,7 @@ export default function AboutPage() {
           </p>
         </div>
         <div data-image-reveal className="overflow-hidden rounded-lg">
-          <img src="/images/hero-grove.jpg" alt="Catalogue photograph of coconut palms. Not a claim of farm ownership." className="aspect-[4/3] w-full object-cover" />
+          <img src="/images/coconut-orchard.jpg" alt="Young coconut orchard in India." className="aspect-[4/3] w-full object-cover" />
         </div>
       </Container>
       <section className="bg-white py-14">
