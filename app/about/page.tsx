@@ -2,7 +2,6 @@ import Link from "next/link";
 import { business, certifications } from "@/data/business";
 import { pageMetadata } from "@/lib/site";
 import { Container } from "@/components/ui/primitives";
-import { AboutJourney } from "@/components/sections/AboutJourney";
 
 export const metadata = pageMetadata({
   title: "About NR International Export | Agricultural Export Company, Karnataka",
@@ -14,47 +13,12 @@ export const metadata = pageMetadata({
 export default function AboutPage() {
   return (
     <>
-      {/* SECTION 01 — NEW ABOUT HERO */}
-      <section className="relative overflow-hidden bg-forest text-ivory">
-        <div className="absolute inset-0">
-          <img
-            src="/images/nr-global-export-hero.webp"
-            alt="NR International Export maritime vessel, port logistics, and global route connectivity."
-            className="h-full w-full object-cover object-[70%_center] lg:object-[68%_center]"
-            fetchPriority="high"
-          />
-          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(23,43,33,0.96)_0%,rgba(23,43,33,0.85)_40%,rgba(23,43,33,0.45)_72%,rgba(23,43,33,0.18)_100%)]" />
-        </div>
-        <Container className="relative z-10 flex min-h-[580px] flex-col justify-center py-16 md:min-h-[66vh] lg:min-h-[72vh] lg:py-20">
-          <p data-reveal className="text-xs font-bold tracking-[0.14em] text-[#f3bd6d] uppercase font-mono">
-            ABOUT NR INTERNATIONAL EXPORT
-          </p>
-          <div className="mt-4 max-w-3xl">
-            <h1 data-reveal className="font-display text-[2.5rem] leading-[1.08] font-medium text-ivory sm:text-5xl lg:text-6xl">
-              Karnataka roots.
-              <span className="mt-1 block italic text-[#f3bd6d]">Built for global agricultural trade.</span>
-            </h1>
-          </div>
-          <p data-reveal className="mt-6 max-w-2xl text-base sm:text-lg leading-relaxed text-ivory/90">
-            NR International Export connects Karnataka-sourced coconuts, copra and agricultural commodities with buyer requirements through sourcing, product alignment, packing discussion and export coordination.
-          </p>
-          <div data-reveal className="mt-8 flex flex-wrap items-center gap-4">
-            <Link
-              href="/global-exports"
-              className="inline-flex min-h-12 items-center rounded-md bg-white px-6 text-sm font-semibold text-forest transition-colors hover:bg-ivory shadow-sm"
-            >
-              Explore Global Exports
-            </Link>
-            <Link
-              href="/request-quote?market=global"
-              className="inline-flex min-h-12 items-center rounded-md border border-white/40 px-6 text-sm font-semibold text-white transition-colors hover:bg-white/10"
-            >
-              Request an Export Quote
-            </Link>
-          </div>
-          <p data-reveal className="mt-8 text-xs font-medium tracking-wide text-ivory/70 font-mono">
-            Channarayapatna & Tiptur region · Karnataka, India
-          </p>
+      {/* HERO SECTION */}
+      <section className="bg-forest text-ivory">
+        <Container className="py-16 md:py-24">
+          <h1 data-reveal className="max-w-3xl font-display text-4xl md:text-6xl">
+            A Karnataka connection for agricultural trade.
+          </h1>
         </Container>
       </section>
 
@@ -129,23 +93,7 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      {/* SECTION 04 — HOW WE WORK (SOURCE TO INTERNATIONAL BUYER) */}
-      <section className="py-16 md:py-24 bg-white border-b border-line">
-        <Container>
-          <div data-reveal className="max-w-3xl mb-12">
-            <p className="text-xs font-bold uppercase tracking-wider text-olive font-mono">
-              HOW WE WORK
-            </p>
-            <h2 className="mt-2 font-display text-3xl md:text-5xl text-ink">
-              From Karnataka sourcing to international requirements.
-            </h2>
-            <p className="mt-4 text-base md:text-lg text-muted leading-relaxed">
-              Trace how agricultural goods move from origin groves in Karnataka through specification check, export packing, and dispatch coordination to overseas destinations.
-            </p>
-          </div>
-          <AboutJourney />
-        </Container>
-      </section>
+
 
       {/* SECTION 05 — GLOBAL TRADE POSITIONING */}
       <section className="py-16 md:py-24 bg-forest text-ivory relative overflow-hidden">
