@@ -31,11 +31,6 @@ export function GET() {
 ## Products
 ${productLines.join("\n")}
 
-## Semi-husked coconut grades (indicative)
-- Grade A: 550–850 g per piece
-- Grade B: 350–540 g per piece
-- Grade C: 250–340 g per piece
-
 ## How to buy
 - Quotations depend on product, grade, quantity, packing and destination. No prices or minimum order quantities are published.
 - ${indicativeNote}

@@ -1,6 +1,7 @@
 "use client";
 
-import { createContext, useContext, useEffect, useMemo, useState } from "react";
+import { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
+import { getProduct, products } from "@/data/products";
 
 export type EnquiryLine = {
   productId: string;
@@ -36,7 +37,16 @@ export function EnquiryProvider({ children }: { children: React.ReactNode }) {
       const raw = localStorage.getItem(STORAGE_KEY);
       if (raw) {
         const parsed = JSON.parse(raw) as EnquiryLine[];
-        if (Array.isArray(parsed)) setLines(parsed.filter((line) => line.productId));
+        if (Array.isArray(parsed)) {
+          const validProductIds = new Set(products.map((p) => p.id));
+          const validLines = parsed.filter(
+            (line) => line && typeof line.productId === "string" && validProductIds.has(line.productId),
+          );
+          setLines(validLines);
+          if (validLines.length !== parsed.length) {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(validLines));
+          }
+        }
       }
     } catch {
       localStorage.removeItem(STORAGE_KEY);
@@ -49,27 +59,48 @@ export function EnquiryProvider({ children }: { children: React.ReactNode }) {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(lines));
   }, [lines, ready]);
 
+  const addLine = useCallback((line: EnquiryLine) => {
+    if (!line?.productId || !getProduct(line.productId)) return;
+    setLines((current) => {
+      const index = current.findIndex((item) => sameLine(item, line));
+      if (index === -1) return [...current, line];
+      return current.map((item, itemIndex) =>
+        itemIndex === index ? { ...item, quantity: line.quantity } : item,
+      );
+    });
+  }, []);
+
+  const updateLine = useCallback((index: number, patch: Partial<EnquiryLine>) => {
+    setLines((current) => current.map((item, itemIndex) => (itemIndex === index ? { ...item, ...patch } : item)));
+  }, []);
+
+  const removeLine = useCallback((index: number) => {
+    setLines((current) => current.filter((_, itemIndex) => itemIndex !== index));
+  }, []);
+
+  const replaceLines = useCallback((next: EnquiryLine[]) => {
+    const validProductIds = new Set(products.map((p) => p.id));
+    const validLines = next.filter(
+      (line) => line && typeof line.productId === "string" && validProductIds.has(line.productId),
+    );
+    setLines(validLines);
+  }, []);
+
+  const clear = useCallback(() => {
+    setLines([]);
+  }, []);
+
   const value = useMemo<EnquiryContextValue>(
     () => ({
       lines,
       ready,
-      addLine: (line) => {
-        setLines((current) => {
-          const index = current.findIndex((item) => sameLine(item, line));
-          if (index === -1) return [...current, line];
-          return current.map((item, itemIndex) =>
-            itemIndex === index ? { ...item, quantity: line.quantity } : item,
-          );
-        });
-      },
-      updateLine: (index, patch) => {
-        setLines((current) => current.map((item, itemIndex) => (itemIndex === index ? { ...item, ...patch } : item)));
-      },
-      removeLine: (index) => setLines((current) => current.filter((_, itemIndex) => itemIndex !== index)),
-      replaceLines: (next) => setLines(next),
-      clear: () => setLines([]),
+      addLine,
+      updateLine,
+      removeLine,
+      replaceLines,
+      clear,
     }),
-    [lines, ready],
+    [lines, ready, addLine, updateLine, removeLine, replaceLines, clear],
   );
 
   return <EnquiryContext.Provider value={value}>{children}</EnquiryContext.Provider>;

@@ -18,8 +18,6 @@ const photos = [
   ["coconut-shell-halves.jpg", "Coconut shell,TamilNadu150.jpg", "Coconut shell halves"],
   ["coconut-oil-bottle.jpg", "Coconut oil bottle in the background of coconuts from Kaleeswari Farm.jpg", "Coconut oil"],
   ["coconut-seedlings.jpg", "Coconut seedlings.JPG", "Coconut seedlings"],
-  ["coconut-kalasha.jpg", "Kalasha satyanarayana.jpg", "Coconut on a ritual kalasha"],
-  ["semi-husked-andaman.jpg", "Coconuts, Shaheed Island, Andamans.jpg", "Semi-husked coconuts"],
   ["coconut-kernel-halves.jpg", "Coconut shells.jpg", "Halved coconuts with kernel"],
   ["tender-coconut-pile.jpg", "Tender coconut 2.jpg", "Tender coconuts"],
   ["tomatoes-koyambedu.jpg", "India - Koyambedu Market - Tomatoes 02 (3987058522).jpg", "Tomatoes, Koyambedu Market"],

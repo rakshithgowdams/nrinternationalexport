@@ -10,8 +10,8 @@ import { DomesticCompare } from "@/components/sections/DomesticCompare";
 export const metadata = pageMetadata({
   title: "Domestic Supply",
   description:
-    "Bulk supply inside India of coconut plants, thambulam coconut, semi-husked coconut, tender coconut, copra, coconut shell, ragi, tomato and ginger from Hassan district, Karnataka.",
-  keywords: ["semi husked coconut wholesale", "tender coconut supplier", "thambulam coconut", "coconut plant supplier Karnataka", "copra supplier"],
+    "Bulk supply inside India of coconut plants, tender coconut, copra, coconut shell, ragi, tomato and ginger from Hassan district, Karnataka.",
+  keywords: ["tender coconut supplier", "coconut plant supplier Karnataka", "copra supplier"],
   path: "/domestic-supply",
 });
 
@@ -19,10 +19,6 @@ const faqs = [
   {
     q: "Do you deliver everywhere in India?",
     a: "No coverage map is published. Share the city, postal code and date. The quotation will say whether that delivery can be discussed.",
-  },
-  {
-    q: "Are tender and semi-husked coconuts the same?",
-    a: "No. Tender coconut is the young green nut. Semi-husked coconut is a mature brown nut with a reduced husk.",
   },
   {
     q: "When will goods arrive?",
@@ -38,7 +34,7 @@ export default function DomesticPage() {
         <Container data-stagger className="py-16 md:py-24">
           <p className="text-xs font-bold tracking-[0.12em] text-[#f3bd6d] uppercase">Domestic Supply</p>
           <h1 className="mt-3 max-w-3xl font-display text-4xl md:text-6xl">Agricultural supply for your business in India.</h1>
-          <p className="mt-5 max-w-2xl text-lg text-ivory/85">Seedlings, coconuts, copra, grains and fresh produce for wholesale, processing and events. This is supply inside India, not an export service.</p>
+          <p className="mt-5 max-w-2xl text-lg text-ivory/85">Seedlings, coconuts, copra, grains and fresh produce for wholesale, farming and processing. This is supply inside India, not an export service.</p>
         </Container>
       </section>
       <Container className="py-14">
@@ -61,9 +57,9 @@ export default function DomesticPage() {
 
         <section data-stagger className="mt-16 grid gap-5 md:grid-cols-3">
           {[
-            ["Wholesale and retail", "Semi-husked coconuts, tender coconuts, tomatoes and ginger for shops and traders."],
+            ["Wholesale and retail", "Tender coconuts, tomatoes and ginger for shops and traders."],
             ["Food processing", "Copra, coconut shell and ragi for buyers who will process the goods further."],
-            ["Ritual and events", "Thambulam coconuts for ceremonies. Share the date, town and count."],
+            ["Plantations and farming", "Coconut seedlings for farm cultivation and planting. Share the required count and destination."],
           ].map(([title, body]) => (
             <article key={title} className="rounded-lg border border-line bg-white p-5">
               <h2 className="font-display text-2xl">{title}</h2>

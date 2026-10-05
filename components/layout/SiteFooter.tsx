@@ -10,13 +10,16 @@ export function SiteFooter() {
           <p id="footer-certifications" className="text-center text-xs font-bold tracking-[0.08em] text-[#efba6a] uppercase">
             Registrations and certifications
           </p>
-          <ul data-stagger className="mx-auto mt-6 grid max-w-4xl grid-cols-2 gap-4 sm:gap-6 md:grid-cols-4">
+          <ul data-stagger className="mx-auto mt-6 flex max-w-5xl flex-wrap justify-center gap-4 sm:gap-6">
             {certifications.map((item) => (
-              <li key={item.id} className="card flex flex-col items-center text-center">
+              <li
+                key={item.id}
+                className="card flex w-[calc(50%-0.5rem)] sm:w-[155px] md:w-[165px] lg:w-[180px] flex-col items-center text-center"
+              >
                 <div className="overflow-hidden rounded-lg bg-white p-1.5 shadow-sm">
                   <img
                     src={item.image}
-                    alt={`${item.name} – ${item.issuer}`}
+                    alt={"alt" in item && item.alt ? item.alt : `${item.name} – ${item.issuer}`}
                     width={400}
                     height={400}
                     loading="lazy"

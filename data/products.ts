@@ -60,7 +60,7 @@ export const products: Product[] = [
     summary:
       "Mature coconuts for international buyers who want to discuss count, grade and husk preparation.",
     overview: [
-      "Fresh coconut on this website means mature coconuts offered for export enquiries. It is listed separately from semi-husked, tender, ritual and seedling coconuts.",
+      "Fresh coconut on this website means mature coconuts offered for export enquiries. It is listed separately from tender and seedling coconuts.",
       "Weight grade, husk finish, packing and destination requirements are agreed in the quotation. A listing here is not a promise of ready stock.",
     ],
     images: [
@@ -97,10 +97,6 @@ export const products: Product[] = [
     packing:
       "Packing format, piece count and any shelf-life expectation should be stated in the enquiry. Nothing on this page is a container-load or storage guarantee.",
     faqs: [
-      {
-        q: "Is fresh coconut the same as semi-husked coconut?",
-        a: "They are listed separately. Semi-husked coconut is the domestic grade with the supplied weight bands. Ask in the quotation if that preparation is also required for export.",
-      },
       {
         q: "Do you publish a minimum order?",
         a: "No fixed minimum is published. Share the quantity you need and we will confirm what can be discussed.",
@@ -535,125 +531,6 @@ export const products: Product[] = [
     enquiryNames: ["Coconut plant"],
   },
   {
-    id: "thambulam-coconuts",
-    slug: "thambulam-coconuts",
-    name: "Thambulam Coconut",
-    category: "coconuts",
-    markets: ["domestic"],
-    aliases: ["thambulam", "thambulam coconut", "ritual coconut", "ceremony coconut"],
-    summary: "Whole coconuts prepared for ritual, ceremony and gifting enquiries in India.",
-    overview: [
-      "Thambulam coconut means a whole coconut requested for ceremonies, weddings and traditional exchanges. It is not the same product as tender coconut or semi-husked graded nuts.",
-      "Finish, count and the town of delivery are confirmed in the quotation. The page does not promise a ritual specification beyond what you describe.",
-    ],
-    images: [
-      {
-        src: "/images/coconut-kalasha.jpg",
-        alt: "Coconut placed on a ritual kalasha decorated with flower garlands for a pooja.",
-      },
-    ],
-    specs: [
-      { label: "Product", value: "Thambulam / ritual coconut" },
-      { label: "Market", value: "Domestic supply" },
-      { label: "Finish", value: confirm },
-      { label: "Count", value: "Share the number you need" },
-    ],
-    applications: [
-      {
-        title: "Ceremonies and events",
-        body: "Share the date, town and approximate count. Timing is requested, then confirmed.",
-      },
-      {
-        title: "Retail gifting",
-        body: "Ask if a neater finish is possible for the quantity you have in mind.",
-      },
-    ],
-    packing: "Count per pack can be requested. It is not a fixed retail standard.",
-    faqs: [
-      {
-        q: "Can these be sent outside India?",
-        a: "This product is listed for domestic supply. Use a fresh-coconut export enquiry if the requirement is international.",
-      },
-    ],
-    units: ["pieces"],
-  },
-  {
-    id: "semi-husked-coconuts",
-    slug: "semi-husked-coconuts",
-    name: "Semi-Husked Coconut",
-    category: "coconuts",
-    markets: ["domestic"],
-    aliases: [
-      "semi-husked",
-      "semi husked",
-      "same huskud",
-      "huskud",
-      "semi husked coconut",
-    ],
-    summary:
-      "Mature brown coconuts with fibre kept around the eyes and the outer husk reduced.",
-    overview: [
-      "Semi-husked coconut keeps a tuft of fibre around the eyes while the thicker outer husk is reduced. The three weight bands below are the supplied indicative grades.",
-      "On the original list this item appeared as same huskud coconut. It is named Semi-Husked Coconut here. Export availability of this grade is not assumed; ask if you need it for an international enquiry.",
-    ],
-    images: [
-      {
-        src: "/images/semi-husked-coconut-pile.jpg",
-        alt: "Pile of semi-husked coconuts with fibre around the eyes and one coconut split to show the white kernel.",
-      },
-      {
-        src: "/images/semi-husked-andaman.jpg",
-        alt: "Heap of semi-husked coconuts with fibre left around the eyes.",
-      },
-      {
-        src: "/images/coconut-kernel-halves.jpg",
-        alt: "Halved mature coconuts showing the thick white kernel.",
-      },
-    ],
-    grades: [
-      { name: "Grade A", range: "550–850 g per piece", note: "Indicative weight band" },
-      { name: "Grade B", range: "350–540 g per piece", note: "Indicative weight band" },
-      { name: "Grade C", range: "250–340 g per piece", note: "Indicative weight band" },
-    ],
-    specs: [
-      { label: "Form", value: "Mature natural-brown semi-husked coconut" },
-      { label: "Circumference", value: "Approximately 12–15 inches (30–38 cm)" },
-      { label: "Maturity", value: "Approximately 9–11 months" },
-      { label: "Water", value: "Indicative 100–150 ml per nut" },
-      { label: "Origin focus", value: "Channarayapatna and Tiptur region" },
-      { label: "Variety", value: "Not guaranteed as Tiptur Tall on every nut" },
-    ],
-    applications: [
-      {
-        title: "Wholesale and retail",
-        body: "Select a weight grade and a piece count. Grades are indicative bands, not overlapping rules invented beyond the supplied ranges.",
-      },
-      {
-        title: "Culinary processing",
-        body: "Kernel and water figures are indicative. They are not a yield guarantee.",
-      },
-      {
-        title: "Traditional use",
-        body: "The nut can be discussed for household and traditional trade without a health claim.",
-      },
-    ],
-    packing:
-      "Supplier material mentions up to 60 days from packing. Treat that as indicative only. It depends on condition, packing and the storage you confirm. Storage temperature, HS codes and oil or copra yield are not stated here.",
-    faqs: [
-      {
-        q: "Which grade should I choose?",
-        a: "Use Grade A for 550–850 g, Grade B for 350–540 g and Grade C for 250–340 g per piece. If your range is different, write it in the quotation.",
-      },
-      {
-        q: "Is every nut from Tiptur?",
-        a: "The sourcing focus is the Channarayapatna and Tiptur region. The page does not guarantee that every nut is Tiptur Tall.",
-      },
-    ],
-    units: ["pieces"],
-    featured: true,
-    enquiryNames: ["Semi-husked coconut", "same huskud coconut"],
-  },
-  {
     id: "tender-coconuts",
     slug: "tender-coconuts",
     name: "Tender Coconut",
@@ -662,7 +539,7 @@ export const products: Product[] = [
     aliases: ["tender coconut", "thunder coconut", "green coconut", "tender coconuts"],
     summary: "Young green coconuts for drinking and fresh domestic trade.",
     overview: [
-      "Tender coconut is the young green nut. It is not a mature semi-husked coconut and not a ritual thambulam nut.",
+      "Tender coconut is the young green nut, distinct from mature coconuts.",
       "The original list used the name thunder coconut. That name is treated as tender coconut on this website until the business confirms a different meaning.",
     ],
     images: [

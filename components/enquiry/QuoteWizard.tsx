@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { toast } from "sonner";
 import { business } from "@/data/business";
-import { getProduct, marketLabel, products, type Market } from "@/data/products";
+import { getProduct, marketLabel, products, productsForMarket, type Market } from "@/data/products";
 import { lineSchema } from "@/lib/schemas";
 import { todayInKolkata } from "@/lib/utils";
 import { useEnquiry, type EnquiryLine } from "@/components/enquiry/EnquiryProvider";
@@ -57,6 +57,7 @@ export function QuoteWizard() {
   const [unknown, setUnknown] = useState(false);
   const [copied, setCopied] = useState(false);
   const [openSummary, setOpenSummary] = useState(false);
+  const [selectedProductId, setSelectedProductId] = useState("");
   const headingRef = useRef<HTMLHeadingElement>(null);
   const started = useRef(false);
   const key = useRef(crypto.randomUUID());
@@ -68,7 +69,12 @@ export function QuoteWizard() {
     const marketParam = search.get("market");
     const market = marketParam === "global" || marketParam === "domestic" ? marketParam : "";
     if (requested && !getProduct(requested)) setUnknown(true);
-    const lines = enquiry.lines.map((line) => ({ ...line }));
+
+    const validIds = new Set(products.map((p) => p.id));
+    const lines = enquiry.lines
+      .filter((line) => validIds.has(line.productId))
+      .map((line) => ({ ...line }));
+
     const product = getProduct(requested);
     if (product && !lines.some((line) => line.productId === product.id)) {
       lines.push({
@@ -78,14 +84,16 @@ export function QuoteWizard() {
         unit: product.units[0],
         otherUnit: "",
       });
+      enquiry.replaceLines(lines);
     }
+
     setValues((current) => ({
       ...current,
       market: market || (product ? product.markets[0] : ""),
       lines,
       country: market === "domestic" ? "India" : "",
     }));
-  }, [enquiry.ready, enquiry.lines, search]);
+  }, [enquiry.ready, enquiry.lines, search, enquiry.replaceLines]);
 
   useEffect(() => {
     headingRef.current?.focus();
@@ -96,11 +104,11 @@ export function QuoteWizard() {
   }
 
   function setLine(index: number, partial: Partial<EnquiryLine>) {
-    setValues((current) => {
-      const lines = current.lines.map((line, lineIndex) => (lineIndex === index ? { ...line, ...partial } : line));
-      enquiry.replaceLines(lines);
-      return { ...current, lines };
-    });
+    const nextLines = values.lines.map((line, lineIndex) =>
+      lineIndex === index ? { ...line, ...partial } : line,
+    );
+    setValues((current) => ({ ...current, lines: nextLines }));
+    enquiry.replaceLines(nextLines);
   }
 
   function addProduct(productId: string) {
@@ -113,20 +121,29 @@ export function QuoteWizard() {
       unit: product.units[0],
       otherUnit: "",
     };
-    setValues((current) => {
-      const existing = current.lines.findIndex((item) => item.productId === line.productId && item.grade === line.grade && item.unit === line.unit);
-      const lines = existing === -1 ? [...current.lines, line] : current.lines.map((item, index) => (index === existing ? line : item));
-      enquiry.replaceLines(lines);
-      return { ...current, lines };
-    });
+    const existingIndex = values.lines.findIndex(
+      (item) => item.productId === line.productId && item.grade === line.grade && item.unit === line.unit,
+    );
+    const nextLines =
+      existingIndex === -1
+        ? [...values.lines, line]
+        : values.lines.map((item, index) => (index === existingIndex ? line : item));
+
+    setValues((current) => ({ ...current, lines: nextLines }));
+    enquiry.replaceLines(nextLines);
   }
 
   function removeLine(index: number) {
-    setValues((current) => {
-      const lines = current.lines.filter((_, lineIndex) => lineIndex !== index);
-      enquiry.replaceLines(lines);
-      return { ...current, lines };
-    });
+    const nextLines = values.lines.filter((_, lineIndex) => lineIndex !== index);
+    setValues((current) => ({ ...current, lines: nextLines }));
+    enquiry.replaceLines(nextLines);
+  }
+
+  function handleProductChange(event: React.ChangeEvent<HTMLSelectElement>) {
+    const productId = event.target.value;
+    if (!productId) return;
+    addProduct(productId);
+    setSelectedProductId("");
   }
 
   function validate(currentStep: number) {
@@ -218,6 +235,15 @@ export function QuoteWizard() {
     );
   }
 
+  const marketProducts =
+    values.market === "global" || values.market === "domestic"
+      ? productsForMarket(values.market)
+      : products;
+
+  const availableProducts = marketProducts.filter(
+    (product) => !values.lines.some((line) => line.productId === product.id),
+  );
+
   return (
     <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_300px]">
       <div>
@@ -262,10 +288,19 @@ export function QuoteWizard() {
             {errors.market ? <p className="text-sm text-red-800">{errors.market}</p> : null}
             <label className="block text-sm font-semibold">
               Add a product
-              <select className="field" value="" onChange={(event) => { if (event.target.value) addProduct(event.target.value); }}>
-                <option value="">Select</option>
-                {products.map((product) => (
-                  <option key={product.id} value={product.id}>{product.name}</option>
+              <select
+                className="field"
+                value={selectedProductId}
+                onChange={handleProductChange}
+                disabled={availableProducts.length === 0}
+              >
+                <option value="">
+                  {availableProducts.length === 0 ? "All products added" : "Select"}
+                </option>
+                {availableProducts.map((product) => (
+                  <option key={product.id} value={product.id}>
+                    {product.name}
+                  </option>
                 ))}
               </select>
             </label>

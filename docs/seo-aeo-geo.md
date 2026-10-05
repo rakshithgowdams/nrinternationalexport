@@ -3,7 +3,7 @@
 ## Research findings (29 Sep 2026)
 
 - NR International Export has no public web presence yet. Searches for the name return unrelated "NR International" businesses (a Delhi garment exporter, a UK research firm), so the brand must be tied to its place: **"NR International Export, Channarayapatna, Hassan"**.
-- Competitors in the region (for example SMK Exports, Basaveshwara Traders) rank through B2B directory listings for phrases such as "semi husked Tiptur coconut exporter". Directory listings are the fastest route to both rankings and AI citations.
+- Competitors in the region (for example SMK Exports, Basaveshwara Traders) rank through B2B directory listings for phrases such as "Tiptur coconut exporter". Directory listings are the fastest route to both rankings and AI citations.
 - The GSTIN can only be confirmed on gst.gov.in; keep it identical everywhere.
 
 ## What is on the site
@@ -24,7 +24,6 @@
 | Page | Primary phrase |
 | --- | --- |
 | Home | coconut exporter Karnataka, agri exporter Hassan |
-| Semi-husked coconut | semi husked coconut supplier Tiptur, Channarayapatna |
 | Edible copra / copra | edible copra exporter India, copra supplier Karnataka |
 | Coconut shell | coconut shell supplier Karnataka |
 | Ragi | ragi / finger millet exporter India |

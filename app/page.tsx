@@ -11,11 +11,10 @@ import { FaqList } from "@/components/sections/FaqList";
 export const metadata = pageMetadata({
   title: "NR International Export | Coconut, Copra and Agri Exporter from Karnataka, India",
   description:
-    "NR International Export is a partnership in Hassan district, Karnataka, supplying semi-husked coconut, copra, coconut oil, coconut shell, ginger, ragi and maize from the Channarayapatna and Tiptur region for export and domestic trade.",
+    "NR International Export is a partnership in Hassan district, Karnataka, supplying copra, coconut oil, coconut shell, ginger, ragi and maize from the Channarayapatna and Tiptur region for export and domestic trade.",
   path: "/",
   keywords: [
     "coconut exporter Karnataka",
-    "semi husked coconut supplier",
     "Tiptur coconut",
     "edible copra exporter India",
     "coconut shell supplier",
@@ -28,7 +27,7 @@ export const metadata = pageMetadata({
 const families = [
   {
     title: "Coconuts",
-    body: "Mature, semi-husked, tender, ritual and seedling coconuts, each with its own page.",
+    body: "Mature, tender and seedling coconuts, each with its own page.",
     href: catalogueHref({ category: "coconuts" }),
     image: "/images/coconut-halves.jpg",
     alt: "Halved mature coconuts showing the white kernel inside the brown husk.",
@@ -52,12 +51,6 @@ const families = [
   },
 ];
 
-const grades = [
-  ["Grade A", "550–850 g"],
-  ["Grade B", "350–540 g"],
-  ["Grade C", "250–340 g"],
-];
-
 const steps = [
   ["Share requirements", "Tell us the product, quantity, market and where it needs to go."],
   ["Confirm specifications", "Grade, visible condition, packing and any buyer limits are agreed in writing."],
@@ -72,7 +65,7 @@ const faqs = [
   },
   {
     q: "How do I choose a grade?",
-    a: "Semi-husked coconuts use the published weight bands. For every other product, describe the grade you need and we will confirm whether it can be discussed.",
+    a: "Describe the grade, size or weight specification you need and we will confirm whether it can be supplied in the quotation.",
   },
   {
     q: "Can you supply outside India?",
@@ -161,34 +154,6 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section className="bg-white py-16 md:py-24">
-        <Container className="grid items-center gap-10 lg:grid-cols-2">
-          <div data-image-reveal className="overflow-hidden rounded-lg">
-            <img src="/images/semi-husked-coconut-pile.jpg" alt="Pile of semi-husked coconuts with fibre around the eyes and one coconut split to show the white kernel." className="aspect-[4/3] w-full object-cover object-[50%_56%]" />
-          </div>
-          <div>
-            <div data-reveal>
-              <p className="text-xs font-bold tracking-[0.12em] text-ochre-ink uppercase">Flagship grade</p>
-              <h2 className="mt-2 font-display text-4xl">Semi-husked coconut</h2>
-              <p className="mt-4 leading-7 text-muted">
-                Mature brown coconuts with fibre kept around the eyes. The weight bands below are indicative supplier ranges, not a promise of a particular lot.
-              </p>
-            </div>
-            <dl data-stagger className="mt-6 grid gap-3 sm:grid-cols-3">
-              {grades.map(([name, range]) => (
-                <div key={name} className="rounded-md border border-line p-3">
-                  <dt className="text-xs font-bold tracking-wide text-ochre-ink uppercase">{name}</dt>
-                  <dd className="mt-1 font-semibold tabular-nums">{range}</dd>
-                </div>
-              ))}
-            </dl>
-            <Link href="/products/semi-husked-coconuts" className="mt-6 inline-flex min-h-11 items-center text-sm font-semibold text-olive">
-              View specifications
-            </Link>
-          </div>
-        </Container>
-      </section>
-
       <section className="py-16 md:py-24">
         <Container data-stagger className="grid gap-5 lg:grid-cols-2">
           <article className="card overflow-hidden rounded-lg border border-line bg-white">
@@ -203,7 +168,7 @@ export default function HomePage() {
             <img src="/images/koyambedu-market.jpg" alt="Traders and produce stalls inside the Koyambedu wholesale market, Chennai." className="h-64 w-full object-cover" />
             <div className="p-6">
               <h2 className="font-display text-4xl">Domestic Supply</h2>
-              <p className="mt-3 text-muted">Seedlings, ritual coconuts, semi-husked and tender nuts, copra, shells, ragi, tomatoes and ginger for trade inside India.</p>
+              <p className="mt-3 text-muted">Seedlings, tender nuts, copra, shells, ragi, tomatoes and ginger for trade inside India.</p>
               <Link href="/domestic-supply" className="mt-4 inline-flex min-h-11 items-center font-semibold text-olive">Request domestic pricing</Link>
             </div>
           </article>
@@ -213,7 +178,7 @@ export default function HomePage() {
       <section className="bg-white py-16 md:py-24">
         <Container className="grid items-center gap-10 lg:grid-cols-2">
           <div data-image-reveal className="overflow-hidden rounded-lg">
-            <img src="/images/coconut-heaps.jpg" alt="Heaps of harvested coconuts gathered under coconut palms." className="aspect-[16/10] w-full object-cover" />
+            <img src="/images/origin-sourcing-tiptur.jpg" alt="Harvested mature coconuts neatly gathered along the orchard pathway in a coconut plantation in Tiptur and Channarayapatna, Karnataka." className="aspect-[16/10] w-full object-cover" />
           </div>
           <div data-reveal>
             <p className="text-xs font-bold tracking-[0.12em] text-ochre-ink uppercase">Origin</p>

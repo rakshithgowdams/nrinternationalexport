@@ -45,6 +45,13 @@ export const certifications = [
     image: "/certificates/iec.webp",
   },
   {
+    id: "gst",
+    name: "GST Registered",
+    issuer: "Goods and Services Tax, Government of India",
+    alt: "GST Registered - NR International Export",
+    image: "/certificates/gst.webp",
+  },
+  {
     id: "fieo",
     name: "FIEO Registered",
     issuer: "Federation of Indian Export Organisations",

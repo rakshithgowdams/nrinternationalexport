@@ -17,5 +17,10 @@ test("market and category filters combine", () => {
 });
 
 test("unknown filters are ignored", () => {
-  assert.equal(filterProducts({ category: "nope", market: "mars" }).length, 15);
+  assert.equal(filterProducts({ category: "nope", market: "mars" }).length, 13);
+});
+
+test("thambulam search and ID return no products", () => {
+  assert.equal(filterProducts({ q: "thambulam" }).length, 0);
+  assert.equal(filterProducts({}).some((item) => item.id === "thambulam-coconuts"), false);
 });

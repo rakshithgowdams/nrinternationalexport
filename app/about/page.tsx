@@ -27,8 +27,12 @@ export default function AboutPage() {
             Sourcing is focused on {business.sourcingRegion}. That regional description is separate from the registered address.
           </p>
         </div>
-        <div data-image-reveal className="overflow-hidden rounded-lg">
-          <img src="/images/coconut-orchard.jpg" alt="Young coconut orchard in India." className="aspect-[4/3] w-full object-cover" />
+        <div data-image-reveal className="overflow-hidden rounded-xl border border-line shadow-sm">
+          <img
+            src="/images/operations-handling.jpg"
+            alt="NR International Export operational facility with staff carefully processing and preparing coconuts for export."
+            className="aspect-[4/3] sm:aspect-[16/11] w-full object-cover object-center"
+          />
         </div>
       </Container>
       <section className="bg-white py-14">

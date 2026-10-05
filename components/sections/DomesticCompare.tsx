@@ -3,7 +3,7 @@
 import * as Tabs from "@radix-ui/react-tabs";
 import { getProduct } from "@/data/products";
 
-const ids = ["semi-husked-coconuts", "tender-coconuts", "thambulam-coconuts", "coconut-plants"];
+const ids = ["tender-coconuts", "coconut-plants"];
 
 export function DomesticCompare() {
   const items = ids.map((id) => getProduct(id)!);
@@ -11,7 +11,7 @@ export function DomesticCompare() {
     <section className="mt-16">
       <div data-reveal>
         <h2 className="font-display text-4xl">Coconut forms</h2>
-        <p className="mt-3 max-w-2xl text-muted">These are different products. A mature nut, a tender nut, a ritual nut and a seedling are not interchangeable.</p>
+        <p className="mt-3 max-w-2xl text-muted">These are different products. A tender nut and a seedling are not interchangeable.</p>
       </div>
       <Tabs.Root defaultValue={items[0].id} className="mt-6 hidden md:block">
         <Tabs.List data-reveal className="flex gap-2 overflow-x-auto" aria-label="Coconut forms">

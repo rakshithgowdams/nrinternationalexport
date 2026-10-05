@@ -79,7 +79,6 @@ const organization = {
       },
       employee: { "@type": "Person", name: business.contactName, jobTitle: business.contactRole },
       knowsAbout: [
-        "Semi-husked coconut",
         "Tiptur coconut",
         "Edible copra",
         "Coconut oil",

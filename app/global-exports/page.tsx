@@ -96,7 +96,7 @@ export default function GlobalExportsPage() {
 
         <section className="mt-16 grid items-center gap-8 lg:grid-cols-2">
           <div data-image-reveal className="overflow-hidden rounded-lg">
-            <img src="/images/jute-sacks.jpg" alt="Used jute sacks laid out flat." className="aspect-[4/3] w-full object-cover" />
+            <img src="/images/export-packing-sacks.jpg" alt="Mature coconuts neatly packed in jute and mesh sacks on wooden pallets in an export staging warehouse." className="aspect-[4/3] w-full object-cover" />
           </div>
           <div data-reveal>
             <h2 className="font-display text-3xl">Packing</h2>
