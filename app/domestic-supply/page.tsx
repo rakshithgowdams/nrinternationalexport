@@ -37,6 +37,35 @@ export default function DomesticPage() {
           <p className="mt-5 max-w-2xl text-lg text-ivory/85">Seedlings, coconuts, copra, grains and fresh produce for wholesale, farming and processing. This is supply inside India, not an export service.</p>
         </Container>
       </section>
+
+      <section className="border-b border-line bg-white py-16 md:py-24">
+        <Container>
+          <div data-reveal className="max-w-3xl mb-8">
+            <p className="text-xs font-bold tracking-[0.14em] text-ochre-ink uppercase">Domestic Reach</p>
+            <h2 className="mt-2 font-display text-3xl md:text-5xl">From Karnataka to Indian Markets.</h2>
+            <p className="mt-4 text-base md:text-lg leading-relaxed text-muted">
+              NR International Export coordinates wholesale supply of coconuts, copra, grains and fresh farm produce for businesses, processors, distributors and plantations across India.
+            </p>
+            <div className="mt-6">
+              <Link
+                href="/request-quote?market=domestic"
+                className="inline-flex min-h-11 items-center rounded-md bg-forest px-6 text-sm font-semibold text-ivory transition-colors hover:bg-olive"
+              >
+                Discuss a Domestic Requirement
+              </Link>
+            </div>
+          </div>
+          <div data-image-reveal className="overflow-hidden rounded-xl border border-line shadow-sm">
+            <img
+              src="/images/nr-domestic-supply.webp"
+              alt="Domestic agricultural supply operations showing fresh coconuts, ginger, ragi, and farm wholesale loading."
+              className="aspect-[16/9] w-full object-cover"
+              loading="lazy"
+            />
+          </div>
+        </Container>
+      </section>
+
       <Container className="py-14">
         <h2 data-reveal className="font-display text-4xl">Domestic catalogue</h2>
         <ul data-stagger className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
