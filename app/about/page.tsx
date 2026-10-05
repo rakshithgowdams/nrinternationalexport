@@ -1,7 +1,8 @@
 import Link from "next/link";
-import { business, certifications } from "@/data/business";
+import { business } from "@/data/business";
 import { pageMetadata } from "@/lib/site";
 import { Container } from "@/components/ui/primitives";
+import { TradeCertifications } from "@/components/sections/TradeCertifications";
 
 export const metadata = pageMetadata({
   title: "About NR International Export | Agricultural Export Company, Karnataka",
@@ -199,45 +200,7 @@ export default function AboutPage() {
       </section>
 
       {/* SECTION 07 — CREDIBILITY / REGISTRATIONS */}
-      <section className="bg-ivory/30 py-16 md:py-20 border-b border-line">
-        <Container>
-          <div data-reveal className="max-w-3xl mb-10">
-            <p className="text-xs font-bold uppercase tracking-[0.14em] text-olive font-mono">
-              TRADE REGISTRATIONS
-            </p>
-            <h2 className="mt-2 font-display text-3xl md:text-4xl text-ink">
-              Registered for business and export trade.
-            </h2>
-            <p className="mt-3 text-sm text-muted">
-              Official Indian government and export promotion council registrations verified for commercial and foreign trade.
-            </p>
-          </div>
-
-          <div data-stagger className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
-            {certifications.map((cert) => (
-              <div
-                key={cert.id}
-                className="flex flex-col items-center justify-center rounded-xl border border-line bg-white p-5 text-center shadow-xs transition-colors hover:border-forest/40"
-              >
-                <div className="relative mb-3 flex size-14 items-center justify-center overflow-hidden rounded-lg bg-ivory/60 p-2">
-                  <img
-                    src={cert.image}
-                    alt={cert.name}
-                    className="max-h-full max-w-full object-contain"
-                    loading="lazy"
-                  />
-                </div>
-                <h3 className="text-xs font-bold text-ink leading-snug">
-                  {cert.name}
-                </h3>
-                <p className="mt-1 text-[11px] text-muted line-clamp-2">
-                  {cert.issuer}
-                </p>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
+      <TradeCertifications />
 
       {/* SECTION 08 — COMPANY AT A GLANCE */}
       <section className="bg-white py-16 md:py-24 border-b border-line">
