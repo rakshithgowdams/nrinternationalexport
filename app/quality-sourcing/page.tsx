@@ -28,13 +28,13 @@ export default function QualityPage() {
         <Container>
           <div data-reveal className="max-w-3xl mb-12">
             <p className="text-xs font-bold uppercase tracking-wider text-olive font-mono">
-              Operational Journey
+              Quality & Sourcing Process
             </p>
             <h2 className="mt-2 font-display text-3xl md:text-5xl text-ink">
-              Source to shipment
+              Quality begins before dispatch.
             </h2>
             <p className="mt-4 text-base md:text-lg text-muted leading-relaxed">
-              Trace how agricultural goods move from origin groves in Karnataka through careful handling, container loading, and port logistics to destination markets.
+              Buyer requirements are discussed against product form, maturity, visible condition, packing and quantity before quotation and dispatch planning.
             </p>
           </div>
           <SourceToShipment />

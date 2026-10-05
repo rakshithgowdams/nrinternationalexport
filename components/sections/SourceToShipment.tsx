@@ -13,58 +13,41 @@ type StoryStep = {
 
 const steps: StoryStep[] = [
   {
-    id: "sourcing",
-    tag: "Origin & Sourcing",
-    title: "Sourcing from Karnataka",
+    id: "source",
+    tag: "01 SOURCE",
+    title: "Karnataka sourcing",
     description:
-      "Products are sourced from the Channarayapatna and Tiptur region according to buyer requirement, season, and product form.",
-    image: "/images/sourcing-karnataka.jpg",
-    alt: "Lush coconut sourcing groves in the Channarayapatna and Tiptur region of Karnataka at morning golden hour.",
+      "Agricultural produce is sourced directly from established coconut plantations and growing belts across Channarayapatna and Tiptur in Karnataka.",
+    image: "/images/nr-karnataka-sourcing.webp",
+    alt: "Agricultural coconut sourcing operation in Karnataka with harvesting, organized crates, and logistics vehicle.",
   },
   {
-    id: "handling",
-    tag: "Handling & Grading",
-    title: "Thoughtful handling",
+    id: "check",
+    tag: "02 CHECK",
+    title: "Quality / visible condition",
     description:
-      "Requirements are discussed carefully so the correct form, maturity, visible condition, and buyer expectation are aligned before dispatch.",
-    image: "/images/operations-handling.jpg",
-    alt: "NR International Export operational area with team handling and de-husking coconuts under strict quality standards.",
+      "Buyer requirements are discussed against product form, maturity, visible condition, packing and quantity before quotation and dispatch planning.",
+    image: "/images/nr-quality-inspection.webp",
+    alt: "Professional coconut quality-control facility with uniform-wearing team inspecting and sorting coconuts into green NR crates.",
   },
   {
-    id: "loading",
-    tag: "Container Loading",
-    title: "Prepared for dispatch",
+    id: "prepare",
+    tag: "03 PREPARE",
+    title: "Packing / preparation",
     description:
-      "Once product and quantity are agreed, handling and loading are organized for smooth bulk movement.",
-    image: "/images/container-loading.jpg",
-    alt: "Workers loading coconuts in export net sacks into an NR International Export heavy shipping container.",
+      "Whole coconuts, copra, and commodities are packed in agreed formats—such as mesh bags, jute sacks, or custom packing—palletized and prepared for export dispatch.",
+    image: "/images/nr-export-packing.webp",
+    alt: "Export packing and preparation scene showing mesh-packed coconuts, jute sacks, pallets, and forklift loading export container.",
   },
+
   {
-    id: "transit",
-    tag: "Inland Transport",
-    title: "Inland movement",
+    id: "dispatch",
+    tag: "04 DISPATCH",
+    title: "Export movement",
     description:
-      "Road transport supports movement from sourcing/handling points into the broader export chain.",
-    image: "/images/inland-transit.jpg",
-    alt: "Branded NR International Export container truck moving in inland transit on the highway towards maritime port.",
-  },
-  {
-    id: "port",
-    tag: "Port Logistics",
-    title: "Export logistics coordination",
-    description:
-      "Shipments move through coordinated port-side logistics and commercial preparation.",
-    image: "/images/port-logistics.jpg",
-    alt: "NR International Export container truck parked at maritime container port terminal beside quay cranes and vessels.",
-  },
-  {
-    id: "shipment",
-    tag: "Vessel Shipment",
-    title: "Ready for international supply",
-    description:
-      "After quotation acceptance and dispatch planning, the shipment proceeds through the export route toward the buyer’s destination.",
+      "Loaded containers move through dedicated inland highway transport to maritime port terminals for customs clearance and vessel shipment to international destinations.",
     image: "/images/vessel-shipment.jpg",
-    alt: "NR International Export container being hoisted by port gantry crane onto cargo vessel for international export.",
+    alt: "NR International Export container being hoisted by port gantry crane onto cargo vessel for international ocean shipment.",
   },
 ];
 

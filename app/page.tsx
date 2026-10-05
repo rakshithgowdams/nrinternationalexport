@@ -89,28 +89,29 @@ export default function HomePage() {
       <section className="relative overflow-hidden bg-forest">
         <HeroPhoto>
           <img
-            src="/images/plantation-india.jpg"
-            alt="Rows of tall coconut palms on a plantation in India."
-            className="h-full w-full object-cover"
+            src="/images/nr-global-export-hero.webp"
+            alt="NR International Export logistics at seaport with container ship, branded truck and international shipping routes."
+            className="h-full w-full object-cover object-center lg:object-[68%_center]"
+            fetchPriority="high"
           />
         </HeroPhoto>
-        <div className="absolute inset-0 bg-gradient-to-r from-forest via-forest/92 to-forest/65" />
-        <Container className="relative z-10 flex min-h-[540px] flex-col justify-center py-14 md:min-h-[62vh] lg:py-16">
-          <p data-reveal className="text-xs font-bold tracking-[0.12em] text-[#f3bd6d] uppercase">
-            {business.sourcingRegion}
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(23,43,33,0.92)_0%,rgba(23,43,33,0.76)_38%,rgba(23,43,33,0.30)_68%,rgba(23,43,33,0.12)_100%)] max-md:bg-[linear-gradient(180deg,rgba(23,43,33,0.92)_0%,rgba(23,43,33,0.80)_60%,rgba(23,43,33,0.40)_100%)]" />
+        <Container className="relative z-10 flex min-h-[560px] flex-col justify-center py-14 md:min-h-[72vh] lg:min-h-[78vh] lg:py-16">
+          <p data-reveal className="text-xs font-bold tracking-[0.14em] text-[#f3bd6d] uppercase">
+            KARNATAKA, INDIA · GLOBAL AGRI EXPORT
           </p>
           <div className="mt-5 max-w-3xl">
             <HeroHeading />
           </div>
           <p data-reveal className="mt-6 max-w-2xl text-lg leading-8 text-ivory/90">
-            Explore coconuts, copra and agricultural products for international and domestic trade. Share your product, quantity and destination to discuss supply.
+            Coconuts, copra and agricultural commodities sourced from Karnataka and prepared for international buyers through requirement-led quality, packing and export coordination.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Link href="/request-quote" className="inline-flex min-h-12 items-center rounded-md bg-white px-6 text-sm font-semibold text-forest">
-              Request a Quote
+            <Link href="/request-quote?market=global" className="inline-flex min-h-12 items-center rounded-md bg-white px-6 text-sm font-semibold text-forest transition-colors hover:bg-ivory">
+              Request Export Quote
             </Link>
-            <Link href="/products" className="inline-flex min-h-12 items-center rounded-md border border-white/40 px-6 text-sm font-semibold text-white">
-              Explore Products
+            <Link href="/global-exports" className="inline-flex min-h-12 items-center rounded-md border border-white/40 px-6 text-sm font-semibold text-white transition-colors hover:bg-white/10">
+              Explore Export Products
             </Link>
           </div>
         </Container>
@@ -119,9 +120,9 @@ export default function HomePage() {
       <section className="border-b border-line bg-white">
         <Container data-stagger className="grid gap-6 py-8 md:grid-cols-3">
           {[
-            ["Karnataka sourcing", "Channarayapatna and Tiptur are the sourcing focus for coconut and farm products."],
-            ["Two enquiry paths", "International buyers use Global Export. Buyers in India use Domestic Supply."],
-            ["Product-led bulk supply", "Each product has its own page, photograph and specification notes."],
+            ["International export focus", "Direct coordination from Karnataka sourcing groves to international container ports and overseas markets."],
+            ["Karnataka agricultural origin", "Channarayapatna and Tiptur groves provide mature coconuts, copra and regional farm commodities."],
+            ["Requirement-led supply", "Grades, export packing formats and phytosanitary requirements confirmed per order."],
           ].map(([title, body]) => (
             <div key={title}>
               <h2 className="font-display text-2xl">{title}</h2>
@@ -155,21 +156,65 @@ export default function HomePage() {
       </section>
 
       <section className="py-16 md:py-24">
-        <Container data-stagger className="grid gap-5 lg:grid-cols-2">
-          <article className="card overflow-hidden rounded-lg border border-line bg-white">
-            <img src="/images/kochi-container-terminal.jpg" alt="Container ship berthed under gantry cranes at the International Container Transshipment Terminal, Kochi." className="h-64 w-full object-cover" />
-            <div className="p-6">
-              <h2 className="font-display text-4xl">Global Exports</h2>
-              <p className="mt-3 text-muted">Coconuts, copra, oil, shells, ginger, maize and ragi for buyers outside India. Share the destination with the product and quantity.</p>
-              <Link href="/global-exports" className="mt-4 inline-flex min-h-11 items-center font-semibold text-olive">Discuss an export requirement</Link>
+        <Container data-stagger className="grid gap-6 lg:grid-cols-12">
+          <article className="card relative overflow-hidden rounded-xl border-2 border-forest/30 bg-white shadow-md lg:col-span-7">
+            <div className="relative h-72 w-full overflow-hidden">
+              <img
+                src="/images/kochi-container-terminal.jpg"
+                alt="Container ship berthed under gantry cranes at the International Container Transshipment Terminal, Kochi."
+                className="h-full w-full object-cover"
+                loading="lazy"
+              />
+              <span className="absolute top-4 left-4 rounded-full bg-forest px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-[#f3bd6d] shadow-sm">
+                Primary Export Focus
+              </span>
+            </div>
+            <div className="p-6 md:p-8">
+              <h2 className="font-display text-3xl md:text-4xl text-forest">Global Exports</h2>
+              <p className="mt-3 text-muted leading-relaxed">
+                Coconuts, copra, oil, shells, ginger, maize and ragi for international buyers. Destination country, port logistics, packing formats and shipping documentation are coordinated per order.
+              </p>
+              <div className="mt-6 flex flex-wrap items-center gap-4">
+                <Link
+                  href="/global-exports"
+                  className="inline-flex min-h-11 items-center rounded-md bg-forest px-6 text-sm font-semibold text-ivory transition-colors hover:bg-olive"
+                >
+                  Explore Global Export &rarr;
+                </Link>
+                <Link
+                  href="/request-quote?market=global"
+                  className="inline-flex min-h-11 items-center text-sm font-semibold text-olive hover:underline"
+                >
+                  Request export quotation
+                </Link>
+              </div>
             </div>
           </article>
-          <article className="card overflow-hidden rounded-lg border border-line bg-white">
-            <img src="/images/tender-coconut-boat.jpg" alt="Traditional boat transporting fresh green coconuts along a tropical coconut waterway for domestic supply." className="h-64 w-full object-cover" />
-            <div className="p-6">
-              <h2 className="font-display text-4xl">Domestic Supply</h2>
-              <p className="mt-3 text-muted">Seedlings, tender nuts, copra, shells, ragi, tomatoes and ginger for trade inside India.</p>
-              <Link href="/domestic-supply" className="mt-4 inline-flex min-h-11 items-center font-semibold text-olive">Request domestic pricing</Link>
+          <article className="card relative overflow-hidden rounded-xl border border-line bg-white lg:col-span-5">
+            <div className="relative h-72 w-full overflow-hidden">
+              <img
+                src="/images/tender-coconut-boat.jpg"
+                alt="Traditional boat transporting fresh green coconuts along a tropical coconut waterway for domestic supply."
+                className="h-full w-full object-cover"
+                loading="lazy"
+              />
+              <span className="absolute top-4 left-4 rounded-full bg-ivory px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-muted shadow-sm">
+                Domestic Supply
+              </span>
+            </div>
+            <div className="p-6 md:p-8">
+              <h2 className="font-display text-2xl md:text-3xl text-ink">Domestic Supply</h2>
+              <p className="mt-3 text-sm text-muted leading-relaxed">
+                Seedlings, tender nuts, copra, shells, ragi, tomatoes and ginger for wholesale trade inside India.
+              </p>
+              <div className="mt-6">
+                <Link
+                  href="/domestic-supply"
+                  className="inline-flex min-h-11 items-center text-sm font-semibold text-olive hover:underline"
+                >
+                  Request domestic pricing &rarr;
+                </Link>
+              </div>
             </div>
           </article>
         </Container>

@@ -52,6 +52,34 @@ export default function GlobalExportsPage() {
           <p className="mt-5 max-w-2xl text-lg text-ivory/85">Tell us the product, quantity and destination. A quotation follows only after those points are clear.</p>
         </Container>
       </section>
+      <section className="border-b border-line bg-white py-16 md:py-24">
+        <Container>
+          <div data-reveal className="max-w-3xl mb-8">
+            <p className="text-xs font-bold tracking-[0.14em] text-ochre-ink uppercase">Global Reach</p>
+            <h2 className="mt-2 font-display text-3xl md:text-5xl">From Karnataka to Global Markets.</h2>
+            <p className="mt-4 text-base md:text-lg leading-relaxed text-muted">
+              NR International Export discusses product requirements, packing, destination and commercial terms with international buyers before coordinating supply.
+            </p>
+            <div className="mt-6">
+              <Link
+                href="/request-quote?market=global"
+                className="inline-flex min-h-11 items-center rounded-md bg-forest px-6 text-sm font-semibold text-ivory transition-colors hover:bg-olive"
+              >
+                Discuss an Export Requirement
+              </Link>
+            </div>
+          </div>
+          <div data-image-reveal className="overflow-hidden rounded-xl border border-line shadow-sm">
+            <img
+              src="/images/nr-global-export-network.webp"
+              alt="Global trade network connecting Karnataka agricultural commodities to international maritime and air cargo logistics."
+              className="aspect-[16/9] w-full object-cover"
+              loading="lazy"
+            />
+          </div>
+        </Container>
+      </section>
+
       <Container className="py-14">
         <h2 data-reveal className="font-display text-4xl">Export catalogue</h2>
         <ul data-stagger className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -95,13 +123,18 @@ export default function GlobalExportsPage() {
         </section>
 
         <section className="mt-16 grid items-center gap-8 lg:grid-cols-2">
-          <div data-image-reveal className="overflow-hidden rounded-lg">
-            <img src="/images/export-packing-sacks.jpg" alt="Mature coconuts neatly packed in jute and mesh sacks on wooden pallets in an export staging warehouse." className="aspect-[4/3] w-full object-cover" />
+          <div data-image-reveal className="overflow-hidden rounded-xl border border-line shadow-sm">
+            <img
+              src="/images/nr-export-packing.webp"
+              alt="Export packing and container dispatch operations showing pallets of mesh-packed coconuts, jute sacks of copra, and grain packaging."
+              className="aspect-[4/3] w-full object-cover"
+              loading="lazy"
+            />
           </div>
           <div data-reveal>
             <h2 className="font-display text-3xl">Packing</h2>
             <p className="mt-3 leading-7 text-muted">
-              Whole coconuts and copra are typically packed in jute or mesh sacks. Choose the pack and net weight you want quoted. Capacities are not invented on this page.
+              Whole coconuts and copra can be discussed in suitable jute or mesh packing, while other commodities are quoted against their required packing format. Packing and net weight are confirmed against the product, quantity and destination during quotation.
             </p>
           </div>
         </section>

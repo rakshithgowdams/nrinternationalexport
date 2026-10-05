@@ -20,6 +20,12 @@ export default function AboutPage() {
       </section>
       <Container className="grid gap-12 py-14 lg:grid-cols-2">
         <div data-stagger className="space-y-5 leading-7 text-muted">
+          <p className="text-xs font-bold uppercase tracking-[0.14em] text-ochre-ink">
+            Origin · Channarayapatna and Tiptur
+          </p>
+          <h2 className="font-display text-3xl md:text-4xl text-ink">
+            Karnataka origin and organized sourcing.
+          </h2>
           <p>
             {business.name} is a {business.constitution.toLowerCase()} based at {business.address}. The business discusses coconuts, copra, coconut products, grains and fresh produce for buyers in India and for international enquiries.
           </p>
@@ -29,9 +35,10 @@ export default function AboutPage() {
         </div>
         <div data-image-reveal className="overflow-hidden rounded-xl border border-line shadow-sm">
           <img
-            src="/images/operations-handling.jpg"
-            alt="NR International Export operational facility with staff carefully processing and preparing coconuts for export."
+            src="/images/nr-karnataka-sourcing.webp"
+            alt="Organized coconut harvesting and sourcing operations in Karnataka groves with workers, collection crates, and transport vehicle."
             className="aspect-[4/3] sm:aspect-[16/11] w-full object-cover object-center"
+            loading="lazy"
           />
         </div>
       </Container>

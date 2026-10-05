@@ -36,7 +36,7 @@ export function HeroHeading() {
       className="font-display text-[2.5rem] leading-[1.05] font-medium text-ivory sm:text-6xl lg:text-[5.1rem]"
     >
       Rooted in Karnataka.
-      <span className="mt-1 block italic text-[#f3bd6d]">Ready for your market.</span>
+      <span className="mt-1 block italic text-[#f3bd6d]">Supplying Global Markets.</span>
     </h1>
   );
 }
