@@ -19,18 +19,15 @@ const links = [
 
 function Logo({ className }: { className?: string }) {
   return (
-    <picture>
-      <source srcSet="/brand/logo-light.webp" type="image/webp" />
-      <img
-        src="/brand/logo-light.webp"
-        alt="NR International Export"
-        width={180}
-        height={110}
-        loading="eager"
-        decoding="async"
-        className={cn("w-auto object-contain transition-[height] duration-200", className)}
-      />
-    </picture>
+    <img
+      src="/brand/logo-light.webp"
+      alt="NR International Export"
+      width={180}
+      height={110}
+      loading="eager"
+      decoding="async"
+      className={cn("w-auto object-contain transition-[height] duration-200", className)}
+    />
   );
 }
 
@@ -94,6 +91,7 @@ export function SiteHeader() {
                           <NavigationMenu.Link asChild>
                             <Link
                               href={`/products/${product.slug}`}
+                              prefetch={false}
                               className="block rounded-md px-2 py-1.5 text-sm text-ink hover:bg-ivory"
                               onClick={(event) => {
                                 if (Date.now() - openedAt.current < 400) event.preventDefault();
@@ -108,7 +106,7 @@ export function SiteHeader() {
                   </div>
                 ))}
                 <NavigationMenu.Link asChild>
-                  <Link href="/products" className="col-span-2 text-sm font-semibold text-olive">
+                  <Link href="/products" prefetch={false} className="col-span-2 text-sm font-semibold text-olive">
                     View all products
                   </Link>
                 </NavigationMenu.Link>
@@ -125,12 +123,12 @@ export function SiteHeader() {
               </NavigationMenu.Trigger>
               <NavigationMenu.Content className="nav-content absolute top-0 left-0 w-64 p-3">
                 <NavigationMenu.Link asChild>
-                  <Link href="/global-exports" className="block rounded-md px-3 py-2 text-sm hover:bg-ivory" onClick={(event) => { if (Date.now() - openedAt.current < 400) event.preventDefault(); }}>
+                  <Link href="/global-exports" prefetch={false} className="block rounded-md px-3 py-2 text-sm hover:bg-ivory" onClick={(event) => { if (Date.now() - openedAt.current < 400) event.preventDefault(); }}>
                     Global Exports
                   </Link>
                 </NavigationMenu.Link>
                 <NavigationMenu.Link asChild>
-                  <Link href="/domestic-supply" className="block rounded-md px-3 py-2 text-sm hover:bg-ivory" onClick={(event) => { if (Date.now() - openedAt.current < 400) event.preventDefault(); }}>
+                  <Link href="/domestic-supply" prefetch={false} className="block rounded-md px-3 py-2 text-sm hover:bg-ivory" onClick={(event) => { if (Date.now() - openedAt.current < 400) event.preventDefault(); }}>
                     Domestic Supply
                   </Link>
                 </NavigationMenu.Link>

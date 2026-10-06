@@ -1,227 +1,158 @@
 [
   {
-    "file": "/images/plantation-india.jpg",
-    "subject": "Coconut plantation",
-    "title": "Cocos nucifera plantation in continental India (Nagesh).jpg",
-    "author": "Nagesh Kamath from Bangalore, India",
-    "license": "CC BY-SA 2.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
-    "source": "https://commons.wikimedia.org/wiki/File:Cocos_nucifera_plantation_in_continental_India_(Nagesh).jpg"
-  },
-  {
-    "file": "/images/coconut-orchard.jpg",
-    "subject": "Coconut orchard",
-    "title": "Coconut tree orchard.JPG",
-    "author": "Nikhilb239",
-    "license": "CC BY-SA 3.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-    "source": "https://commons.wikimedia.org/wiki/File:Coconut_tree_orchard.JPG"
-  },
-  {
-    "file": "/images/coconut-farm-kadakola.jpg",
-    "subject": "Coconut farm, Kadakola, Karnataka",
-    "title": "Coconut farm at Kadakola village.jpg",
-    "author": "Prof tpms",
-    "license": "CC BY-SA 4.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "source": "https://commons.wikimedia.org/wiki/File:Coconut_farm_at_Kadakola_village.jpg"
-  },
-  {
-    "file": "/images/coconut-heaps.jpg",
-    "subject": "Heaps of coconuts under palms",
-    "title": "Heaps of coconuts (3187666876).jpg",
-    "author": "mwanasimba from La Réunion",
-    "license": "CC BY-SA 2.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
-    "source": "https://commons.wikimedia.org/wiki/File:Heaps_of_coconuts_(3187666876).jpg"
-  },
-  {
+    "id": "coconuts-market",
+    "image": "/images/coconuts-market.jpg",
     "file": "/images/coconuts-market.jpg",
+    "title": "Mature coconuts",
     "subject": "Mature coconuts",
-    "title": "Coconuts at Bakin Dogo Market Kaduna North 01.jpg",
+    "creator": "JoabJacob",
     "author": "JoabJacob",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Coconuts_at_Bakin_Dogo_Market_Kaduna_North_01.jpg",
     "license": "CC BY-SA 4.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "source": "https://commons.wikimedia.org/wiki/File:Coconuts_at_Bakin_Dogo_Market_Kaduna_North_01.jpg"
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
   },
   {
+    "id": "coconut-heaps",
+    "image": "/images/coconut-heaps.jpg",
+    "file": "/images/coconut-heaps.jpg",
+    "title": "Heaps of coconuts under palms",
+    "subject": "Heaps of coconuts under palms",
+    "creator": "mwanasimba from La Réunion",
+    "author": "mwanasimba from La Réunion",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Heaps_of_coconuts_(3187666876).jpg",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0"
+  },
+  {
+    "id": "copra-cups",
+    "image": "/images/copra-cups.jpg",
     "file": "/images/copra-cups.jpg",
+    "title": "Copra cups",
     "subject": "Copra cups",
-    "title": "Coconut copra.JPG",
+    "creator": "Ks.mini",
     "author": "Ks.mini",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Coconut_copra.JPG",
     "license": "CC BY-SA 3.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-    "source": "https://commons.wikimedia.org/wiki/File:Coconut_copra.JPG"
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
   },
   {
+    "id": "ball-copra",
+    "image": "/images/ball-copra.jpg",
     "file": "/images/ball-copra.jpg",
+    "title": "Whole dry coconut (ball copra)",
     "subject": "Whole dry coconut (ball copra)",
-    "title": "Copra full.JPG",
+    "creator": "Rajesh dangi at English Wikipedia",
     "author": "Rajesh dangi at English Wikipedia",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Copra_full.JPG",
     "license": "CC BY 2.5",
-    "licenseUrl": "https://creativecommons.org/licenses/by/2.5",
-    "source": "https://commons.wikimedia.org/wiki/File:Copra_full.JPG"
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.5"
   },
   {
+    "id": "copra-store",
+    "image": "/images/copra-store.jpg",
     "file": "/images/copra-store.jpg",
+    "title": "Copra store",
     "subject": "Copra store",
-    "title": "Copra crop basilan.JPG",
+    "creator": "Jjarivera",
     "author": "Jjarivera",
-    "license": "Public domain",
-    "licenseUrl": "",
-    "source": "https://commons.wikimedia.org/wiki/File:Copra_crop_basilan.JPG"
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Copra_crop_basilan.JPG",
+    "license": "Public Domain",
+    "licenseUrl": ""
   },
   {
+    "id": "desiccated-coconut-real",
+    "image": "/images/desiccated-coconut-real.jpg",
     "file": "/images/desiccated-coconut-real.jpg",
+    "title": "Ground dried coconut",
     "subject": "Ground dried coconut",
-    "title": "Ground coconut seed.jpg",
+    "creator": "DennisM",
     "author": "DennisM",
-    "license": "Public domain",
-    "licenseUrl": "",
-    "source": "https://commons.wikimedia.org/wiki/File:Ground_coconut_seed.jpg"
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ground_coconut_seed.jpg",
+    "license": "Public Domain",
+    "licenseUrl": ""
   },
   {
-    "file": "/images/coconut-shell-halves.webp",
-    "subject": "Cleaned coconut shell halves and whole shells",
-    "title": "Cleaned Coconut Shells & Halves",
-    "author": "NR International Export",
-    "license": "Commercial / Proprietary",
-    "licenseUrl": "https://nrinternationalexport.com",
-    "source": "Official company asset"
-  },
-  {
+    "id": "coconut-oil-bottle",
+    "image": "/images/coconut-oil-bottle.jpg",
     "file": "/images/coconut-oil-bottle.jpg",
+    "title": "Coconut oil",
     "subject": "Coconut oil",
-    "title": "Coconut oil bottle in the background of coconuts from Kaleeswari Farm.jpg",
+    "creator": "deadrat",
     "author": "deadrat",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Coconut_oil_bottle_in_the_background_of_coconuts_from_Kaleeswari_Farm.jpg",
     "license": "CC BY-SA 4.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "source": "https://commons.wikimedia.org/wiki/File:Coconut_oil_bottle_in_the_background_of_coconuts_from_Kaleeswari_Farm.jpg"
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
   },
   {
+    "id": "coconut-seedlings",
+    "image": "/images/coconut-seedlings.jpg",
     "file": "/images/coconut-seedlings.jpg",
+    "title": "Coconut seedlings",
     "subject": "Coconut seedlings",
-    "title": "Coconut seedlings.JPG",
+    "creator": "Bhaskaranaidu",
     "author": "Bhaskaranaidu",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Coconut_seedlings.JPG",
     "license": "CC BY-SA 3.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-    "source": "https://commons.wikimedia.org/wiki/File:Coconut_seedlings.JPG"
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
   },
   {
-    "file": "/images/coconut-kernel-halves.jpg",
+    "id": "coconut-kernel-halves",
+    "image": "/images/coconut-kernel-halves.webp",
+    "file": "/images/coconut-kernel-halves.webp",
+    "title": "Halved coconuts with kernel",
     "subject": "Halved coconuts with kernel",
-    "title": "Coconut shells.jpg",
+    "creator": "Gausanchennai",
     "author": "Gausanchennai",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Coconut_shells.jpg",
     "license": "CC BY-SA 4.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "source": "https://commons.wikimedia.org/wiki/File:Coconut_shells.jpg"
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
   },
   {
+    "id": "tender-coconut-pile",
+    "image": "/images/tender-coconut-pile.jpg",
     "file": "/images/tender-coconut-pile.jpg",
+    "title": "Tender coconuts",
     "subject": "Tender coconuts",
-    "title": "Tender coconut 2.jpg",
+    "creator": "Gatursingh",
     "author": "Gatursingh",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tender_coconut_2.jpg",
     "license": "CC BY-SA 3.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-    "source": "https://commons.wikimedia.org/wiki/File:Tender_coconut_2.jpg"
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
   },
   {
+    "id": "tomatoes-koyambedu",
+    "image": "/images/tomatoes-koyambedu.jpg",
     "file": "/images/tomatoes-koyambedu.jpg",
+    "title": "Tomatoes, Koyambedu Market",
     "subject": "Tomatoes, Koyambedu Market",
-    "title": "India - Koyambedu Market - Tomatoes 02 (3987058522).jpg",
+    "creator": "McKay Savage from London, UK",
     "author": "McKay Savage from London, UK",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:India_-_Koyambedu_Market_-_Tomatoes_02_(3987058522).jpg",
     "license": "CC BY 2.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-    "source": "https://commons.wikimedia.org/wiki/File:India_-_Koyambedu_Market_-_Tomatoes_02_(3987058522).jpg"
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0"
   },
   {
-    "file": "/images/kochi-container-terminal.jpg",
-    "subject": "Container terminal, Kochi",
-    "title": "Mogral at the International Container Transshipment Terminal, Kochi.jpg",
-    "author": "ArulkumarRajamani",
-    "license": "CC BY-SA 4.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "source": "https://commons.wikimedia.org/wiki/File:Mogral_at_the_International_Container_Transshipment_Terminal,_Kochi.jpg"
-  },
-  {
-    "file": "/images/tender-coconut-boat.jpg",
-    "subject": "Tender coconut harvest waterway transport",
-    "title": "Tender coconut waterway transport",
-    "author": "NR International Export / Client Archive",
-    "license": "Commercial / Client Sourced",
-    "licenseUrl": "https://nrinternationalexport.com",
-    "source": "Direct operational / supply sourcing archive"
-  },
-  {
-    "file": "/images/finger-millet-heads.jpg",
+    "id": "finger-millet-heads",
+    "image": "/images/finger-millet-heads.webp",
+    "file": "/images/finger-millet-heads.webp",
+    "title": "Finger millet (ragi) heads",
     "subject": "Finger millet (ragi) heads",
-    "title": "Finger millets.jpg",
+    "creator": "Kiran sidam",
     "author": "Kiran sidam",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Finger_millets.jpg",
     "license": "CC BY-SA 4.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "source": "https://commons.wikimedia.org/wiki/File:Finger_millets.jpg"
-  },
-  {
-    "file": "/images/jute-sacks.jpg",
-    "subject": "Jute sacks",
-    "title": "Jute Bags.jpg",
-    "author": "Ei'eke",
-    "license": "CC BY-SA 4.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "source": "https://commons.wikimedia.org/wiki/File:Jute_Bags.jpg"
-  },
-  {
-    "file": "/images/nr-global-export-hero.webp",
-    "subject": "Global export maritime terminal, vessel, and container transport",
-    "title": "NR International Export Seaport & Global Route Logistics",
-    "author": "NR International Export",
-    "license": "Commercial / Proprietary",
-    "licenseUrl": "https://nrinternationalexport.com",
-    "source": "Official company asset"
-  },
-  {
-    "file": "/images/nr-global-export-network.webp",
-    "subject": "Global agricultural export network and international transit",
-    "title": "NR International Export Global Reach & Commodity Trade",
-    "author": "NR International Export",
-    "license": "Commercial / Proprietary",
-    "licenseUrl": "https://nrinternationalexport.com",
-    "source": "Official company asset"
-  },
-  {
-    "file": "/images/nr-karnataka-sourcing.webp",
-    "subject": "Karnataka coconut sourcing and plantation operations",
-    "title": "NR International Export Karnataka Sourcing Operations",
-    "author": "NR International Export",
-    "license": "Commercial / Proprietary",
-    "licenseUrl": "https://nrinternationalexport.com",
-    "source": "Official company asset"
-  },
-  {
-    "file": "/images/nr-quality-inspection.webp",
-    "subject": "Coconut quality inspection and grading facility",
-    "title": "NR International Export Quality Inspection Facility",
-    "author": "NR International Export",
-    "license": "Commercial / Proprietary",
-    "licenseUrl": "https://nrinternationalexport.com",
-    "source": "Official company asset"
-  },
-  {
-    "file": "/images/nr-export-packing.webp",
-    "subject": "Export packing, palletizing, and container staging",
-    "title": "NR International Export Packing & Dispatch Operations",
-    "author": "NR International Export",
-    "license": "Commercial / Proprietary",
-    "licenseUrl": "https://nrinternationalexport.com",
-    "source": "Official company asset"
-  },
-  {
-    "file": "/images/nr-domestic-supply.webp",
-    "subject": "Domestic agricultural supply and wholesale produce loading",
-    "title": "NR International Export Domestic Supply Operations",
-    "author": "NR International Export",
-    "license": "Commercial / Proprietary",
-    "licenseUrl": "https://nrinternationalexport.com",
-    "source": "Official company asset"
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
   }
 ]

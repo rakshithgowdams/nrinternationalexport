@@ -71,18 +71,15 @@ export function SiteFooter() {
         {/* Brand Column */}
         <div className="lg:col-span-3">
           <div className="inline-block rounded-md bg-ivory p-2 sm:p-2.5">
-            <picture>
-              <source srcSet="/brand/logo-light.webp" type="image/webp" />
-              <img
-                src="/brand/logo-light.webp"
-                alt="NR International Export"
-                width={200}
-                height={123}
-                loading="lazy"
-                decoding="async"
-                className="h-20 sm:h-[82px] w-auto"
-              />
-            </picture>
+            <img
+              src="/brand/logo-light.webp"
+              alt="NR International Export"
+              width={200}
+              height={123}
+              loading="lazy"
+              decoding="async"
+              className="h-20 sm:h-[82px] w-auto"
+            />
           </div>
           <p className="mt-3 max-w-xs text-xs sm:text-[13px] font-medium tracking-[0.08em] text-ivory/80 uppercase leading-relaxed">
             {business.tagline}
