@@ -59,7 +59,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
   const related = relatedProducts(product);
 
   return (
-    <Container className="py-10 md:py-14">
+    <Container key={product.slug} className="py-10 md:py-14">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema(product)) }} />
       <Breadcrumbs
         items={[
@@ -80,7 +80,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
             ) : null}
           </div>
           <div data-image-reveal className="mt-6">
-            <ProductGallery images={product.images} name={product.name} />
+            <ProductGallery key={product.slug} images={product.images} name={product.name} />
           </div>
           <div data-reveal className="mt-8 max-w-3xl space-y-4 leading-7 text-muted">
             {product.overview.map((paragraph) => (
@@ -174,7 +174,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
             </ul>
           </section>
         </div>
-        <QuotePanel product={product} />
+        <QuotePanel key={product.slug} product={product} />
       </div>
     </Container>
   );

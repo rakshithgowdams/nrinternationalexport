@@ -1,15 +1,23 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
 
 export function MotionScope({ children }: { children: React.ReactNode }) {
   const scope = useRef<HTMLDivElement>(null);
+  const pathname = usePathname();
 
   useEffect(() => {
     const root = scope.current;
     if (!root) return;
 
     if (typeof window === "undefined" || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      root.querySelectorAll<HTMLElement>("[data-reveal], [data-image-reveal]").forEach((el) => {
+        el.classList.add("is-revealed");
+      });
+      root.querySelectorAll<HTMLElement>("[data-stagger] > *").forEach((el) => {
+        el.classList.add("is-revealed");
+      });
       return;
     }
 
@@ -25,19 +33,61 @@ export function MotionScope({ children }: { children: React.ReactNode }) {
       { rootMargin: "0px 0px -40px 0px", threshold: 0.05 }
     );
 
-    // 1. Observe [data-reveal] and [data-image-reveal]
-    root.querySelectorAll<HTMLElement>("[data-reveal], [data-image-reveal]").forEach((el) => {
-      observer.observe(el);
+    const observeElement = (el: HTMLElement) => {
+      if (el.classList.contains("is-revealed")) return;
+      const rect = el.getBoundingClientRect();
+      // If already visible in the viewport (e.g. above-the-fold content on route navigation), reveal immediately
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        el.classList.add("is-revealed");
+      } else {
+        observer.observe(el);
+      }
+    };
+
+    const scanAndObserve = (target: HTMLElement) => {
+      // 1. Observe [data-reveal] and [data-image-reveal]
+      if (target.matches("[data-reveal], [data-image-reveal]")) {
+        observeElement(target);
+      }
+      target.querySelectorAll<HTMLElement>("[data-reveal], [data-image-reveal]").forEach((el) => {
+        observeElement(el);
+      });
+
+      // 2. Observe [data-stagger] children with staggered transition-delay
+      const staggerGroups: HTMLElement[] = [];
+      if (target.matches("[data-stagger]")) {
+        staggerGroups.push(target);
+      }
+      target.querySelectorAll<HTMLElement>("[data-stagger]").forEach((el) => {
+        staggerGroups.push(el);
+      });
+
+      staggerGroups.forEach((group) => {
+        const items = Array.from(group.children) as HTMLElement[];
+        items.forEach((item, index) => {
+          item.style.transitionDelay = `${index * 60}ms`;
+          observeElement(item);
+        });
+      });
+    };
+
+    // Initial scan for the newly navigated page
+    scanAndObserve(root);
+
+    // MutationObserver to automatically catch newly mounted elements on client route navigation
+    const mutationObserver = new MutationObserver((mutations) => {
+      for (const mutation of mutations) {
+        if (mutation.type === "childList") {
+          mutation.addedNodes.forEach((node) => {
+            if (node instanceof HTMLElement) {
+              scanAndObserve(node);
+            }
+          });
+        }
+      }
     });
 
-    // 2. Observe [data-stagger] children with staggered transition-delay
-    root.querySelectorAll<HTMLElement>("[data-stagger]").forEach((group) => {
-      const items = Array.from(group.children) as HTMLElement[];
-      items.forEach((item, index) => {
-        item.style.transitionDelay = `${index * 60}ms`;
-        observer.observe(item);
-      });
-    });
+    mutationObserver.observe(root, { childList: true, subtree: true });
 
     // 4. Process timeline scroll interaction
     const cleanupListeners: Array<() => void> = [];
@@ -81,23 +131,26 @@ export function MotionScope({ children }: { children: React.ReactNode }) {
         }
       };
 
-      const processObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            container.classList.add("process-ready");
-            if (!isListening) {
-              window.addEventListener("scroll", onScroll, { passive: true });
-              isListening = true;
+      const processObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              container.classList.add("process-ready");
+              if (!isListening) {
+                window.addEventListener("scroll", onScroll, { passive: true });
+                isListening = true;
+              }
+              updateProcess();
+            } else {
+              if (isListening) {
+                window.removeEventListener("scroll", onScroll);
+                isListening = false;
+              }
             }
-            updateProcess();
-          } else {
-            if (isListening) {
-              window.removeEventListener("scroll", onScroll);
-              isListening = false;
-            }
-          }
-        });
-      }, { rootMargin: "100px 0px" });
+          });
+        },
+        { rootMargin: "100px 0px" }
+      );
 
       processObserver.observe(container);
 
@@ -113,9 +166,10 @@ export function MotionScope({ children }: { children: React.ReactNode }) {
 
     return () => {
       observer.disconnect();
+      mutationObserver.disconnect();
       cleanupListeners.forEach((cleanup) => cleanup());
     };
-  }, []);
+  }, [pathname]);
 
   return <div ref={scope}>{children}</div>;
 }

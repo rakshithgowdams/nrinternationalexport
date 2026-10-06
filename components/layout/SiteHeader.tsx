@@ -36,7 +36,6 @@ export function SiteHeader() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const openedAt = useRef(0);
   const prevPathname = useRef(pathname);
   const { lines } = useEnquiry();
 
@@ -72,12 +71,7 @@ export function SiteHeader() {
         <NavigationMenu.Root className="relative hidden lg:block" delayDuration={80}>
           <NavigationMenu.List className="flex items-center gap-1">
             <NavigationMenu.Item>
-              <NavigationMenu.Trigger
-                onPointerDown={() => {
-                  openedAt.current = Date.now();
-                }}
-                className="group inline-flex items-center gap-1 rounded-md px-3 py-2 text-sm font-semibold text-ink transition-colors hover:bg-ivory data-[state=open]:bg-ivory"
-              >
+              <NavigationMenu.Trigger className="group inline-flex items-center gap-1 rounded-md px-3 py-2 text-sm font-semibold text-ink transition-colors hover:bg-ivory data-[state=open]:bg-ivory">
                 Products <ChevronDown className="size-4 transition-transform duration-200 group-data-[state=open]:rotate-180" aria-hidden />
               </NavigationMenu.Trigger>
               <NavigationMenu.Content className="nav-content absolute top-0 left-0 grid w-[680px] grid-cols-2 gap-6 p-5">
@@ -94,9 +88,6 @@ export function SiteHeader() {
                               href={`/products/${product.slug}`}
                               prefetch={false}
                               className="block rounded-md px-2 py-1.5 text-sm text-ink hover:bg-ivory"
-                              onClick={(event) => {
-                                if (Date.now() - openedAt.current < 400) event.preventDefault();
-                              }}
                             >
                               {product.name}
                             </Link>
@@ -114,22 +105,17 @@ export function SiteHeader() {
               </NavigationMenu.Content>
             </NavigationMenu.Item>
             <NavigationMenu.Item>
-              <NavigationMenu.Trigger
-                onPointerDown={() => {
-                  openedAt.current = Date.now();
-                }}
-                className="group inline-flex items-center gap-1 rounded-md px-3 py-2 text-sm font-semibold text-ink transition-colors hover:bg-ivory data-[state=open]:bg-ivory"
-              >
+              <NavigationMenu.Trigger className="group inline-flex items-center gap-1 rounded-md px-3 py-2 text-sm font-semibold text-ink transition-colors hover:bg-ivory data-[state=open]:bg-ivory">
                 Markets <ChevronDown className="size-4 transition-transform duration-200 group-data-[state=open]:rotate-180" aria-hidden />
               </NavigationMenu.Trigger>
               <NavigationMenu.Content className="nav-content absolute top-0 left-0 w-64 p-3">
                 <NavigationMenu.Link asChild>
-                  <Link href="/global-exports" prefetch={false} className="block rounded-md px-3 py-2 text-sm hover:bg-ivory" onClick={(event) => { if (Date.now() - openedAt.current < 400) event.preventDefault(); }}>
+                  <Link href="/global-exports" prefetch={false} className="block rounded-md px-3 py-2 text-sm hover:bg-ivory">
                     Global Exports
                   </Link>
                 </NavigationMenu.Link>
                 <NavigationMenu.Link asChild>
-                  <Link href="/domestic-supply" prefetch={false} className="block rounded-md px-3 py-2 text-sm hover:bg-ivory" onClick={(event) => { if (Date.now() - openedAt.current < 400) event.preventDefault(); }}>
+                  <Link href="/domestic-supply" prefetch={false} className="block rounded-md px-3 py-2 text-sm hover:bg-ivory">
                     Domestic Supply
                   </Link>
                 </NavigationMenu.Link>
