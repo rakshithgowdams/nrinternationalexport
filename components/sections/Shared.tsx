@@ -58,11 +58,11 @@ export function CtaBand({
           <p className="mt-3 text-ivory/80">{body}</p>
         </div>
         <div data-reveal className="flex flex-wrap gap-3">
-          <Link href={primaryHref} className="inline-flex min-h-11 items-center rounded-md bg-white px-5 text-sm font-semibold text-forest">
+          <Link href={primaryHref} prefetch={false} className="inline-flex min-h-11 items-center rounded-md bg-white px-5 text-sm font-semibold text-forest">
             {primaryLabel}
           </Link>
           {secondaryHref && secondaryLabel ? (
-            <Link href={secondaryHref} className="inline-flex min-h-11 items-center rounded-md border border-white/30 px-5 text-sm font-semibold">
+            <Link href={secondaryHref} prefetch={false} className="inline-flex min-h-11 items-center rounded-md border border-white/30 px-5 text-sm font-semibold">
               {secondaryLabel}
             </Link>
           ) : null}

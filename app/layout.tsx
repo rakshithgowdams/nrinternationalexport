@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Manrope } from "next/font/google";
-import { Toaster } from "sonner";
+import dynamic from "next/dynamic";
+
+const Toaster = dynamic(() => import("sonner").then((mod) => mod.Toaster));
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { EnquiryProvider } from "@/components/enquiry/EnquiryProvider";
 import { business, certifications } from "@/data/business";
@@ -10,7 +12,7 @@ import "./globals.css";
 
 const display = Cormorant_Garamond({
   subsets: ["latin"],
-  weight: ["500", "600"],
+  weight: ["500"],
   variable: "--font-cormorant",
   display: "swap",
 });

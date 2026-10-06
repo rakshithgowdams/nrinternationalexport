@@ -25,14 +25,9 @@ export function MotionScope({ children }: { children: React.ReactNode }) {
       { rootMargin: "0px 0px -40px 0px", threshold: 0.05 }
     );
 
-    // 1. Observe [data-reveal]
-    root.querySelectorAll<HTMLElement>("[data-reveal]").forEach((el) => {
-      const rect = el.getBoundingClientRect();
-      if (rect.top < window.innerHeight && rect.bottom > 0) {
-        el.classList.add("is-revealed");
-      } else {
-        observer.observe(el);
-      }
+    // 1. Observe [data-reveal] and [data-image-reveal]
+    root.querySelectorAll<HTMLElement>("[data-reveal], [data-image-reveal]").forEach((el) => {
+      observer.observe(el);
     });
 
     // 2. Observe [data-stagger] children with staggered transition-delay
@@ -40,30 +35,15 @@ export function MotionScope({ children }: { children: React.ReactNode }) {
       const items = Array.from(group.children) as HTMLElement[];
       items.forEach((item, index) => {
         item.style.transitionDelay = `${index * 60}ms`;
-        const rect = item.getBoundingClientRect();
-        if (rect.top < window.innerHeight && rect.bottom > 0) {
-          item.classList.add("is-revealed");
-        } else {
-          observer.observe(item);
-        }
+        observer.observe(item);
       });
-    });
-
-    // 3. Observe [data-image-reveal]
-    root.querySelectorAll<HTMLElement>("[data-image-reveal]").forEach((el) => {
-      const rect = el.getBoundingClientRect();
-      if (rect.top < window.innerHeight && rect.bottom > 0) {
-        el.classList.add("is-revealed");
-      } else {
-        observer.observe(el);
-      }
     });
 
     // 4. Process timeline scroll interaction
     const cleanupListeners: Array<() => void> = [];
 
     root.querySelectorAll<HTMLElement>("[data-process]").forEach((container) => {
-      container.classList.add("process-ready");
+      let isListening = false;
       const line = container.querySelector<HTMLElement>("[data-process-line]");
       const steps = Array.from(container.querySelectorAll<HTMLElement>("[data-step]"));
 
@@ -101,11 +81,31 @@ export function MotionScope({ children }: { children: React.ReactNode }) {
         }
       };
 
-      window.addEventListener("scroll", onScroll, { passive: true });
-      updateProcess();
+      const processObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            container.classList.add("process-ready");
+            if (!isListening) {
+              window.addEventListener("scroll", onScroll, { passive: true });
+              isListening = true;
+            }
+            updateProcess();
+          } else {
+            if (isListening) {
+              window.removeEventListener("scroll", onScroll);
+              isListening = false;
+            }
+          }
+        });
+      }, { rootMargin: "100px 0px" });
+
+      processObserver.observe(container);
 
       cleanupListeners.push(() => {
-        window.removeEventListener("scroll", onScroll);
+        processObserver.disconnect();
+        if (isListening) {
+          window.removeEventListener("scroll", onScroll);
+        }
         container.classList.remove("process-ready");
         steps.forEach((s) => s.classList.remove("is-active"));
       });

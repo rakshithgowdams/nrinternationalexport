@@ -97,8 +97,8 @@ export default function HomePage() {
               media="(max-width: 768px)"
               srcSet="/images/nr-global-export-hero-mobile.webp"
               type="image/webp"
-              width={640}
-              height={360}
+              width={480}
+              height={270}
             />
             <img
               src="/images/nr-global-export-hero.webp"
@@ -149,7 +149,7 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section className="py-16 md:py-24">
+      <section className="py-16 md:py-24 content-auto">
         <Container>
           <div data-reveal>
             <p className="text-xs font-bold tracking-[0.12em] text-ochre-ink uppercase">Catalogue</p>
@@ -170,7 +170,7 @@ export default function HomePage() {
                 <div className="p-5">
                   <h3 className="font-display text-3xl">{family.title}</h3>
                   <p className="mt-2 text-sm leading-6 text-muted">{family.body}</p>
-                  <Link href={family.href} className="mt-4 inline-flex text-sm font-semibold text-olive">
+                  <Link href={family.href} prefetch={false} className="mt-4 inline-flex text-sm font-semibold text-olive">
                     View this range
                   </Link>
                 </div>
@@ -180,7 +180,7 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section className="py-16 md:py-24">
+      <section className="py-16 md:py-24 content-auto">
         <Container data-stagger className="grid gap-6 lg:grid-cols-12">
           <article className="card relative overflow-hidden rounded-xl border-2 border-forest/30 bg-white shadow-md lg:col-span-7">
             <div className="relative h-72 w-full overflow-hidden">
@@ -214,12 +214,14 @@ export default function HomePage() {
               <div className="mt-6 flex flex-wrap items-center gap-4">
                 <Link
                   href="/global-exports"
+                  prefetch={false}
                   className="inline-flex min-h-11 items-center rounded-md bg-forest px-6 text-sm font-semibold text-ivory transition-colors hover:bg-olive"
                 >
                   Explore Global Export &rarr;
                 </Link>
                 <Link
                   href="/request-quote?market=global"
+                  prefetch={false}
                   className="inline-flex min-h-11 items-center text-sm font-semibold text-olive hover:underline"
                 >
                   Request export quotation
@@ -259,6 +261,7 @@ export default function HomePage() {
               <div className="mt-6">
                 <Link
                   href="/domestic-supply"
+                  prefetch={false}
                   className="inline-flex min-h-11 items-center text-sm font-semibold text-olive hover:underline"
                 >
                   Request domestic pricing &rarr;
@@ -269,7 +272,7 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section className="bg-white py-16 md:py-24">
+      <section className="bg-white py-16 md:py-24 content-auto">
         <Container className="grid items-center gap-10 lg:grid-cols-2">
           <div data-image-reveal className="overflow-hidden rounded-lg">
             <picture className="aspect-[16/10] w-full block">
@@ -302,7 +305,7 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section className="py-16 md:py-24">
+      <section className="py-16 md:py-24 content-auto">
         <Container className="grid gap-10 lg:grid-cols-2">
           <div className="lg:sticky lg:top-28 lg:h-fit">
             <div data-image-reveal className="overflow-hidden rounded-lg">
@@ -340,17 +343,17 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section className="bg-white py-16">
+      <section className="bg-white py-16 content-auto">
         <Container data-reveal className="max-w-3xl">
           <h2 className="font-display text-4xl">What to discuss about quality</h2>
           <p className="mt-4 leading-7 text-muted">
             Ask about grade, visible condition, packing and delivery requirements. {indicativeNote}
           </p>
-          <Link href="/quality-sourcing" className="mt-4 inline-flex font-semibold text-olive">Read quality and sourcing</Link>
+          <Link href="/quality-sourcing" prefetch={false} className="mt-4 inline-flex font-semibold text-olive">Read quality and sourcing</Link>
         </Container>
       </section>
 
-      <section className="py-16">
+      <section className="py-16 content-auto">
         <Container>
           <h2 data-reveal className="font-display text-4xl">Related agricultural range</h2>
           <ul data-stagger className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -358,7 +361,7 @@ export default function HomePage() {
               const product = products.find((item) => item.id === id)!;
               return (
                 <li key={id}>
-                  <Link href={`/products/${product.slug}`} className="card block overflow-hidden rounded-lg border border-line bg-white">
+                  <Link href={`/products/${product.slug}`} prefetch={false} className="card block overflow-hidden rounded-lg border border-line bg-white">
                     <img
                       src={product.images[0].src}
                       alt={product.images[0].alt}
@@ -380,7 +383,7 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section className="bg-white py-16">
+      <section className="bg-white py-16 content-auto">
         <Container className="max-w-3xl">
           <h2 data-reveal className="font-display text-4xl">Questions before you enquire</h2>
           <div className="mt-6">

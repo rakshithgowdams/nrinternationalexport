@@ -25,6 +25,7 @@ function Logo({ className }: { className?: string }) {
       width={180}
       height={110}
       loading="eager"
+      fetchPriority="low"
       decoding="async"
       className={cn("w-auto object-contain transition-[height] duration-200", className)}
     />
