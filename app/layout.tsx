@@ -134,22 +134,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${display.variable} ${sans.variable}`} data-scroll-behavior="smooth">
       <head>
-        <link
-          rel="preload"
-          as="image"
-          href="/images/nr-global-export-hero-mobile.webp"
-          media="(max-width: 768px)"
-          type="image/webp"
-          fetchPriority="high"
-        />
-        <link
-          rel="preload"
-          as="image"
-          href="/images/nr-global-export-hero.webp"
-          media="(min-width: 769px)"
-          type="image/webp"
-          fetchPriority="high"
-        />
         <link rel="help" type="text/plain" href="/llms.txt" title="LLM Context & AI Agent Summary" />
         <link rel="alternate" type="text/plain" href="/llms-full.txt" title="Full LLM Commercial & Technical Knowledge Base" />
       </head>

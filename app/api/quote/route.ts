@@ -52,9 +52,53 @@ export async function POST(request: Request) {
     `Contact preference: ${parsed.data.contactPreference}`,
   ].join("\n");
 
+  const html = `<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Quote Enquiry</title></head>
+<body style="margin: 0; padding: 24px; background-color: #f7f5ee; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #20271f;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width: 600px; margin: 0 auto; background-color: #ffffff; border: 1px solid #dde2d6; border-radius: 8px; overflow: hidden;">
+    <tr>
+      <td style="background-color: #20351f; padding: 20px 24px;">
+        <p style="margin: 0; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; color: #efba6a; text-transform: uppercase;">NR International Export</p>
+        <h1 style="margin: 6px 0 0 0; font-size: 20px; font-weight: 600; color: #ffffff;">Quote Enquiry — ${parsed.data.company}</h1>
+      </td>
+    </tr>
+    <tr>
+      <td style="padding: 20px 24px;">
+        <p style="margin: 0 0 12px 0; font-size: 13px; font-weight: 700; color: #40572b; text-transform: uppercase;">Products Requested</p>
+        <ul style="margin: 0 0 20px 0; padding-left: 20px; font-size: 14px; line-height: 1.6;">
+          ${lines.map((l) => `<li>${l.replace(/^- /, "")}</li>`).join("")}
+        </ul>
+        <p style="margin: 0 0 8px 0; font-size: 13px; font-weight: 700; color: #40572b; text-transform: uppercase;">Buyer & Delivery Details</p>
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="font-size: 14px; line-height: 1.6;">
+          <tr><td style="color: #6b7765; width: 140px; padding: 4px 0;">Market:</td><td>${marketLabel[parsed.data.market]}</td></tr>
+          <tr><td style="color: #6b7765; padding: 4px 0;">Buyer Name:</td><td>${parsed.data.name}</td></tr>
+          <tr><td style="color: #6b7765; padding: 4px 0;">Company:</td><td>${parsed.data.company}</td></tr>
+          <tr><td style="color: #6b7765; padding: 4px 0;">Email:</td><td><a href="mailto:${parsed.data.email}">${parsed.data.email}</a></td></tr>
+          <tr><td style="color: #6b7765; padding: 4px 0;">Phone:</td><td>${parsed.data.phone || "Not provided"}</td></tr>
+          <tr><td style="color: #6b7765; padding: 4px 0;">Destination City:</td><td>${parsed.data.city}</td></tr>
+          <tr><td style="color: #6b7765; padding: 4px 0;">Country:</td><td>${parsed.data.country || "Not provided"}</td></tr>
+          <tr><td style="color: #6b7765; padding: 4px 0;">Port:</td><td>${parsed.data.port || "Not provided"}</td></tr>
+          <tr><td style="color: #6b7765; padding: 4px 0;">Postal Code:</td><td>${parsed.data.postalCode || "Not provided"}</td></tr>
+          <tr><td style="color: #6b7765; padding: 4px 0;">Target Date:</td><td>${parsed.data.requestedDate || "Not provided"}</td></tr>
+          <tr><td style="color: #6b7765; padding: 4px 0;">Packing:</td><td>${parsed.data.packing || "Standard"}</td></tr>
+          <tr><td style="color: #6b7765; padding: 4px 0;">Preference:</td><td>${parsed.data.contactPreference}</td></tr>
+        </table>
+        ${
+          parsed.data.requirements
+            ? `<div style="margin-top: 16px; padding: 12px; background: #faf9f5; border-left: 3px solid #40572b; font-size: 14px;"><strong>Special requirements:</strong><br>${parsed.data.requirements}</div>`
+            : ""
+        }
+      </td>
+    </tr>
+  </table>
+</body>
+</html>`;
+
   const result = await deliverMail({
     subject: `Quote enquiry from ${parsed.data.company}`,
     text,
+    html,
     replyTo: parsed.data.email,
   });
 

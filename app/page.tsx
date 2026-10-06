@@ -90,6 +90,22 @@ const range = ["ginger", "maize", "ragi", "tomatoes"];
 export default function HomePage() {
   return (
     <>
+      <link
+        rel="preload"
+        as="image"
+        href="/images/nr-global-export-hero-mobile.webp"
+        media="(max-width: 768px)"
+        type="image/webp"
+        fetchPriority="high"
+      />
+      <link
+        rel="preload"
+        as="image"
+        href="/images/nr-global-export-hero.webp"
+        media="(min-width: 769px)"
+        type="image/webp"
+        fetchPriority="high"
+      />
       <section className="relative overflow-hidden bg-forest">
         <HeroPhoto>
           <picture className="h-full w-full">

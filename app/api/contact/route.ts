@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
-import { Resend } from "resend";
 import { contactSchema, fieldErrors } from "@/lib/schemas";
 import { rateLimit } from "@/lib/rate-limit";
+import { deliverMail } from "@/lib/mail";
 
 const ENQUIRY_TYPE_LABELS: Record<string, string> = {
   product: "Product question",
@@ -31,11 +31,6 @@ function escapeHtml(str: string): string {
 
 export async function POST(request: Request) {
   console.log("[contact] request received");
-  console.log("[contact] env", {
-    hasResendKey: Boolean(process.env.RESEND_API_KEY),
-    hasMailFrom: Boolean(process.env.MAIL_FROM),
-    hasRecipient: Boolean(process.env.ENQUIRY_TO_EMAIL),
-  });
 
   // Basic IP-based rate limiting
   const ip = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "local";
@@ -101,20 +96,6 @@ export async function POST(request: Request) {
     );
   }
 
-  const resendApiKey = process.env.RESEND_API_KEY;
-  if (!resendApiKey) {
-    console.error("[contact] Resend error: RESEND_API_KEY is missing from environment variables.");
-    return NextResponse.json(
-      {
-        success: false,
-        message: "We could not send your message right now. Please try again.",
-      },
-      { status: 500 }
-    );
-  }
-
-  const from = process.env.MAIL_FROM || "NR International Export <onboarding@resend.dev>";
-  const to = process.env.ENQUIRY_TO_EMAIL || "contact@nrinternationalexport.com";
   const enquiryTypeLabel = ENQUIRY_TYPE_LABELS[enquiryType] || enquiryType;
 
   // Format subject: New website enquiry — {Enquiry Type} — {Name}
@@ -208,56 +189,45 @@ export async function POST(request: Request) {
 </body>
 </html>`;
 
-  console.log("[contact] attempting Resend send");
+  console.log("[contact] attempting mail delivery");
 
   try {
-    const resend = new Resend(resendApiKey);
-    const { data, error } = await resend.emails.send({
-      from,
-      to,
-      replyTo: email,
+    const result = await deliverMail({
       subject,
       text,
       html,
+      replyTo: email,
     });
 
-    if (error || !data) {
-      console.error("[contact] Resend send failed", {
-        name: error?.name,
-        message: error?.message,
-      });
-
-      const isRestriction =
-        (error as { statusCode?: number })?.statusCode === 403 ||
-        error?.name === "validation_error";
-
+    if (result.status === "accepted") {
+      console.log("[contact] mail delivered successfully via", result.provider, result.id);
       return NextResponse.json(
         {
-          success: false,
-          message:
-            "We couldn’t send your message right now. Please try again, or contact us directly by email at contact@nrinternationalexport.com.",
+          success: true,
+          message: "Thank you. Your message has been sent successfully.",
+          id: result.id,
         },
-        { status: isRestriction ? 403 : 502 }
+        { status: 200 }
       );
     }
 
-    console.log("[contact] Resend success:", data.id);
-
-    return NextResponse.json(
-      {
-        success: true,
-        message: "Thank you. Your message has been sent successfully.",
-        id: data.id,
-      },
-      { status: 200 }
-    );
-  } catch (err: unknown) {
-    const errMessage = err instanceof Error ? err.message : "Internal error";
-    console.error("[contact] Resend API request exception:", errMessage);
+    console.error("[contact] mail delivery rejected:", result);
     return NextResponse.json(
       {
         success: false,
-        message: "We couldn’t send your message right now. Please try again, or contact us directly by email at contact@nrinternationalexport.com.",
+        message:
+          "We couldn’t send your message right now. Please try again, or contact us directly by email at contact@nrinternationalexport.com.",
+      },
+      { status: result.status === "unavailable" ? 503 : 502 }
+    );
+  } catch (err: unknown) {
+    const errMessage = err instanceof Error ? err.message : "Internal error";
+    console.error("[contact] Mail delivery exception:", errMessage);
+    return NextResponse.json(
+      {
+        success: false,
+        message:
+          "We couldn’t send your message right now. Please try again, or contact us directly by email at contact@nrinternationalexport.com.",
       },
       { status: 500 }
     );
