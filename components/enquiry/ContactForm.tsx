@@ -194,22 +194,20 @@ export function ContactForm() {
       </p>
 
       {/* Hidden honeypot fields for anti-spam */}
-      <input
-        type="text"
-        tabIndex={-1}
-        autoComplete="off"
-        className="absolute -left-[9999px] opacity-0 pointer-events-none"
-        aria-hidden="true"
-        {...form.register("website")}
-      />
-      <input
-        type="text"
-        tabIndex={-1}
-        autoComplete="off"
-        className="absolute -left-[9999px] opacity-0 pointer-events-none"
-        aria-hidden="true"
-        {...form.register("honeypot")}
-      />
+      <div className="hidden" aria-hidden="true">
+        <input
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+          {...form.register("website")}
+        />
+        <input
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+          {...form.register("honeypot")}
+        />
+      </div>
 
       <button
         type="submit"
