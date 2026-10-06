@@ -79,18 +79,40 @@ export const quoteSchema = z
   });
 
 export const contactSchema = z.object({
-  name: z.string().trim().min(2, "Enter your name.").max(80),
-  company: z.string().trim().min(2, "Enter the company name.").max(120),
-  email: z.string().trim().email("Enter a valid email address.").max(120),
-  phone: z.string().trim().max(20),
-  enquiryType: z.enum(["product", "domestic", "export", "other"]),
-  message: z.string().trim().min(10, "Write a short message.").max(2000),
-  honeypot: z.string().max(0),
-  idempotencyKey: z.string().uuid(),
+  name: z
+    .string()
+    .trim()
+    .min(2, "Please enter your name.")
+    .max(100, "Name must be 100 characters or fewer."),
+  company: z
+    .string()
+    .trim()
+    .max(150, "Company name must be 150 characters or fewer."),
+  email: z
+    .string()
+    .trim()
+    .min(1, "Please enter your email.")
+    .email("Enter a valid email address.")
+    .max(254, "Email must be 254 characters or fewer."),
+  phone: z
+    .string()
+    .trim()
+    .max(40, "Phone number must be 40 characters or fewer."),
+  enquiryType: z.enum(["product", "domestic", "export", "other"], {
+    message: "Select an enquiry type.",
+  }),
+  message: z
+    .string()
+    .trim()
+    .min(10, "Please add a little more detail about your enquiry.")
+    .max(5000, "Message must be 5000 characters or fewer."),
+  website: z.string().default(""),
+  honeypot: z.string().default(""),
+  idempotencyKey: z.string().uuid().optional(),
 });
 
 export type QuoteInput = z.infer<typeof quoteSchema>;
-export type ContactInput = z.infer<typeof contactSchema>;
+export type ContactInput = z.input<typeof contactSchema>;
 
 export function fieldErrors(error: z.ZodError) {
   const out: Record<string, string> = {};

@@ -19,11 +19,18 @@ const links = [
 
 function Logo({ className }: { className?: string }) {
   return (
-    <img
-      src="/brand/logo-light.png"
-      alt="NR International Export"
-      className={cn("w-auto object-contain transition-[height] duration-200", className)}
-    />
+    <picture>
+      <source srcSet="/brand/logo-light.webp" type="image/webp" />
+      <img
+        src="/brand/logo-light.png"
+        alt="NR International Export"
+        width={180}
+        height={110}
+        loading="eager"
+        decoding="async"
+        className={cn("w-auto object-contain transition-[height] duration-200", className)}
+      />
+    </picture>
   );
 }
 
@@ -32,6 +39,7 @@ export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const openedAt = useRef(0);
+  const prevPathname = useRef(pathname);
   const { lines } = useEnquiry();
 
   useEffect(() => {
@@ -42,7 +50,10 @@ export function SiteHeader() {
   }, []);
 
   useEffect(() => {
-    setOpen(false);
+    if (prevPathname.current !== pathname) {
+      prevPathname.current = pathname;
+      setOpen(false);
+    }
   }, [pathname]);
 
   const active = (href: string) =>

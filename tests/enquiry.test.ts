@@ -70,3 +70,58 @@ test("lineSchema rejects unknown/deleted product ID", () => {
   const thambulamResult = lineSchema.safeParse(thambulamLine);
   assert.equal(thambulamResult.success, false);
 });
+
+test("contactSchema validates valid submission with optional fields", async () => {
+  const { contactSchema } = await import("../lib/schemas.ts");
+  const valid = {
+    name: "Rahul Kumar",
+    company: "Agri World Imports",
+    email: "rahul@example.com",
+    phone: "+91 98765 43210",
+    enquiryType: "product",
+    message: "Enquiry regarding bulk coconut export.",
+    website: "",
+    honeypot: "",
+  };
+  const result = contactSchema.safeParse(valid);
+  assert.equal(result.success, true);
+});
+
+test("contactSchema succeeds without optional company and phone", async () => {
+  const { contactSchema } = await import("../lib/schemas.ts");
+  const valid = {
+    name: "Rahul Kumar",
+    company: "",
+    email: "rahul@example.com",
+    phone: "",
+    enquiryType: "export",
+    message: "Short question about shipping grades.",
+    website: "",
+    honeypot: "",
+  };
+  const result = contactSchema.safeParse(valid);
+  assert.equal(result.success, true);
+});
+
+test("contactSchema rejects invalid email, short name, and short message", async () => {
+  const { contactSchema } = await import("../lib/schemas.ts");
+  const invalid = {
+    name: "A",
+    company: "",
+    email: "bad-email",
+    phone: "",
+    enquiryType: "other",
+    message: "too short",
+    website: "",
+    honeypot: "",
+  };
+  const result = contactSchema.safeParse(invalid);
+  assert.equal(result.success, false);
+  if (!result.success) {
+    const fields = result.error.issues.map((i) => i.path[0]);
+    assert.ok(fields.includes("name"));
+    assert.ok(fields.includes("email"));
+    assert.ok(fields.includes("message"));
+  }
+});
+

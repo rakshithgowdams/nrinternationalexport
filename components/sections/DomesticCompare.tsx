@@ -23,7 +23,15 @@ export function DomesticCompare() {
         </Tabs.List>
         {items.map((item) => (
           <Tabs.Content key={item.id} value={item.id} className="mt-4 grid items-center gap-6 rounded-lg border border-line bg-white p-4 md:grid-cols-2">
-            <img src={item.images[0].src} alt={item.images[0].alt} className="aspect-[4/3] w-full rounded-md object-cover" />
+            <img
+              src={item.images[0].src}
+              alt={item.images[0].alt}
+              width={600}
+              height={450}
+              loading="lazy"
+              decoding="async"
+              className="aspect-[4/3] w-full rounded-md object-cover"
+            />
             <div>
               <h3 className="font-display text-3xl">{item.name}</h3>
               <p className="mt-3 text-sm leading-6 text-muted">{item.overview[0]}</p>
@@ -34,7 +42,15 @@ export function DomesticCompare() {
       <div data-stagger className="mt-4 space-y-4 md:hidden">
         {items.map((item) => (
           <article key={`${item.id}-row`} className="overflow-hidden rounded-lg border border-line bg-white">
-            <img src={item.images[0].src} alt={item.images[0].alt} className="aspect-[4/3] w-full object-cover" />
+            <img
+              src={item.images[0].src}
+              alt={item.images[0].alt}
+              width={600}
+              height={450}
+              loading="lazy"
+              decoding="async"
+              className="aspect-[4/3] w-full object-cover"
+            />
             <div className="p-4">
               <h3 className="font-semibold">{item.name}</h3>
               <p className="mt-1 text-sm text-muted">{item.summary}</p>

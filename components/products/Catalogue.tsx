@@ -150,7 +150,15 @@ function ProductCard({ product }: { product: Product }) {
   return (
     <article className="card flex h-full flex-col overflow-hidden rounded-lg border border-line bg-white">
       <Link href={`/products/${product.slug}`} className="block overflow-hidden">
-        <img src={product.images[0].src} alt={product.images[0].alt} className="aspect-[4/3] w-full object-cover" />
+        <img
+          src={product.images[0].src}
+          alt={product.images[0].alt}
+          width={400}
+          height={300}
+          loading="lazy"
+          decoding="async"
+          className="aspect-[4/3] w-full object-cover"
+        />
       </Link>
       <div className="flex flex-1 flex-col p-4">
         <div className="flex flex-wrap gap-1.5">
@@ -189,7 +197,15 @@ function QuickView({ product }: { product: Product }) {
         <Dialog.Content className="dialog fixed top-1/2 left-1/2 z-50 max-h-[90vh] w-[min(640px,calc(100%-2rem))] -translate-x-1/2 -translate-y-1/2 overflow-y-auto rounded-lg bg-white p-5">
           <Dialog.Title className="font-display text-3xl">{product.name}</Dialog.Title>
           <Dialog.Description className="mt-2 text-sm text-muted">{product.summary}</Dialog.Description>
-          <img src={product.images[0].src} alt={product.images[0].alt} className="mt-4 aspect-[4/3] w-full rounded-md object-cover" />
+          <img
+            src={product.images[0].src}
+            alt={product.images[0].alt}
+            width={600}
+            height={450}
+            loading="lazy"
+            decoding="async"
+            className="mt-4 aspect-[4/3] w-full rounded-md object-cover"
+          />
           <dl className="mt-4 divide-y divide-line text-sm">
             {product.specs.slice(0, 4).map((row) => (
               <div key={row.label} className="flex justify-between gap-4 py-2">

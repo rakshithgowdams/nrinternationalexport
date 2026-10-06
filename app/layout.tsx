@@ -24,20 +24,34 @@ const sans = Manrope({
 });
 
 export const metadata: Metadata = {
-  metadataBase: siteUrl ? new URL(siteUrl) : undefined,
+  metadataBase: new URL(siteUrl || "https://nrinternationalexport.com"),
   title: {
     default: business.name,
     template: `%s · ${business.name}`,
   },
-  description:
-    "Coconuts, copra and agricultural products from the Channarayapatna and Tiptur region of Karnataka for international and domestic trade enquiries.",
-  robots: allowIndex ? { index: true, follow: true } : { index: false, follow: false },
+  robots: allowIndex
+    ? {
+        index: true,
+        follow: true,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+        "max-video-preview": -1,
+      }
+    : { index: false, follow: false },
   applicationName: business.name,
   openGraph: {
     type: "website",
     siteName: business.name,
     locale: "en_IN",
-    images: [{ url: defaultShareImage, alt: `${business.name}, Karnataka` }],
+    images: [
+      {
+        url: defaultShareImage,
+        width: 1024,
+        height: 576,
+        alt: `${business.name} logistics with container ship and truck`,
+        type: "image/webp",
+      },
+    ],
   },
   formatDetection: { telephone: true, email: true, address: true },
 };
@@ -119,6 +133,17 @@ const organization = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${display.variable} ${sans.variable}`} data-scroll-behavior="smooth">
+      <head>
+        <link
+          rel="preload"
+          as="image"
+          href="/images/nr-global-export-hero.webp"
+          type="image/webp"
+          fetchPriority="high"
+        />
+        <link rel="help" type="text/plain" href="/llms.txt" title="LLM Context & AI Agent Summary" />
+        <link rel="alternate" type="text/plain" href="/llms-full.txt" title="Full LLM Commercial & Technical Knowledge Base" />
+      </head>
       <body className="min-h-screen bg-ivory text-ink antialiased">
         <a className="skip-link" href="#content">
           Skip to content

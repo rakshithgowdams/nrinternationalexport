@@ -107,6 +107,10 @@ export function SourceToShipment() {
                 <img
                   src={step.image}
                   alt={step.alt}
+                  width={1024}
+                  height={576}
+                  loading="lazy"
+                  decoding="async"
                   className="h-full w-full object-cover object-center"
                 />
                 {/* Subtle protective gradient overlay for bottom label */}
@@ -206,8 +210,11 @@ export function SourceToShipment() {
               <img
                 src={step.image}
                 alt={step.alt}
-                className="h-full w-full object-cover object-center"
+                width={1024}
+                height={576}
                 loading="lazy"
+                decoding="async"
+                className="h-full w-full object-cover object-center"
               />
               <div className="absolute top-3 left-3 bg-forest/85 backdrop-blur-sm text-ivory text-[11px] font-semibold tracking-wider uppercase px-2.5 py-1 rounded-full border border-white/20">
                 {step.tag}

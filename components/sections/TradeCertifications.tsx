@@ -45,8 +45,11 @@ export function TradeCertifications() {
                   <img
                     src={cert.image}
                     alt={cert.name}
-                    className="max-h-full max-w-full object-contain"
+                    width={64}
+                    height={64}
                     loading="lazy"
+                    decoding="async"
+                    className="max-h-full max-w-full object-contain"
                   />
                 </div>
 
@@ -54,7 +57,7 @@ export function TradeCertifications() {
                   <h3 className="text-xs font-bold text-ink leading-snug group-hover:text-forest transition-colors">
                     {cert.name}
                   </h3>
-                  <p className="mt-1 text-[11px] text-muted line-clamp-2">
+                  <p className="mt-1 text-[11px] text-[#3e4839] line-clamp-2">
                     {cert.issuer}
                   </p>
                 </div>
@@ -129,6 +132,9 @@ export function TradeCertifications() {
                   <img
                     src={selectedCert.image}
                     alt={selectedCert.name}
+                    width={400}
+                    height={400}
+                    decoding="async"
                     className="max-h-full max-w-full object-contain drop-shadow-md"
                   />
                 )}

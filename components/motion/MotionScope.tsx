@@ -32,6 +32,10 @@ export function MotionScope({ children }: { children: React.ReactNode }) {
           const start = mobile ? "top 94%" : "top 90%";
 
           (q("[data-reveal]") as HTMLElement[]).forEach((el) => {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < window.innerHeight && rect.bottom > 0) {
+              return;
+            }
             gsap.from(el, {
               y: distance,
               autoAlpha: 0,

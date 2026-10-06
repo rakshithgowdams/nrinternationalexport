@@ -13,6 +13,10 @@ export const metadata = pageMetadata({
   description:
     "NR International Export is a partnership in Hassan district, Karnataka, supplying copra, coconut oil, coconut shell, ginger, ragi and maize from the Channarayapatna and Tiptur region for export and domestic trade.",
   path: "/",
+  image: {
+    src: "/images/nr-global-export-hero.webp",
+    alt: "NR International Export logistics at seaport with container ship, branded truck and international shipping routes.",
+  },
   keywords: [
     "coconut exporter Karnataka",
     "Tiptur coconut",
@@ -91,19 +95,23 @@ export default function HomePage() {
           <img
             src="/images/nr-global-export-hero.webp"
             alt="NR International Export logistics at seaport with container ship, branded truck and international shipping routes."
-            className="h-full w-full object-cover object-center lg:object-[68%_center]"
+            width={1024}
+            height={576}
+            loading="eager"
             fetchPriority="high"
+            decoding="async"
+            className="h-full w-full object-cover object-center lg:object-[68%_center]"
           />
         </HeroPhoto>
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(23,43,33,0.92)_0%,rgba(23,43,33,0.76)_38%,rgba(23,43,33,0.30)_68%,rgba(23,43,33,0.12)_100%)] max-md:bg-[linear-gradient(180deg,rgba(23,43,33,0.92)_0%,rgba(23,43,33,0.80)_60%,rgba(23,43,33,0.40)_100%)]" />
         <Container className="relative z-10 flex min-h-[560px] flex-col justify-center py-14 md:min-h-[72vh] lg:min-h-[78vh] lg:py-16">
-          <p data-reveal className="text-xs font-bold tracking-[0.14em] text-[#f3bd6d] uppercase">
+          <p className="text-xs font-bold tracking-[0.14em] text-[#f3bd6d] uppercase">
             KARNATAKA, INDIA · GLOBAL AGRI EXPORT
           </p>
           <div className="mt-5 max-w-3xl">
             <HeroHeading />
           </div>
-          <p data-reveal className="mt-6 max-w-2xl text-lg leading-8 text-ivory/90">
+          <p className="mt-6 max-w-2xl text-lg leading-8 text-ivory/90">
             Coconuts, copra and agricultural commodities sourced from Karnataka and prepared for international buyers through requirement-led quality, packing and export coordination.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
@@ -141,7 +149,15 @@ export default function HomePage() {
           <div data-stagger className="mt-8 grid gap-5 lg:grid-cols-12">
             {families.map((family) => (
               <article key={family.title} className={`card overflow-hidden rounded-lg border border-line bg-white ${family.className}`}>
-                <img src={family.image} alt={family.alt} className="h-56 w-full object-cover" />
+                <img
+                  src={family.image}
+                  alt={family.alt}
+                  width={600}
+                  height={400}
+                  loading="lazy"
+                  decoding="async"
+                  className="h-56 w-full object-cover"
+                />
                 <div className="p-5">
                   <h3 className="font-display text-3xl">{family.title}</h3>
                   <p className="mt-2 text-sm leading-6 text-muted">{family.body}</p>
@@ -162,8 +178,11 @@ export default function HomePage() {
               <img
                 src="/images/nr-global-export-network.webp"
                 alt="NR International Export global trade network showing container vessel, branded truck, port logistics, and agricultural commodities."
+                width={1024}
+                height={576}
                 className="h-full w-full object-cover object-center"
                 loading="lazy"
+                decoding="async"
               />
               <span className="absolute top-4 left-4 rounded-full bg-forest px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-[#f3bd6d] shadow-sm">
                 Primary Export Focus
@@ -195,10 +214,13 @@ export default function HomePage() {
               <img
                 src="/images/nr-domestic-supply.webp"
                 alt="Domestic agricultural supply operations showing fresh coconuts, ginger, ragi, and farm wholesale loading."
+                width={1024}
+                height={576}
                 className="h-full w-full object-cover object-center"
                 loading="lazy"
+                decoding="async"
               />
-              <span className="absolute top-4 left-4 rounded-full bg-ivory px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-muted shadow-sm">
+              <span className="absolute top-4 left-4 rounded-full bg-ivory px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-[#20271f] shadow-sm">
                 Domestic Supply
               </span>
             </div>
@@ -223,7 +245,15 @@ export default function HomePage() {
       <section className="bg-white py-16 md:py-24">
         <Container className="grid items-center gap-10 lg:grid-cols-2">
           <div data-image-reveal className="overflow-hidden rounded-lg">
-            <img src="/images/origin-sourcing-tiptur.jpg" alt="Harvested mature coconuts neatly gathered along the orchard pathway in a coconut plantation in Tiptur and Channarayapatna, Karnataka." className="aspect-[16/10] w-full object-cover" />
+            <img
+              src="/images/origin-sourcing-tiptur.jpg"
+              alt="Harvested mature coconuts neatly gathered along the orchard pathway in a coconut plantation in Tiptur and Channarayapatna, Karnataka."
+              width={1024}
+              height={640}
+              loading="lazy"
+              decoding="async"
+              className="aspect-[16/10] w-full object-cover"
+            />
           </div>
           <div data-reveal>
             <p className="text-xs font-bold tracking-[0.12em] text-ochre-ink uppercase">Origin</p>
@@ -240,7 +270,15 @@ export default function HomePage() {
         <Container className="grid gap-10 lg:grid-cols-2">
           <div className="lg:sticky lg:top-28 lg:h-fit">
             <div data-image-reveal className="overflow-hidden rounded-lg">
-              <img src="/images/coconut-sacks-india.jpg" alt="Jute sacks of whole coconuts marked Product of India, stacked on pallets." className="aspect-[4/3] w-full object-cover" />
+              <img
+                src="/images/coconut-sacks-india.jpg"
+                alt="Jute sacks of whole coconuts marked Product of India, stacked on pallets."
+                width={800}
+                height={600}
+                loading="lazy"
+                decoding="async"
+                className="aspect-[4/3] w-full object-cover"
+              />
             </div>
           </div>
           <ol data-process className="relative space-y-10 pl-6 lg:py-8">
@@ -276,7 +314,15 @@ export default function HomePage() {
               return (
                 <li key={id}>
                   <Link href={`/products/${product.slug}`} className="card block overflow-hidden rounded-lg border border-line bg-white">
-                    <img src={product.images[0].src} alt={product.images[0].alt} className="aspect-[4/3] w-full object-cover" />
+                    <img
+                      src={product.images[0].src}
+                      alt={product.images[0].alt}
+                      width={400}
+                      height={300}
+                      loading="lazy"
+                      decoding="async"
+                      className="aspect-[4/3] w-full object-cover"
+                    />
                     <div className="p-4">
                       <p className="font-semibold">{product.name}</p>
                       <p className="mt-1 text-xs text-muted">{product.markets.map((market) => marketLabel[market]).join(" · ")}</p>

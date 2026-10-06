@@ -1,9 +1,9 @@
-import { generateLlmsTxt } from "@/lib/llms";
+import { generateLlmsFullTxt } from "@/lib/llms";
 
 export const dynamic = "force-static";
 
 export function GET() {
-  const body = generateLlmsTxt();
+  const body = generateLlmsFullTxt();
 
   return new Response(body, {
     headers: {
