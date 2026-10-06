@@ -138,6 +138,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           rel="preload"
           as="image"
           href="/images/nr-global-export-hero.webp"
+          imageSrcSet="/images/nr-global-export-hero-mobile.webp 640w, /images/nr-global-export-hero.webp 1024w"
+          imageSizes="(max-width: 768px) 100vw, 1024px"
           type="image/webp"
           fetchPriority="high"
         />

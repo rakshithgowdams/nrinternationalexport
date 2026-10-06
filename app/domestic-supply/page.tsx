@@ -56,12 +56,24 @@ export default function DomesticPage() {
             </div>
           </div>
           <div data-image-reveal className="overflow-hidden rounded-xl border border-line shadow-sm">
-            <img
-              src="/images/nr-domestic-supply.webp"
-              alt="Domestic agricultural supply operations showing fresh coconuts, ginger, ragi, and farm wholesale loading."
-              className="aspect-[4/3] sm:aspect-[16/10] md:aspect-[16/9] w-full object-cover object-center"
-              loading="lazy"
-            />
+            <picture className="w-full block">
+              <source
+                media="(max-width: 768px)"
+                srcSet="/images/nr-domestic-supply-mobile.webp"
+                type="image/webp"
+                width={640}
+                height={360}
+              />
+              <img
+                src="/images/nr-domestic-supply.webp"
+                alt="Domestic agricultural supply operations showing fresh coconuts, ginger, ragi, and farm wholesale loading."
+                className="aspect-[4/3] sm:aspect-[16/10] md:aspect-[16/9] w-full object-cover object-center"
+                loading="lazy"
+                decoding="async"
+                width={1024}
+                height={576}
+              />
+            </picture>
           </div>
         </Container>
       </section>

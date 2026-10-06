@@ -84,12 +84,24 @@ export default function AboutPage() {
             </p>
           </div>
           <div data-image-reveal className="overflow-hidden rounded-2xl border border-line shadow-md lg:col-span-7">
-            <img
-              src="/images/nr-karnataka-sourcing.webp"
-              alt="Organized coconut harvesting and sourcing operations in Karnataka groves with workers, collection crates, and transport vehicle."
-              className="aspect-[16/10] w-full object-cover object-center"
-              loading="lazy"
-            />
+            <picture className="w-full block">
+              <source
+                media="(max-width: 768px)"
+                srcSet="/images/nr-karnataka-sourcing-mobile.webp"
+                type="image/webp"
+                width={640}
+                height={400}
+              />
+              <img
+                src="/images/nr-karnataka-sourcing.webp"
+                alt="Organized coconut harvesting and sourcing operations in Karnataka groves with workers, collection crates, and transport vehicle."
+                className="aspect-[16/10] w-full object-cover object-center"
+                loading="lazy"
+                decoding="async"
+                width={1024}
+                height={640}
+              />
+            </picture>
           </div>
         </Container>
       </section>

@@ -46,7 +46,7 @@ const steps: StoryStep[] = [
     title: "Export movement",
     description:
       "Loaded containers move through dedicated inland highway transport to maritime port terminals for customs clearance and vessel shipment to international destinations.",
-    image: "/images/vessel-shipment.jpg",
+    image: "/images/vessel-shipment.webp",
     alt: "NR International Export container being hoisted by port gantry crane onto cargo vessel for international ocean shipment.",
   },
 ];

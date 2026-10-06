@@ -33,7 +33,7 @@ const families = [
     title: "Coconuts",
     body: "Mature, tender and seedling coconuts, each with its own page.",
     href: catalogueHref({ category: "coconuts" }),
-    image: "/images/coconut-halves.jpg",
+    image: "/images/coconut-halves.webp",
     alt: "Halved mature coconuts showing the white kernel inside the brown husk.",
     className: "lg:col-span-5",
   },
@@ -41,7 +41,7 @@ const families = [
     title: "Copra and Coconut Products",
     body: "Edible copra, dry coconut, desiccated coconut, shells and coconut oil.",
     href: catalogueHref({ category: "copra" }),
-    image: "/images/copra-halves.jpg",
+    image: "/images/copra-halves.webp",
     alt: "Halved dry coconut cups of copra with brown outer skin and white kernel.",
     className: "lg:col-span-4",
   },
@@ -49,7 +49,7 @@ const families = [
     title: "Grains and Fresh Produce",
     body: "Ragi, maize, ginger and domestic tomatoes.",
     href: catalogueHref({ category: "field" }),
-    image: "/images/finger-millet-heads.jpg",
+    image: "/images/finger-millet-heads.webp",
     alt: "Harvested heads of ragi (finger millet).",
     className: "lg:col-span-3",
   },
@@ -92,16 +92,25 @@ export default function HomePage() {
     <>
       <section className="relative overflow-hidden bg-forest">
         <HeroPhoto>
-          <img
-            src="/images/nr-global-export-hero.webp"
-            alt="NR International Export logistics at seaport with container ship, branded truck and international shipping routes."
-            width={1024}
-            height={576}
-            loading="eager"
-            fetchPriority="high"
-            decoding="async"
-            className="h-full w-full object-cover object-center lg:object-[68%_center]"
-          />
+          <picture className="h-full w-full">
+            <source
+              media="(max-width: 768px)"
+              srcSet="/images/nr-global-export-hero-mobile.webp"
+              type="image/webp"
+              width={640}
+              height={360}
+            />
+            <img
+              src="/images/nr-global-export-hero.webp"
+              alt="NR International Export logistics at seaport with container ship, branded truck and international shipping routes."
+              width={1024}
+              height={576}
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
+              className="h-full w-full object-cover object-center lg:object-[68%_center]"
+            />
+          </picture>
         </HeroPhoto>
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(23,43,33,0.92)_0%,rgba(23,43,33,0.76)_38%,rgba(23,43,33,0.30)_68%,rgba(23,43,33,0.12)_100%)] max-md:bg-[linear-gradient(180deg,rgba(23,43,33,0.92)_0%,rgba(23,43,33,0.80)_60%,rgba(23,43,33,0.40)_100%)]" />
         <Container className="relative z-10 flex min-h-[560px] flex-col justify-center py-14 md:min-h-[72vh] lg:min-h-[78vh] lg:py-16">
@@ -175,15 +184,24 @@ export default function HomePage() {
         <Container data-stagger className="grid gap-6 lg:grid-cols-12">
           <article className="card relative overflow-hidden rounded-xl border-2 border-forest/30 bg-white shadow-md lg:col-span-7">
             <div className="relative h-72 w-full overflow-hidden">
-              <img
-                src="/images/nr-global-export-network.webp"
-                alt="NR International Export global trade network showing container vessel, branded truck, port logistics, and agricultural commodities."
-                width={1024}
-                height={576}
-                className="h-full w-full object-cover object-center"
-                loading="lazy"
-                decoding="async"
-              />
+              <picture className="h-full w-full">
+                <source
+                  media="(max-width: 768px)"
+                  srcSet="/images/nr-global-export-network-mobile.webp"
+                  type="image/webp"
+                  width={640}
+                  height={360}
+                />
+                <img
+                  src="/images/nr-global-export-network.webp"
+                  alt="NR International Export global trade network showing container vessel, branded truck, port logistics, and agricultural commodities."
+                  width={1024}
+                  height={576}
+                  className="h-full w-full object-cover object-center"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </picture>
               <span className="absolute top-4 left-4 rounded-full bg-forest px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-[#f3bd6d] shadow-sm">
                 Primary Export Focus
               </span>
@@ -211,15 +229,24 @@ export default function HomePage() {
           </article>
           <article className="card relative overflow-hidden rounded-xl border border-line bg-white lg:col-span-5">
             <div className="relative h-72 w-full overflow-hidden">
-              <img
-                src="/images/nr-domestic-supply.webp"
-                alt="Domestic agricultural supply operations showing fresh coconuts, ginger, ragi, and farm wholesale loading."
-                width={1024}
-                height={576}
-                className="h-full w-full object-cover object-center"
-                loading="lazy"
-                decoding="async"
-              />
+              <picture className="h-full w-full">
+                <source
+                  media="(max-width: 768px)"
+                  srcSet="/images/nr-domestic-supply-mobile.webp"
+                  type="image/webp"
+                  width={640}
+                  height={360}
+                />
+                <img
+                  src="/images/nr-domestic-supply.webp"
+                  alt="Domestic agricultural supply operations showing fresh coconuts, ginger, ragi, and farm wholesale loading."
+                  width={1024}
+                  height={576}
+                  className="h-full w-full object-cover object-center"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </picture>
               <span className="absolute top-4 left-4 rounded-full bg-ivory px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-[#20271f] shadow-sm">
                 Domestic Supply
               </span>
@@ -245,15 +272,24 @@ export default function HomePage() {
       <section className="bg-white py-16 md:py-24">
         <Container className="grid items-center gap-10 lg:grid-cols-2">
           <div data-image-reveal className="overflow-hidden rounded-lg">
-            <img
-              src="/images/origin-sourcing-tiptur.jpg"
-              alt="Harvested mature coconuts neatly gathered along the orchard pathway in a coconut plantation in Tiptur and Channarayapatna, Karnataka."
-              width={1024}
-              height={640}
-              loading="lazy"
-              decoding="async"
-              className="aspect-[16/10] w-full object-cover"
-            />
+            <picture className="aspect-[16/10] w-full block">
+              <source
+                media="(max-width: 768px)"
+                srcSet="/images/origin-sourcing-tiptur-mobile.webp"
+                type="image/webp"
+                width={640}
+                height={358}
+              />
+              <img
+                src="/images/origin-sourcing-tiptur.webp"
+                alt="Harvested mature coconuts neatly gathered along the orchard pathway in a coconut plantation in Tiptur and Channarayapatna, Karnataka."
+                width={1024}
+                height={572}
+                loading="lazy"
+                decoding="async"
+                className="aspect-[16/10] w-full object-cover"
+              />
+            </picture>
           </div>
           <div data-reveal>
             <p className="text-xs font-bold tracking-[0.12em] text-ochre-ink uppercase">Origin</p>
@@ -270,15 +306,24 @@ export default function HomePage() {
         <Container className="grid gap-10 lg:grid-cols-2">
           <div className="lg:sticky lg:top-28 lg:h-fit">
             <div data-image-reveal className="overflow-hidden rounded-lg">
-              <img
-                src="/images/coconut-sacks-india.jpg"
-                alt="Jute sacks of whole coconuts marked Product of India, stacked on pallets."
-                width={800}
-                height={600}
-                loading="lazy"
-                decoding="async"
-                className="aspect-[4/3] w-full object-cover"
-              />
+              <picture className="aspect-[4/3] w-full block">
+                <source
+                  media="(max-width: 768px)"
+                  srcSet="/images/coconut-sacks-india-mobile.webp"
+                  type="image/webp"
+                  width={480}
+                  height={360}
+                />
+                <img
+                  src="/images/coconut-sacks-india.webp"
+                  alt="Jute sacks of whole coconuts marked Product of India, stacked on pallets."
+                  width={800}
+                  height={600}
+                  loading="lazy"
+                  decoding="async"
+                  className="aspect-[4/3] w-full object-cover"
+                />
+              </picture>
             </div>
           </div>
           <ol data-process className="relative space-y-10 pl-6 lg:py-8">
