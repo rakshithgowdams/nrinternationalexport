@@ -54,7 +54,7 @@ export function QuoteWizard() {
   const [values, setValues] = useState<Values>(empty);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [status, setStatus] = useState<Status>("idle");
-  const [unknown, setUnknown] = useState(() => {
+  const [unknown] = useState(() => {
     const req = search.get("product") ?? "";
     return Boolean(req && !getProduct(req));
   });
@@ -65,15 +65,17 @@ export function QuoteWizard() {
   const started = useRef(false);
   const key = useRef(crypto.randomUUID());
 
+  const { ready: enquiryReady, lines: enquiryLines, replaceLines: enquiryReplaceLines } = enquiry;
+
   useEffect(() => {
-    if (!enquiry.ready || started.current) return;
+    if (!enquiryReady || started.current) return;
     started.current = true;
     const requested = search.get("product") ?? "";
     const marketParam = search.get("market");
     const market = marketParam === "global" || marketParam === "domestic" ? marketParam : "";
 
     const validIds = new Set(products.map((p) => p.id));
-    const lines = enquiry.lines
+    const lines = enquiryLines
       .filter((line) => validIds.has(line.productId))
       .map((line) => ({ ...line }));
 
@@ -86,7 +88,7 @@ export function QuoteWizard() {
         unit: product.units[0],
         otherUnit: "",
       });
-      enquiry.replaceLines(lines);
+      enquiryReplaceLines(lines);
     }
 
     setValues((current) => ({
@@ -95,7 +97,7 @@ export function QuoteWizard() {
       lines,
       country: market === "domestic" ? "India" : "",
     }));
-  }, [enquiry.ready, enquiry.lines, search, enquiry.replaceLines]);
+  }, [enquiryReady, enquiryLines, enquiryReplaceLines, search]);
 
   useEffect(() => {
     headingRef.current?.focus();
