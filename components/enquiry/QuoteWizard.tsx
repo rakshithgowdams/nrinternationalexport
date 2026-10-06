@@ -54,7 +54,10 @@ export function QuoteWizard() {
   const [values, setValues] = useState<Values>(empty);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [status, setStatus] = useState<Status>("idle");
-  const [unknown, setUnknown] = useState(false);
+  const [unknown, setUnknown] = useState(() => {
+    const req = search.get("product") ?? "";
+    return Boolean(req && !getProduct(req));
+  });
   const [copied, setCopied] = useState(false);
   const [openSummary, setOpenSummary] = useState(false);
   const [selectedProductId, setSelectedProductId] = useState("");
@@ -68,7 +71,6 @@ export function QuoteWizard() {
     const requested = search.get("product") ?? "";
     const marketParam = search.get("market");
     const market = marketParam === "global" || marketParam === "domestic" ? marketParam : "";
-    if (requested && !getProduct(requested)) setUnknown(true);
 
     const validIds = new Set(products.map((p) => p.id));
     const lines = enquiry.lines

@@ -10,7 +10,7 @@ import "./globals.css";
 
 const display = Cormorant_Garamond({
   subsets: ["latin"],
-  weight: ["500", "600", "700"],
+  weight: ["500", "600"],
   style: ["normal", "italic"],
   variable: "--font-cormorant",
   display: "swap",
@@ -18,7 +18,6 @@ const display = Cormorant_Garamond({
 
 const sans = Manrope({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
   variable: "--font-manrope",
   display: "swap",
 });
@@ -134,15 +133,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${display.variable} ${sans.variable}`} data-scroll-behavior="smooth">
       <head>
-        <link
-          rel="preload"
-          as="image"
-          href="/images/nr-global-export-hero.webp"
-          imageSrcSet="/images/nr-global-export-hero-mobile.webp 640w, /images/nr-global-export-hero.webp 1024w"
-          imageSizes="(max-width: 768px) 100vw, 1024px"
-          type="image/webp"
-          fetchPriority="high"
-        />
         <link rel="help" type="text/plain" href="/llms.txt" title="LLM Context & AI Agent Summary" />
         <link rel="alternate" type="text/plain" href="/llms-full.txt" title="Full LLM Commercial & Technical Knowledge Base" />
       </head>

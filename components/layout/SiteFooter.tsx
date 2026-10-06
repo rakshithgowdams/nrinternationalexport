@@ -1,6 +1,15 @@
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import { business, certifications } from "@/data/business";
-import { FooterGlobalBand } from "@/components/sections/FooterGlobalBand";
+
+const FooterGlobalBand = dynamic(
+  () => import("@/components/sections/FooterGlobalBand").then((mod) => mod.FooterGlobalBand),
+  {
+    loading: () => (
+      <div className="min-h-[250px] sm:min-h-[270px] lg:min-h-[290px] w-full bg-forest border-b border-white/10" />
+    ),
+  }
+);
 
 const footerProducts = [
   { name: "Fresh Coconut", href: "/products/fresh-coconuts" },
@@ -65,7 +74,7 @@ export function SiteFooter() {
             <picture>
               <source srcSet="/brand/logo-light.webp" type="image/webp" />
               <img
-                src="/brand/logo-light.png"
+                src="/brand/logo-light.webp"
                 alt="NR International Export"
                 width={200}
                 height={123}

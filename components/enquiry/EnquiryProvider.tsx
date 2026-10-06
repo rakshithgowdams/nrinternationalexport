@@ -42,16 +42,22 @@ export function EnquiryProvider({ children }: { children: React.ReactNode }) {
           const validLines = parsed.filter(
             (line) => line && typeof line.productId === "string" && validProductIds.has(line.productId),
           );
-          setLines(validLines);
+          queueMicrotask(() => {
+            setLines(validLines);
+            setReady(true);
+          });
           if (validLines.length !== parsed.length) {
             localStorage.setItem(STORAGE_KEY, JSON.stringify(validLines));
           }
+          return;
         }
       }
     } catch {
       localStorage.removeItem(STORAGE_KEY);
     }
-    setReady(true);
+    queueMicrotask(() => {
+      setReady(true);
+    });
   }, []);
 
   useEffect(() => {

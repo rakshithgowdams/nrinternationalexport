@@ -229,7 +229,7 @@ export default function AboutPage() {
           <div data-stagger className="grid gap-8 lg:grid-cols-12 lg:items-start">
             {/* Left: Brand / Contact Card (5 cols) */}
             <div className="rounded-2xl border border-line bg-ivory/50 p-6 md:p-8 lg:col-span-5 shadow-xs">
-              <img src="/brand/logo-light.png" alt="NR International Export" className="h-16 w-auto" />
+              <img src="/brand/logo-light.webp" alt="NR International Export" width={200} height={123} loading="lazy" decoding="async" className="h-16 w-auto" />
               <div className="mt-6 border-t border-line/80 pt-6">
                 <h3 className="font-display text-2xl font-semibold text-ink">
                   {business.name}

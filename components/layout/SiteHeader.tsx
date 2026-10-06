@@ -22,7 +22,7 @@ function Logo({ className }: { className?: string }) {
     <picture>
       <source srcSet="/brand/logo-light.webp" type="image/webp" />
       <img
-        src="/brand/logo-light.png"
+        src="/brand/logo-light.webp"
         alt="NR International Export"
         width={180}
         height={110}

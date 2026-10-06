@@ -8,9 +8,14 @@ export function FooterGlobalBand() {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
-  const [isMobile, setIsMobile] = useState(() =>
-    typeof window !== "undefined" ? window.innerWidth < 768 : false
-  );
+  const [isDesktop, setIsDesktop] = useState(() => {
+    if (typeof window === "undefined") return false;
+    const isSaveData =
+      typeof navigator !== "undefined" &&
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      (navigator as any).connection?.saveData === true;
+    return window.innerWidth >= 1024 && !isSaveData;
+  });
   const [reducedMotion, setReducedMotion] = useState(() =>
     typeof window !== "undefined"
       ? window.matchMedia("(prefers-reduced-motion: reduce)").matches
@@ -25,13 +30,17 @@ export function FooterGlobalBand() {
     };
     motionQuery.addEventListener("change", handleMotionChange);
 
-    // Screen size detection for mobile optimization
+    // Only load video on desktop devices (width >= 1024px) without data-saver
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
+      const isConnectionSaveData =
+        typeof navigator !== "undefined" &&
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        (navigator as any).connection?.saveData === true;
+      setIsDesktop(window.innerWidth >= 1024 && !isConnectionSaveData);
     };
     window.addEventListener("resize", handleResize);
 
-    // Lazy-load video only when approaching viewport (300px rootMargin)
+    // Lazy-load video strictly when footer approaches viewport on desktop
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -42,7 +51,7 @@ export function FooterGlobalBand() {
         });
       },
       {
-        rootMargin: "300px 0px",
+        rootMargin: "150px 0px",
         threshold: 0.05,
       },
     );
@@ -58,17 +67,17 @@ export function FooterGlobalBand() {
     };
   }, []);
 
-  // Ensure autoplay starts without sound errors once video element attaches
+  // Autoplay without audio once video element attaches on desktop
   useEffect(() => {
-    if (shouldLoadVideo && videoRef.current && !reducedMotion) {
+    if (shouldLoadVideo && videoRef.current && !reducedMotion && isDesktop) {
       const playPromise = videoRef.current.play();
       if (playPromise !== undefined) {
         playPromise.catch(() => {
-          // Fallback gracefully to poster if browser policy blocks autoplay
+          // Graceful fallback to static poster if autoplay blocked
         });
       }
     }
-  }, [shouldLoadVideo, reducedMotion]);
+  }, [shouldLoadVideo, reducedMotion, isDesktop]);
 
   return (
     <section
@@ -78,7 +87,7 @@ export function FooterGlobalBand() {
     >
       {/* Background Media Container */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden select-none">
-        {/* Always present high-resolution poster fallback */}
+        {/* Always present high-resolution poster fallback (Used for all mobile devices & reduced-motion) */}
         <img
           src="/videos/export-map-footer-poster.webp"
           alt=""
@@ -90,8 +99,8 @@ export function FooterGlobalBand() {
           className="absolute inset-0 h-full w-full object-cover object-center opacity-30 mix-blend-screen"
         />
 
-        {/* Lazy-loaded seamless looping route animation */}
-        {shouldLoadVideo && !reducedMotion && (
+        {/* Desktop-only viewport-deferred video with preload="none" */}
+        {shouldLoadVideo && isDesktop && !reducedMotion && (
           <video
             ref={videoRef}
             autoPlay
@@ -99,24 +108,12 @@ export function FooterGlobalBand() {
             muted
             playsInline
             controls={false}
-            preload="auto"
+            preload="none"
             aria-hidden="true"
             className="absolute inset-0 h-full w-full object-cover object-center opacity-40 mix-blend-screen transition-opacity duration-1000"
           >
-            {!isMobile && (
-              <source
-                src="/videos/export-map-footer.webm"
-                type="video/webm"
-              />
-            )}
-            <source
-              src={
-                isMobile
-                  ? "/videos/export-map-footer-mobile.mp4"
-                  : "/videos/export-map-footer.mp4"
-              }
-              type="video/mp4"
-            />
+            <source src="/videos/export-map-footer.webm" type="video/webm" />
+            <source src="/videos/export-map-footer.mp4" type="video/mp4" />
           </video>
         )}
 
