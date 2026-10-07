@@ -39,9 +39,31 @@ export function EnquiryProvider({ children }: { children: React.ReactNode }) {
         const parsed = JSON.parse(raw) as EnquiryLine[];
         if (Array.isArray(parsed)) {
           const validProductIds = new Set(products.map((p) => p.id));
-          const validLines = parsed.filter(
-            (line) => line && typeof line.productId === "string" && validProductIds.has(line.productId),
-          );
+          const seen = new Set<string>();
+          const validLines: EnquiryLine[] = [];
+          for (const line of parsed) {
+            if (!line || typeof line.productId !== "string") continue;
+            const product = getProduct(line.productId);
+            if (!product || !validProductIds.has(product.id) || seen.has(product.id)) continue;
+            seen.add(product.id);
+            const qty =
+              typeof line.quantity === "number" && line.quantity > 0 && Number.isFinite(line.quantity)
+                ? line.quantity
+                : 1;
+            const unit =
+              typeof line.unit === "string" && (product.units.includes(line.unit) || line.unit === "other")
+                ? line.unit
+                : product.units[0];
+            const otherUnit = typeof line.otherUnit === "string" ? line.otherUnit.slice(0, 60) : "";
+            const grade = typeof line.grade === "string" ? line.grade.slice(0, 80) : "";
+            validLines.push({
+              productId: product.id,
+              grade,
+              quantity: qty,
+              unit,
+              otherUnit: unit === "other" ? otherUnit : "",
+            });
+          }
           queueMicrotask(() => {
             setLines(validLines);
             setReady(true);
@@ -68,10 +90,10 @@ export function EnquiryProvider({ children }: { children: React.ReactNode }) {
   const addLine = useCallback((line: EnquiryLine) => {
     if (!line?.productId || !getProduct(line.productId)) return;
     setLines((current) => {
-      const index = current.findIndex((item) => sameLine(item, line));
+      const index = current.findIndex((item) => item.productId === line.productId);
       if (index === -1) return [...current, line];
       return current.map((item, itemIndex) =>
-        itemIndex === index ? { ...item, quantity: line.quantity } : item,
+        itemIndex === index ? { ...item, ...line } : item,
       );
     });
   }, []);
@@ -86,9 +108,19 @@ export function EnquiryProvider({ children }: { children: React.ReactNode }) {
 
   const replaceLines = useCallback((next: EnquiryLine[]) => {
     const validProductIds = new Set(products.map((p) => p.id));
-    const validLines = next.filter(
-      (line) => line && typeof line.productId === "string" && validProductIds.has(line.productId),
-    );
+    const seen = new Set<string>();
+    const validLines: EnquiryLine[] = [];
+    for (const line of next) {
+      if (
+        line &&
+        typeof line.productId === "string" &&
+        validProductIds.has(line.productId) &&
+        !seen.has(line.productId)
+      ) {
+        seen.add(line.productId);
+        validLines.push(line);
+      }
+    }
     setLines(validLines);
   }, []);
 

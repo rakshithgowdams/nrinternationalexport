@@ -66,9 +66,25 @@ export const quoteSchema = z
         message: "Choose today or a later date in India Standard Time.",
       });
     }
+    const seen = new Set<string>();
     value.lines.forEach((line, index) => {
+      if (seen.has(line.productId)) {
+        ctx.addIssue({
+          code: "custom",
+          path: ["lines", index, "productId"],
+          message: "Duplicate product in quotation request.",
+        });
+      }
+      seen.add(line.productId);
+
       const product = getProduct(line.productId);
-      if (product && !product.markets.includes(value.market)) {
+      if (!product) {
+        ctx.addIssue({
+          code: "custom",
+          path: ["lines", index, "productId"],
+          message: "Product does not exist in catalogue.",
+        });
+      } else if (!product.markets.includes(value.market)) {
         ctx.addIssue({
           code: "custom",
           path: ["lines", index, "productId"],

@@ -252,6 +252,17 @@ function EnquirySummary() {
   if (lines.length === 0) {
     return <p className="mt-8 text-sm text-muted">Your enquiry list is empty. Add a product from quick view or open its page.</p>;
   }
+  const isDomesticOnly =
+    lines.length > 0 &&
+    lines.every((l) => getProduct(l.productId)?.markets.includes("domestic")) &&
+    !lines.some((l) => !getProduct(l.productId)?.markets.includes("domestic"));
+  const isGlobalOnly =
+    lines.length > 0 &&
+    lines.every((l) => getProduct(l.productId)?.markets.includes("global"));
+  const market = isDomesticOnly && !isGlobalOnly ? "domestic" : "global";
+  const firstProduct = lines[0]?.productId;
+  const quoteUrl = quoteHref({ productId: firstProduct, market });
+
   return (
     <section className="rise-in mt-8 rounded-lg border border-line bg-white p-5">
       <div className="flex items-center justify-between gap-3">
@@ -275,7 +286,7 @@ function EnquirySummary() {
           );
         })}
       </ul>
-      <Link href="/request-quote" className="mt-4 inline-flex min-h-11 items-center rounded-md bg-olive px-4 text-sm font-semibold text-white">
+      <Link href={quoteUrl} className="mt-4 inline-flex min-h-11 items-center rounded-md bg-olive px-4 text-sm font-semibold text-white">
         Proceed to quote
       </Link>
     </section>

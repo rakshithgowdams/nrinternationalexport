@@ -46,7 +46,11 @@ export default function TermsPage() {
             </section>
           ))}
           <p>Contact: <a className="font-semibold" href="mailto:contact@nrinternationalexport.com">contact@nrinternationalexport.com</a> · <a className="font-semibold" href="tel:+916360510816">+91 63605 10816</a></p>
-          <Link href="/privacy-policy" className="inline-flex font-semibold text-olive">Privacy Policy</Link>
+          <div className="flex flex-wrap items-center gap-6 pt-2 text-sm">
+            <Link href="/privacy-policy" className="inline-flex font-semibold text-olive hover:underline">Privacy Policy</Link>
+            <Link href="/our-policy" className="inline-flex font-semibold text-olive hover:underline">Our Policy</Link>
+            <Link href="/image-credits" className="inline-flex text-xs text-muted hover:text-ink hover:underline">Image Attributions</Link>
+          </div>
         </div>
       </div>
     </Container>

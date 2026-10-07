@@ -14,7 +14,7 @@ export function absoluteUrl(path: string) {
 }
 
 export function pageMetadata(input: {
-  title: string;
+  title: string | { absolute: string };
   description: string;
   path: string;
   index?: boolean;
@@ -26,11 +26,20 @@ export function pageMetadata(input: {
     src: defaultShareImage,
     alt: `${business.name} logistics with container ship and truck`,
   };
-  const title = input.path === "/" ? input.title : `${input.title} · ${business.name}`;
+  const titleString = typeof input.title === "string" ? input.title : input.title.absolute;
+  const title =
+    input.path === "/" || typeof input.title === "object"
+      ? titleString
+      : `${titleString} · ${business.name}`;
   const fullImageUrl = absoluteUrl(image.src);
 
   return {
-    title: input.path === "/" ? { absolute: input.title } : input.title,
+    title:
+      typeof input.title === "object"
+        ? input.title
+        : input.path === "/"
+          ? { absolute: input.title }
+          : input.title,
     description: input.description,
     keywords: input.keywords,
     robots: index

@@ -45,7 +45,10 @@ export default function PrivacyPage() {
             </section>
           ))}
           <p>Questions: <a className="font-semibold" href="mailto:contact@nrinternationalexport.com">contact@nrinternationalexport.com</a> · <a className="font-semibold" href="tel:+916360510816">+91 63605 10816</a></p>
-          <Link href="/terms-and-conditions" className="inline-flex font-semibold text-olive">Terms and Conditions</Link>
+          <div className="flex flex-wrap items-center gap-6 pt-2 text-sm">
+            <Link href="/terms-and-conditions" className="inline-flex font-semibold text-olive hover:underline">Terms and Conditions</Link>
+            <Link href="/our-policy" className="inline-flex font-semibold text-olive hover:underline">Our Policy</Link>
+          </div>
         </div>
       </div>
     </Container>

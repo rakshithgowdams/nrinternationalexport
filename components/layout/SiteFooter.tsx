@@ -164,8 +164,8 @@ export function SiteFooter() {
               </Link>
             </li>
             <li>
-              <Link href="/image-credits" className="text-ivory/70 transition-colors hover:text-white">
-                Image Credits
+              <Link href="/our-policy" className="text-ivory/70 transition-colors hover:text-white">
+                Our Policy
               </Link>
             </li>
           </ul>
