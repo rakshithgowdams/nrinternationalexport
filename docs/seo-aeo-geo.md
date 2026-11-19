@@ -39,7 +39,8 @@
 
 - **Name:** NR International Export
 - **Address:** No. 31, Thotada Mane, Begur Road, near Bagur Sub Post Office, Chennarayanapatna, Bagur, Hassan, Karnataka - 573111, India
-- **Phone:** +91 63605 10816
+- **Call Enquiry:** +91 84970 65551
+- **Complaints:** +91 81508 83303
 - **Email:** contact@nrinternationalexport.com
 
 1. Google Business Profile (category: Exporter / Coconut supplier), with photos and products.

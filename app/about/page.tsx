@@ -471,9 +471,15 @@ export default function AboutPage() {
 
               <div className="mt-6 space-y-3 text-sm">
                 <div>
-                  <span className="block text-xs uppercase tracking-wider text-muted font-mono">Phone</span>
-                  <a className="font-semibold text-ink hover:text-olive transition-colors" href={`tel:${business.phoneTel}`}>
-                    {business.phoneDisplay}
+                  <span className="block text-xs uppercase tracking-wider text-muted font-mono">Call Enquiry</span>
+                  <a className="font-semibold text-ink hover:text-olive transition-colors" href={`tel:${business.enquiryPhoneTel}`}>
+                    {business.enquiryPhoneDisplay}
+                  </a>
+                </div>
+                <div>
+                  <span className="block text-xs uppercase tracking-wider text-muted font-mono">Complaints</span>
+                  <a className="font-semibold text-ink hover:text-olive transition-colors" href={`tel:${business.complaintsPhoneTel}`}>
+                    {business.complaintsPhoneDisplay}
                   </a>
                 </div>
                 <div>

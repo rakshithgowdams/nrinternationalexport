@@ -9,7 +9,7 @@ import { CopyAddress } from "@/components/enquiry/CopyAddress";
 export const metadata = pageMetadata({
   title: "Contact",
   description:
-    "Contact NR International Export, Chennarayanapatna, Hassan, Karnataka. Phone +91 63605 10816, email contact@nrinternationalexport.com.",
+    "Contact NR International Export, Chennarayanapatna, Hassan, Karnataka. Call enquiry +91 84970 65551, complaints +91 81508 83303, email contact@nrinternationalexport.com.",
   path: "/contact",
 });
 
@@ -24,7 +24,20 @@ export default function ContactPage() {
         <div data-reveal className="space-y-4 rounded-lg border border-line bg-white p-6">
           <p className="font-display text-3xl">{business.contactName}</p>
           <p className="text-muted">{business.contactRole}</p>
-          <p><a className="font-semibold" href={`tel:${business.phoneTel}`}>{business.phoneDisplay}</a></p>
+          <div className="space-y-2 border-y border-line py-3 text-sm">
+            <div>
+              <span className="block text-xs uppercase tracking-wider text-muted font-mono">Call Enquiry</span>
+              <a className="font-semibold text-ink hover:text-olive transition-colors" href={`tel:${business.enquiryPhoneTel}`}>
+                {business.enquiryPhoneDisplay}
+              </a>
+            </div>
+            <div>
+              <span className="block text-xs uppercase tracking-wider text-muted font-mono">Complaints</span>
+              <a className="font-semibold text-ink hover:text-olive transition-colors" href={`tel:${business.complaintsPhoneTel}`}>
+                {business.complaintsPhoneDisplay}
+              </a>
+            </div>
+          </div>
           <p><a className="font-semibold" href={`mailto:${business.email}`}>{business.email}</a></p>
           <p><a className="text-sm font-semibold text-muted" href={`mailto:${business.inboxEmail}`}>{business.inboxEmail}</a></p>
           <address className="text-sm leading-6 not-italic">{business.address}</address>

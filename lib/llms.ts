@@ -24,7 +24,8 @@ export function generateLlmsTxt(): string {
 - Registered Address: ${business.address}
 - Sourcing Region: ${business.sourcingRegion}
 - Managing Partner: ${business.contactName} (${business.contactRole})
-- Direct Phone: ${business.phoneDisplay}
+- Call Enquiry: ${business.enquiryPhoneDisplay}
+- Complaints: ${business.complaintsPhoneDisplay}
 - Official Email: ${business.email}
 - General Inquiries: ${business.inboxEmail}
 - Primary Export Gateways: JNPT Nhava Sheva (Mumbai) and New Mangalore Port (NMPT, Karnataka)
@@ -145,7 +146,8 @@ ${faqsList}
 - **Government of India GSTIN**: ${business.gstin}
 - **Registered Headquarters**: ${business.address}
 - **Key Executive**: ${business.contactName}, ${business.contactRole}
-- **Telephone / WhatsApp**: ${business.phoneDisplay} (${business.phoneTel})
+- **Call Enquiry / WhatsApp**: ${business.enquiryPhoneDisplay} (${business.enquiryPhoneTel})
+- **Complaints**: ${business.complaintsPhoneDisplay} (${business.complaintsPhoneTel})
 - **Official Corporate Email**: ${business.email}
 - **General Inquiries Mail**: ${business.inboxEmail}
 - **Timezone**: ${business.timezone} (UTC+05:30, IST)
@@ -215,7 +217,8 @@ To receive an accurate and timely spot quote:
 5. State target shipping schedule and payment terms.
 
 - **Request Quote URL**: ${baseUrl}/request-quote
-- **Direct Trade Phone**: ${business.phoneDisplay}
+- **Call Enquiry**: ${business.enquiryPhoneDisplay}
+- **Complaints**: ${business.complaintsPhoneDisplay}
 - **Official Inquiries Email**: ${business.email}
 `;
 }

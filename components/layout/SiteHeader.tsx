@@ -205,14 +205,23 @@ export function SiteHeader() {
                     ))}
                   </div>
                 </nav>
-                <div className="sheet-footer border-t border-line p-4">
-                  <a href={`tel:${business.phoneTel}`} className="block text-sm font-semibold">
-                    {business.phoneDisplay}
-                  </a>
-                  <a href={`mailto:${business.email}`} className="mb-3 block text-sm text-muted">
+                <div className="sheet-footer border-t border-line p-4 space-y-2">
+                  <div>
+                    <span className="block text-[11px] font-mono uppercase tracking-wider text-muted">Call Enquiry</span>
+                    <a href={`tel:${business.enquiryPhoneTel}`} className="block text-sm font-semibold">
+                      {business.enquiryPhoneDisplay}
+                    </a>
+                  </div>
+                  <div>
+                    <span className="block text-[11px] font-mono uppercase tracking-wider text-muted">Complaints</span>
+                    <a href={`tel:${business.complaintsPhoneTel}`} className="block text-sm font-semibold">
+                      {business.complaintsPhoneDisplay}
+                    </a>
+                  </div>
+                  <a href={`mailto:${business.email}`} className="block text-sm text-muted pt-1">
                     {business.email}
                   </a>
-                  <Link href="/request-quote" className="inline-flex min-h-11 w-full items-center justify-center rounded-md bg-olive text-sm font-semibold text-white">
+                  <Link href="/request-quote" className="inline-flex min-h-11 w-full items-center justify-center rounded-md bg-olive text-sm font-semibold text-white mt-1">
                     Request a Quote
                   </Link>
                 </div>

@@ -182,16 +182,26 @@ export function SiteFooter() {
           </div>
 
           {/* Contact Methods */}
-          <div className="mt-2.5 space-y-0.5 text-xs sm:text-sm">
+          <div className="mt-2.5 space-y-1.5 text-xs sm:text-sm">
             <p>
+              <span className="text-ivory/60 text-xs block">Call Enquiry:</span>
               <a
-                href={`tel:${business.phoneTel}`}
-                className="text-ivory/90 transition-colors hover:text-white"
+                href={`tel:${business.enquiryPhoneTel}`}
+                className="font-medium text-ivory/90 transition-colors hover:text-white"
               >
-                {business.phoneDisplay}
+                {business.enquiryPhoneDisplay}
               </a>
             </p>
             <p>
+              <span className="text-ivory/60 text-xs block">Complaints:</span>
+              <a
+                href={`tel:${business.complaintsPhoneTel}`}
+                className="font-medium text-ivory/90 transition-colors hover:text-white"
+              >
+                {business.complaintsPhoneDisplay}
+              </a>
+            </p>
+            <p className="pt-0.5">
               <a
                 href={`mailto:${business.email}`}
                 className="text-ivory/90 transition-colors hover:text-white"

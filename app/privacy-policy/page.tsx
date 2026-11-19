@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { business } from "@/data/business";
 import { pageMetadata } from "@/lib/site";
 import { Container } from "@/components/ui/primitives";
 
@@ -10,7 +11,7 @@ export const metadata = pageMetadata({
 });
 
 const sections = [
-  ["operator", "Who operates this site", "NR International Export, a partnership, operates this website. The contact email is contact@nrinternationalexport.com, and enquiries are also received at nrinternationalexport@gmail.com. The phone number is +91 63605 10816. The registered address is No. 31, Thotada Mane, Begur Road, near Bagur Sub Post Office, Chennarayanapatna, Bagur, Hassan, Karnataka - 573111, India."],
+  ["operator", "Who operates this site", "NR International Export, a partnership, operates this website. The contact email is contact@nrinternationalexport.com, and enquiries are also received at nrinternationalexport@gmail.com. Call enquiry number is +91 84970 65551 and complaints number is +91 81508 83303. The registered address is No. 31, Thotada Mane, Begur Road, near Bagur Sub Post Office, Chennarayanapatna, Bagur, Hassan, Karnataka - 573111, India."],
   ["data", "Data you submit", "The contact and quotation forms ask for your name, company, email, phone, enquiry type or product lines, delivery details and message. A product list may be stored in your browser so it survives navigation. That local list is not meant to contain your contact details."],
   ["purpose", "Why it is used", "The information is used to understand and reply to a trade enquiry. It is not used for a separate marketing list on this website."],
   ["delivery", "How it is sent", "If a mail service is configured on the server, the form asks that service (Resend, or an SMTP provider) to send the enquiry to contact@nrinternationalexport.com, with your email as the reply address. If no mail service is configured, the site says so and does not claim the message was sent. This website does not keep its own database of enquiries."],
@@ -44,7 +45,7 @@ export default function PrivacyPage() {
               <p className="mt-3 leading-7 text-muted">{body}</p>
             </section>
           ))}
-          <p>Questions: <a className="font-semibold" href="mailto:contact@nrinternationalexport.com">contact@nrinternationalexport.com</a> · <a className="font-semibold" href="tel:+916360510816">+91 63605 10816</a></p>
+          <p>Questions: <a className="font-semibold" href={`mailto:${business.email}`}>{business.email}</a> · Call Enquiry: <a className="font-semibold" href={`tel:${business.enquiryPhoneTel}`}>{business.enquiryPhoneDisplay}</a> · Complaints: <a className="font-semibold" href={`tel:${business.complaintsPhoneTel}`}>{business.complaintsPhoneDisplay}</a></p>
           <div className="flex flex-wrap items-center gap-6 pt-2 text-sm">
             <Link href="/terms-and-conditions" className="inline-flex font-semibold text-olive hover:underline">Terms and Conditions</Link>
             <Link href="/our-policy" className="inline-flex font-semibold text-olive hover:underline">Our Policy</Link>

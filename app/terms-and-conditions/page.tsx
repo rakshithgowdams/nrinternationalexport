@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { business } from "@/data/business";
 import { pageMetadata } from "@/lib/site";
 import { Container } from "@/components/ui/primitives";
 
@@ -45,7 +46,7 @@ export default function TermsPage() {
               <p className="mt-3 leading-7 text-muted">{body}</p>
             </section>
           ))}
-          <p>Contact: <a className="font-semibold" href="mailto:contact@nrinternationalexport.com">contact@nrinternationalexport.com</a> · <a className="font-semibold" href="tel:+916360510816">+91 63605 10816</a></p>
+          <p>Contact: <a className="font-semibold" href={`mailto:${business.email}`}>{business.email}</a> · Call Enquiry: <a className="font-semibold" href={`tel:${business.enquiryPhoneTel}`}>{business.enquiryPhoneDisplay}</a> · Complaints: <a className="font-semibold" href={`tel:${business.complaintsPhoneTel}`}>{business.complaintsPhoneDisplay}</a></p>
           <div className="flex flex-wrap items-center gap-6 pt-2 text-sm">
             <Link href="/privacy-policy" className="inline-flex font-semibold text-olive hover:underline">Privacy Policy</Link>
             <Link href="/our-policy" className="inline-flex font-semibold text-olive hover:underline">Our Policy</Link>

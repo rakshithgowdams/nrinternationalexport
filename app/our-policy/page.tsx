@@ -103,11 +103,18 @@ export default function OurPolicyPage() {
                 <span>Email Us</span>
               </a>
               <a
-                href={`tel:${business.phoneTel}`}
+                href={`tel:${business.complaintsPhoneTel}`}
                 className="inline-flex min-h-11 items-center justify-center gap-2 rounded-md border border-line bg-white px-5 py-2.5 text-sm font-semibold text-ink transition-colors hover:bg-ivory hover:border-olive"
               >
                 <Phone className="h-4 w-4 text-olive" aria-hidden="true" />
-                <span>Call Us</span>
+                <span>Call Complaints</span>
+              </a>
+              <a
+                href={`tel:${business.enquiryPhoneTel}`}
+                className="inline-flex min-h-11 items-center justify-center gap-2 rounded-md border border-line bg-white px-5 py-2.5 text-sm font-semibold text-ink transition-colors hover:bg-ivory hover:border-olive"
+              >
+                <Phone className="h-4 w-4 text-olive" aria-hidden="true" />
+                <span>Call Enquiry</span>
               </a>
             </div>
 
@@ -122,12 +129,21 @@ export default function OurPolicyPage() {
                 </a>
               </p>
               <p>
-                <span className="font-medium text-ink">Phone:</span>{" "}
+                <span className="font-medium text-ink">Complaints:</span>{" "}
                 <a
-                  href={`tel:${business.phoneTel}`}
+                  href={`tel:${business.complaintsPhoneTel}`}
                   className="text-olive hover:underline font-mono"
                 >
-                  {business.phoneDisplay}
+                  {business.complaintsPhoneDisplay}
+                </a>
+              </p>
+              <p>
+                <span className="font-medium text-ink">Call Enquiry:</span>{" "}
+                <a
+                  href={`tel:${business.enquiryPhoneTel}`}
+                  className="text-olive hover:underline font-mono"
+                >
+                  {business.enquiryPhoneDisplay}
                 </a>
               </p>
             </div>
